@@ -46,12 +46,12 @@
             <div class="container-fluid">
                  
                  <?=$content ?>
-
+<!-- 
 
                 // Contenu principal
                 // require( $page->file );
 
-                // require( 'Contents/ModalConnexion.php' );
+                // require( 'Contents/ModalConnexion.php' ); -->
             </div>
             <!-- ============================================================== -->
             <!-- End Container fluid  -->

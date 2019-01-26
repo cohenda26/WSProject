@@ -33,6 +33,9 @@
             // INSTANCIATION DU UserManager pour valider que le User est OK
             $this->_userManager = new UserManager(null);
             $user = $this->_userManager->getUser($_POST);
+            if (isset($user)){
+                $_SESSION['username'] = $user->username();
+            }
 
             // ON REDIRIGE SUR LA PAGE PRINCIPALE AVEC LA View de L'Accueil
             $this->_view = new View("Accueil");

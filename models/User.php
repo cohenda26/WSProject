@@ -1,10 +1,10 @@
 <?php
 
 //=================================================================
-//                   CLASS OBJET - Membre
+//                   CLASS OBJET - User
 //=================================================================
 class User extends DBObject{
-    private $_idMembre = 0;
+    private $_idUser = 0;
     private $_userName="";
     private $_email = "";
     private $_password="";
@@ -14,14 +14,14 @@ class User extends DBObject{
         parent::__clone();
     }
 
-    public function setIdMembre($id)
+    public function setIdUser($id)
     {
       // L'identifiant du personnage sera, quoi qu'il arrive, un nombre entier.
-      $this->_idMembre = (int) $id;
+      $this->_idUser = (int) $id;
     }
           
 
-    public function idMembre() { return $this->_idMembre; }
+    public function idUser() { return $this->_idUser; }
 
 
     /**

@@ -130,10 +130,22 @@
                         </ul>
                     </li>
                 </ul>
+                <?php
+                if (isset($_SESSION['username'])){
+                ?>
+                <div class="form-inline ml-auto authentication-box">
+                    <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalLogoutForm">Logout</button>
+                </div>
+                <?php
+                } else  {
+                ?>
                 <div class="form-inline ml-auto authentication-box">
                     <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalLoginForm">Login</button>
                     <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalSignInForm">Register</button>
                 </div>
+                <?php
+                }
+                ?>
 
                 <!-- <ul class="ml-auto list-inline authentication-box">
                     <li class="nav-item list-inline "><a class="nav-link btn btn-success-gradiant font-14 b-l" href="#">Login</a></li>

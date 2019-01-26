@@ -8,6 +8,8 @@ class Router{
     public function routeReq(){
 
         try {
+            //print_r($_GET);
+
             // CHARGEMENT AUTO DES CLASSES
             spl_autoload_register(function($class){
                 //echo 'AUTOLOAD CLASS : '. 'models/'.$class.'.php' . '<br>';

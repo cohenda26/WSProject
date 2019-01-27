@@ -176,7 +176,7 @@
             </div>
             <div class="modal-body">
                 <!-- <form role="form" method="POST" action="./contents/GestionMembre.php"> -->
-                <form role="form" method="POST" action="user/login">
+                <form role="form" method="POST" action="user/login">                
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">E-Mail Address</label>
@@ -222,7 +222,7 @@
             </div>
             
             <div class="modal-body">
-                <form role="form" method="POST" action="#">
+                <form role="form" method="POST" action="user/register">
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">Username</label>
@@ -272,7 +272,7 @@
             </div>
             
             <div class="modal-body">
-                <form role="form" method="POST" action="#">
+                <form role="form" method="POST" action="user/loginPartenaire">
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">Numessek</label>

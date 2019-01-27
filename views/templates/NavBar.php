@@ -18,7 +18,7 @@
                                 <div class="col-lg-9 col-md-6">
                                     <ul class="list-style-none">
                                         <li><h6>Contrats</h6></li>
-                                        <li><a href="index.php?p=assHabitation" target="_blank">Habitation</a></li>
+                                        <li><a href="Assurance/Habitation" target="_blank">Habitation</a></li>
                                         <li><a href="../demo-creative/index.html" target="_blank">Hypothèque</a></li>
                                         <li class="divider" role="separator"></li>
                                         <li><a href="../demo-charity/index.html" target="_blank">Voiture</a></li>

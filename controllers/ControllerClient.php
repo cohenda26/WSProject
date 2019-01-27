@@ -1,19 +1,10 @@
 <?php
 
-    class ControllerAccueil{
+    class ControllerAccueil Extends Controller{
         private $_clientManager;
         private $_view;
 
-        public function __construct($url){
-            if (isset($url) && count($url) > 1) {
-                throw new Exception('Page Client introuvable');
-            }
-            else {
-                $this->clients();
-            }
-        }
-
-        private function clients(){
+        private function clients($params){
             $this->_clientManager = new ClientManager(null);
             $clients = $this->_clientManager->getClients();
 

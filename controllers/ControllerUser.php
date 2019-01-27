@@ -15,6 +15,9 @@
                     case 'login':
                         $this->login();
                         break;
+                    case 'logout':
+                    $this->logout();
+                    break;
                     case 'register':
                         $this->register();
                     break;
@@ -34,12 +37,21 @@
             $this->_userManager = new UserManager(null);
             $user = $this->_userManager->getUser($_POST);
             if (isset($user)){
-                $_SESSION['username'] = $user->username();
-            }
+                $this->_userManager->activeSession($user);
 
-            // ON REDIRIGE SUR LA PAGE PRINCIPALE AVEC LA View de L'Accueil
+                //ON REDIRIGE SUR LA PAGE PRINCIPALE AVEC LA View de L'Accueil
+                $this->_view = new View("Accueil");
+                $this->_view->generate(array("user"=> $user));
+            }
+        }
+
+        private function logout(){
+            $this->_userManager = new UserManager(null);
+            $this->_userManager->destroySession();
+
+            //ON REDIRIGE SUR LA PAGE PRINCIPALE AVEC LA View de L'Accueil
             $this->_view = new View("Accueil");
-            $this->_view->generate(array("user"=> $user));
+            $this->_view->generate(array());
         }
 
         private function register(){

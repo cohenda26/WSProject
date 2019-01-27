@@ -134,7 +134,7 @@
                 if (isset($_SESSION['username'])){
                 ?>
                 <div class="form-inline ml-auto authentication-box">
-                    <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalLogoutForm">Logout</button>
+                    <button class="btn btn-sm btn-outline-success mr-sm-2"  href="location : user/logout">Logout</button>
                 </div>
                 <?php
                 } else  {

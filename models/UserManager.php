@@ -2,6 +2,20 @@
 
 class UserManager extends Model {
 
+    public function activeSession($user){
+        session_start();
+        $_SESSION['username'] = $user->username();
+        $_SESSION['useremail'] = $user->email();        
+    }
+
+    public function destroySession(){
+        if (isset($_SESSION['username'])){
+            $_SESSION['username'] = '';
+            $_SESSION['useremail'] = '';   
+            session_destroy();     
+        }
+    }
+
     public function getUser($data){
         $this->getBdd();
         $user = $this->get("tuser", "email", "User", $data['email']);

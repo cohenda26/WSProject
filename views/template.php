@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-    require("views/templates/head.php");
+    require(VIEWS."templates/head.php");
 ?>
 
 <body class="">
@@ -26,9 +26,9 @@
             <div class="header3">
                 <div class="po-relative">
                     <?php
-                        require("views/templates/TopBar.php");
+                        require(VIEWS."templates/TopBar.php");
 
-                        require("views/templates/NavBar.php");
+                        require(VIEWS."templates/NavBar.php");
                     ?>
                 </div>
             </div>
@@ -68,9 +68,9 @@
     <!-- FOOTER  -->
     <!-- ============================================================== -->
     <?php
-        require("views/templates/Footer.php");
+        require(VIEWS."templates/Footer.php");
         
-        require("views/templates/FooterScripts.php");
+        require(VIEWS."templates/FooterScripts.php");
     ?>
 </body>
 

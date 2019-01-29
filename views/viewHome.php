@@ -8,7 +8,7 @@
             <!-- Wrapper For Slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
-                    <!-- Slide Background --><img src="./images/slider-img.jpg" alt="We are Digital Agency" class="slide-image" />
+                    <!-- Slide Background --><img src="<?=ASSETS?>images/slider-img.jpg" alt="We are Digital Agency" class="slide-image" />
                     <!-- Slide Text Layer 
                     <div class="slide-text slide_style_left">
                         <div class="container" data-animation="animated fadeInLeft">
@@ -54,7 +54,7 @@
                 <!-- End of Slide -->
                 <!-- Second Slide -->
                 <div class="carousel-item">
-                    <!-- Slide Background --><img src="./images/slider-img1.jpg" alt="Building Magical Apps" class="slide-image" />
+                    <!-- Slide Background --><img src="<?=ASSETS?>images/slider-img1.jpg" alt="Building Magical Apps" class="slide-image" />
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_left">
                         <div class="container">
@@ -136,19 +136,19 @@
                 <!-- Column -->
                 <div class="col-md-7 ml-auto">
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> <img src="/assets/images/features/feature41/img1.jpg" alt="wrapkit" class="rounded img-fluid" />
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"> <img src="<?=ASSETS?>images/features/feature41/img1.jpg" alt="wrapkit" class="rounded img-fluid" />
                             <p class="m-t-40">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p> 
                             <a class="btn btn-info-gradiant btn-md btn-arrow m-t-20" data-toggle="Modal" href="./AssuranceHabitation.html">
                                 <span>souscrire <i class="ti-arrow-right"></i></span>
                             </a> 
                         </div>
-                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <img src="/assets/images/features/feature41/img2.jpg" alt="wrapkit" class="rounded img-fluid" />
+                        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <img src="<?=ASSETS?>images/features/feature41/img2.jpg" alt="wrapkit" class="rounded img-fluid" />
                             <p class="m-t-40">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
                             <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href="#f41"><span>Souscrire <i class="ti-arrow-right"></i></span></a> </div>
-                        <div class="tab-pane fade" id="dropdown1" role="tabpanel" aria-labelledby="dropdown1-tab"> <img src="/assets/images/features/feature41/img3.jpg" alt="wrapkit" class="rounded img-fluid" />
+                        <div class="tab-pane fade" id="dropdown1" role="tabpanel" aria-labelledby="dropdown1-tab"> <img src="<?=ASSETS?>images/features/feature41/img3.jpg" alt="wrapkit" class="rounded img-fluid" />
                             <p class="m-t-40">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p> 
                             <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href="#f41"><span>Souscrire <i class="ti-arrow-right"></i></span></a> </div>
-                        <div class="tab-pane fade" id="ssd" role="tabpanel" aria-labelledby="ssd-tab"> <img src="/assets/images/features/feature41/img4.jpg" alt="wrapkit" class="rounded img-fluid" />
+                        <div class="tab-pane fade" id="ssd" role="tabpanel" aria-labelledby="ssd-tab"> <img src="<?=ASSETS?>images/features/feature41/img4.jpg" alt="wrapkit" class="rounded img-fluid" />
                             <p class="m-t-40">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p> 
                             <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href="#f41"><span>Souscrire <i class="ti-arrow-right"></i></span></a> </div>
                     </div>

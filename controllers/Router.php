@@ -1,12 +1,14 @@
 <?php
-require_once('views/view.php');
+    session_start();
+
+    require_once(VIEWS.'view.php');
 
 class Router{
     private $_Ctrl;
     private $_view;
 
-    private $_nameCtrl = 'Accueil';
-    private $_nameMethod = 'Accueil';
+    private $_nameCtrl = 'Home';
+    private $_nameMethod = 'Home';
     private $_params = null;
 
     // Format des url : nameControlleur/Method/Params (Params par paire ex:Id/1)
@@ -45,20 +47,20 @@ class Router{
         try {
             // Chargement automatique des Classes
             spl_autoload_register(function($class){
-                if (file_exists('models/'.$class.'.php')){
-                    require_once('models/'.$class.'.php');
-                } else if (file_exists('Controllers/'.$class.'.php')){
-                           require_once('Controllers/'.$class.'.php');
+                if (file_exists(MODELS.$class.'.php')){
+                    require_once(MODELS.$class.'.php');
+                } else if (file_exists(CONTROLLERS.$class.'.php')){
+                           require_once(CONTROLLERS.$class.'.php');
                         }
             });
 
             $this->getParams();
 
-            // nom de la class controller : (ex : ControllerAccueil, pour le controller de l'action Accueil)
+            // nom de la class controller : (ex : ControllerHome, pour le controller de l'action Home)
             $controllerClass = "Controller".$this->_nameCtrl;
 
             // nom du fichier = dossierController + le fichier ControllerClass.php
-            $controllerFile = "controllers/".$controllerClass.".php";
+            $controllerFile = CONTROLLERS.$controllerClass.".php";
 
             if (file_exists($controllerFile)){
                 $this->_Ctrl = new $controllerClass($this->_nameCtrl, $this->_nameMethod, $this->_params);

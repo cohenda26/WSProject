@@ -1,5 +1,17 @@
 <?php
-    require_once('controllers/Router.php');
+    $root = $_SERVER['DOCUMENT_ROOT'];
+    $host = $_SERVER['HTTP_HOST'];
+
+    Define('HOST', 'http://'.$host.'/');
+    define('ROOT', $root.'/');
+
+    define('CONTROLLERS', ROOT.'controllers/');
+    define('VIEWS', ROOT.'views/');
+    define ('MODELS', ROOT.'models/');
+
+    define('ASSETS', HOST.'assets/');
+
+    require_once(CONTROLLERS.'Router.php');
 
     $router = new Router();
     $router->routeReq();

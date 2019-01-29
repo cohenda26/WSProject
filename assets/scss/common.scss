@@ -1241,7 +1241,7 @@ Custom-select
 ******************/
 
 .custom-select {
-    background: url(..//assets/images/ui/custom-select.png) right .75rem center no-repeat;
+    background: url(../images/ui/custom-select.png) right .75rem center no-repeat;
     border:2px solid $border;
     height: calc(2.25rem + 12px);
 }
@@ -1274,7 +1274,7 @@ textarea {
 }
 
 .has-success .form-control-success {
-    background-image: url(..//assets/images/ui/success.svg);
+    background-image: url(../images/ui/success.svg);
 }
 
 .has-success .form-control {
@@ -1290,7 +1290,7 @@ textarea {
 }
 
 .has-warning .form-control-warning {
-    background-image: url(..//assets/images/ui/warning.svg);
+    background-image: url(../images/ui/warning.svg);
 }
 
 .has-warning .form-control {
@@ -1306,7 +1306,7 @@ textarea {
 }
 
 .has-danger .form-control-danger {
-    background-image: url(..//assets/images/ui/danger.svg);
+    background-image: url(../images/ui/danger.svg);
 }
 
 .has-danger .form-control {

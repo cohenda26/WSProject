@@ -29,9 +29,9 @@ File: scss
 /*Extra Variable*/
 /*Gradiant*/
 @import url(../css/animate.css);
-@import url(..//assets/icons/font-awesome/css/font-awesome.min.css);
-@import url(..//assets/icons/iconmind/iconmind.css);
-@import url(..//assets/icons/themify-icons/themify-icons.css);
+@import url(../icons/font-awesome/css/font-awesome.min.css);
+@import url(../icons/iconmind/iconmind.css);
+@import url(../icons/themify-icons/themify-icons.css);
 /*
 Template Name: Wrakit UI Kit
 Author: wrappixel
@@ -2521,7 +2521,7 @@ Breadcrumb
 Custom-select
 ******************/
 .custom-select {
-  background: url(..//assets/images/ui/custom-select.png) right 0.75rem center no-repeat;
+  background: url(../images/ui/custom-select.png) right 0.75rem center no-repeat;
   border: 2px solid rgba(120, 130, 140, 0.13);
   height: calc(2.25rem + 12px); }
 
@@ -2548,7 +2548,7 @@ textarea {
   color: #2cdd9b; }
 
 .has-success .form-control-success {
-  background-image: url(..//assets/images/ui/success.svg); }
+  background-image: url(../images/ui/success.svg); }
 
 .has-success .form-control {
   border-color: #2cdd9b; }
@@ -2561,7 +2561,7 @@ textarea {
   color: #fec500; }
 
 .has-warning .form-control-warning {
-  background-image: url(..//assets/images/ui/warning.svg); }
+  background-image: url(../images/ui/warning.svg); }
 
 .has-warning .form-control {
   border-color: #fec500; }
@@ -2574,7 +2574,7 @@ textarea {
   color: #ff4d7e; }
 
 .has-danger .form-control-danger {
-  background-image: url(..//assets/images/ui/danger.svg); }
+  background-image: url(../images/ui/danger.svg); }
 
 .has-danger .form-control {
   border-color: #ff4d7e; }

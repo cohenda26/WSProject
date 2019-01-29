@@ -9,18 +9,23 @@
             $user = $this->_userManager->getUser($params);
             if (isset($user)){
                 $this->_userManager->activeSession($user);
-
-                $this->_view = new View("Accueil");
-                $this->_view->generate(array("user"=> $user));
+                header('Location: ../index.php');
+                // $this->_view = new View("Home");
+                // $this->_view->generate(array("user"=> $user));
             }
+                $this->_view = new View("Home");
+                $this->_view->generate(array("user"=> $user));
         }
 
         public function logout($params){
             $this->_userManager = new UserManager(null);
-            $this->_userManager->destroySession();
+            if (isset($_SESSION['username'])){
+                $this->_userManager->destroySession();
+                header('Location: ../index.php');
 
-            $this->_view = new View("Accueil");
-            $this->_view->generate(array());
+            // $this->_view = new View("Home");
+            // $this->_view->generate(array());
+            }
         }
 
         public function register($params){

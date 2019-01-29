@@ -1,5 +1,5 @@
 <?php   
-    require_once('DBConnexion.php');
+    require_once(MODELS.'DBConnexion.php');
 
     //=================================================================
     //                   DATABASE MANAGER TEMPLATE

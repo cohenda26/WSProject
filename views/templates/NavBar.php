@@ -1,7 +1,7 @@
 <div class="h3-navbar">
     <div class="container">
         <nav class="navbar navbar-expand-lg h3-nav">
-            <a class="navbar-brand" href="#"><img src="images/logos/medic-logo.png" alt="Bitouel" /><br><img src="images/logos/logo-dark-text.jpg" class="spare-text m-t-10" alt="image"></a>
+            <a class="navbar-brand" href="#"><img src="<?=ASSETS?>images/logos/medic-logo.png" alt="Bitouel" /><br><img src="<?=ASSETS?>images/logos/logo-dark-text.jpg" class="spare-text m-t-10" alt="image"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header3" aria-controls="header3" aria-expanded="false" aria-label="Toggle navigation"><span class="ti-menu"></span></button>
             <div class="collapse navbar-collapse hover-dropdown" id="header3">
                 <ul class="navbar-nav">
@@ -12,7 +12,7 @@
                         <div class="dropdown-menu b-none font-14 animated fadeInUp" aria-labelledby="h6-mega-dropdown">
                             <div class="row">
                                 <div class="col-lg-3 inside-bg hidden-md-down">
-                                    <div class="bg-img" style="background-image:url(images/mega-bg2.jpg)">
+                                    <div class="bg-img" style="background-image:url(<?=ASSETS?>images/mega-bg2.jpg)">
                                         <h3 class="text-white font-light">Nos contrats d'assurances </h3> </div>
                                 </div>
                                 <div class="col-lg-9 col-md-6">
@@ -38,7 +38,7 @@
                         <div class="dropdown-menu b-none font-14 animated fadeInUp" aria-labelledby="h6-mega-dropdown1">
                             <div class="row">
                                 <div class="col-lg-4 inside-bg hidden-md-down">
-                                    <div class="bg-img" style="background-image:url(images/mega-bg2.jpg)">
+                                    <div class="bg-img" style="background-image:url(<?=ASSETS?>images/mega-bg2.jpg)">
                                         <h3 class="text-dark font-light">Nos contrats <br/>d'assurances <br/> </h3> </div>
                                 </div>
                                 <div class="col-lg-2 col-md-4">
@@ -134,7 +134,7 @@
                 if (isset($_SESSION['username'])){
                 ?>
                 <div class="form-inline ml-auto authentication-box">
-                    <button class="btn btn-sm btn-outline-success mr-sm-2"  href="location : user/logout">Logout</button>
+                    <button class="btn btn-sm btn-outline-success mr-sm-2"  onclick="location.href='user/logout';">Logout</button>
                 </div>
                 <?php
                 } else  {

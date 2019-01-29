@@ -30,7 +30,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <nav class="navbar navbar-expand-lg h1-nav">
-                        <a class="navbar-brand" href="#"><img src="./images/logos/medic-logo.png" alt="wrapkit" width="50" /></a>
+                        <a class="navbar-brand" href="#"><img src="<?=ASSETS?>images/logos/medic-logo.png" alt="wrapkit" width="50" /></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header1" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="ti-menu"></span>
                         </button>

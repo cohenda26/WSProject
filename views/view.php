@@ -5,7 +5,7 @@ class View{
     private $_titre;
 
     public function __construct($action){
-       $this->_file = "views/view". $action . ".php";
+       $this->_file = VIEWS."view". $action . ".php";
     }
 
     public function generate($data){
@@ -14,7 +14,7 @@ class View{
         $content = $this->generateFile($this->_file, $data);
 
         // GENERATION DU CONTENU DU TEMPLATE
-        $view = $this->generateFile("views/template.php", array('titre'=>$this->_titre, 
+        $view = $this->generateFile(VIEWS."template.php", array('titre'=>$this->_titre, 
                                                                 'content'=>$content));
         echo $view;
     }

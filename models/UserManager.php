@@ -3,16 +3,15 @@
 class UserManager extends Model {
 
     public function activeSession($user){
-        session_start();
         $_SESSION['username'] = $user->username();
         $_SESSION['useremail'] = $user->email();        
     }
 
     public function destroySession(){
         if (isset($_SESSION['username'])){
-            $_SESSION['username'] = '';
-            $_SESSION['useremail'] = '';   
-            session_destroy();     
+            unset($_SESSION['username']);
+            unset($_SESSION['useremail']);   
+            //session_destroy();     
         }
     }
 

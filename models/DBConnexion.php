@@ -24,7 +24,7 @@
             self::$db_config['SGBD']	= 'mysql';
         }
 
-        public static function getInstanceConnection()
+        public static function getInstanceConnexion()
         {
             if(null === self::$instance)
             {

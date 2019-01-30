@@ -4,68 +4,68 @@
 //=================================================================
 class AppartementManager extends DBClassManager {
 
-    public function add(DBClass $datas){
-        $q = self::$_Bdd->prepare('INSERT INTO TAppartement (ville, rue, numero, surface, NbPieces, anneeconstruction) 
+    public function add(DBObject $Odatas){
+        $Req = self::$_BddConnexion->prepare('INSERT INTO TAppartement (ville, rue, numero, surface, NbPieces, anneeconstruction) 
         VALUES(:ville, :rue, :numero, :surface, :NbPieces, :anneeConstruction)');
 
-        $q->bindValue(':ville', $datas->ville());
-        $q->bindValue(':rue', $datas->rue());
-        $q->bindValue(':numero', $class->numero(), PDO::PARAM_INT);
-        $q->bindValue(':surface', $class->surface(), PDO::PARAM_INT);
-        $q->bindValue(':NbPieces', $class->nbPieces(), PDO::PARAM_INT);
-        $q->bindValue(':anneeConstruction', $class->anneeConstruction(), PDO::PARAM_INT);
+        $Req->bindValue(':ville', $Odatas->ville());
+        $Req->bindValue(':rue', $Odatas->rue());
+        $Req->bindValue(':numero', $Odatas->numero(), PDO::PARAM_INT);
+        $Req->bindValue(':surface', $Odatas->surface(), PDO::PARAM_INT);
+        $Req->bindValue(':NbPieces', $Odatas->nbPieces(), PDO::PARAM_INT);
+        $Req->bindValue(':anneeConstruction', $Odatas->anneeConstruction(), PDO::PARAM_INT);
     
-        $q->execute();
+        $Req->execute();
     }
 
-    public function delete(DBClass $datas){
-        self::$_Bdd->exec('DELETE FROM TAppartement WHERE idAppartement = '.$datas->idAppartement());
+    public function delete(DBObject $Odatas){
+        self::$_BddConnexion->exec('DELETE FROM TAppartement WHERE idAppartement = '.$Odatas->idAppartement());
     }
 
-    public function get($id){
-        $id = (int) $id;
+    // public function get($id){
+    //     $id = (int) $id;
 
-        $q = self::$_Bdd->query('SELECT idAppartement, ville, rue, numero, surface, NbPieces, anneeconstruction FROM TAppartement WHERE idAppartement = '.$id);
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+    //     $Req = self::$_BddConnexion->query('SELECT idAppartement, ville, rue, numero, surface, NbPieces, anneeconstruction FROM TAppartement WHERE idAppartement = '.$id);
+    //     $donnees = $Req->fetch(PDO::FETCH_ASSOC);
+    //     $Req->closeCursor();
+    //     return new Appartement($donnees);
+    // }
+
+    // public function getList($where = null){
+    //     $Appartements = [];
+
+    //     $clauseWhere = is_null($where) ? "" : " WHERE $where ";
     
-        return new Appartement($donnees);
+    //     $Req = self::$_BddConnexion->query('SELECT idAppartement, ville, rue, numero, surface, NbPieces, anneeconstruction FROM TAppartement' . $clauseWhere .' ORDER BY idAppartement');
+    
+    //     while ($donnees = $Req->fetch(PDO::FETCH_ASSOC))
+    //     {
+    //       $Appartements[] = new Appartement($donnees);
+    //     }
+    //     $Req->closeCursor();    
+    //     return $Appartements;
+    // }  
+
+    // public function getListFromClient($id){
+    //     return $this->getList(" IdClient=$id ");
+    // }
+
+    public function update(DBObject $Odatas){
+        $Req = $this->_db->prepare('UPDATE TAppartement SET nom = :ville, prenom = :rue, numero = :numero, surface = :surface, NbPieces = :nbPieces, anneeConstruction = : anneeConstruction WHERE idAppartement = :idAppartement');
+
+        $Req->bindValue(':ville', $Odatas->ville());
+        $Req->bindValue(':rue', $Odatas->rue());
+        $Req->bindValue(':numero', $Odatas->numero(), PDO::PARAM_INT);
+        $Req->bindValue(':surface', $Odatas->surface(), PDO::PARAM_INT);
+        $Req->bindValue(':NbPieces', $Odatas->nbPieces(), PDO::PARAM_INT);
+        $Req->bindValue(':anneeConstruction', $Odatas->anneeConstruction(), PDO::PARAM_INT);
+        $Req->bindValue(':idAppartement', $Odatas->idAppartement(), PDO::PARAM_INT);
+    
+        $Req->execute();
     }
 
-    public function getList($where = null){
-        $Appartements = [];
-
-        $clauseWhere = is_null($where) ? "" : " WHERE $where ";
-    
-        $q = self::$_Bdd->query('SELECT idAppartement, ville, rue, numero, surface, NbPieces, anneeconstruction FROM TAppartement' . $clauseWhere .' ORDER BY idAppartement');
-    
-        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-          $Appartements[] = new Appartement($donnees);
-        }
-    
-        return $Appartements;
-    }  
-
-    public function getListFromClient($id){
-        return $this->getList(" IdClient=$id ");
-    }
-
-    public function update(DBClass $datas){
-        $q = $this->_db->prepare('UPDATE TAppartement SET nom = :ville, prenom = :rue, numero = :numero, surface = :surface, NbPieces = :nbPieces, anneeConstruction = : anneeConstruction WHERE idAppartement = :idAppartement');
-
-        $q->bindValue(':ville', $datas->ville());
-        $q->bindValue(':rue', $datas->rue());
-        $q->bindValue(':numero', $class->numero(), PDO::PARAM_INT);
-        $q->bindValue(':surface', $class->surface(), PDO::PARAM_INT);
-        $q->bindValue(':NbPieces', $class->nbPieces(), PDO::PARAM_INT);
-        $q->bindValue(':anneeConstruction', $class->anneeConstruction(), PDO::PARAM_INT);
-        $q->bindValue(':idAppartement', $datas->idAppartement(), PDO::PARAM_INT);
-    
-        $q->execute();
-    }
-
-    public function clone(DBClass $datas){
-        $newAppartement = clone $datas;
+    public function clone(DBObject $Odatas){
+        $newAppartement = clone $Odatas;
         $this->add($newAppartement);
         return $newAppartement;
     }

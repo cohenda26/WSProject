@@ -8,6 +8,8 @@ class User extends DBObject{
     private $_userName="";
     private $_email = "";
     private $_password="";
+    private $_idCourtier=0;
+    private $_isCourtier = false;
 
 
     public function __clone() {
@@ -73,6 +75,31 @@ class User extends DBObject{
         $this->_password = $_password;
 
         return $this;
+    }
+
+    /**
+     * Get the value of _idCourtier
+     */ 
+    public function idCourtier()
+    {
+        return $this->_idCourtier;
+    }
+
+    /**
+     * Set the value of _idCourtier
+     *
+     * @return  self
+     */ 
+    public function setIdCourtier($_idCourtier)
+    {
+        $this->_idCourtier = $_idCourtier;
+
+        return $this;
+    }
+
+
+    public function isCourtier(){
+        return idCourtier() > 0;
     }
 }
 

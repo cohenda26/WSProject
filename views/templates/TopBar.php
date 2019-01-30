@@ -9,10 +9,16 @@
                 </ul>
             </div>
             <div class="col-md-7 t-r">
-            <button class="btn btn-sm btn-danger-gradiant font-14 b-l" type="submit" data-toggle="modal" data-target="#ModalPartenaireSignInForm">Devenez partenaire</button>
+                <?php
+                if (!isset($_SESSION['username'])){
+                ?>
+                <button class="btn btn-sm btn-danger-gradiant font-14 b-l" type="submit" data-toggle="modal" data-target="#ModalPartenaireSignInForm">Devenez partenaire</button>
                 <!-- <ul class="list-inline authentication-box">
                     <li><a href="" class="btn btn-danger-gradiant font-14 b-l" data-toggle="modal" data-target="#ModalPartenaireSignInForm">Devenez partenaire </a></li>
                 </ul> -->
+                <?php
+                }
+                ?>
             </div>
         </div>
     </div>

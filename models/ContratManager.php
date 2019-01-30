@@ -4,55 +4,55 @@
 //=================================================================
 class ContratManager extends Model {
 
-    public function add(DBClass $datas){
-        $q = self::$_Bdd->prepare('INSERT INTO TContrat (datedebut, datefin, actif) VALUES(:datedebut, :datefin, :actif)');
+    public function add(DBObject $Odatas){
+        $Req = self::$_BddConnexion->prepare('INSERT INTO TContrat (datedebut, datefin, actif) VALUES(:datedebut, :datefin, :actif)');
 
-        $q->bindValue(':datedebut', $datas->dateDebut());
-        $q->bindValue(':datefin', $datas->dateFin());
-        $q->bindValue(':actif', $class->actif(), PDO::PARAM_BOOL);
+        $Req->bindValue(':datedebut', $Odatas->dateDebut());
+        $Req->bindValue(':datefin', $Odatas->dateFin());
+        $Req->bindValue(':actif', $Odatas->actif(), PDO::PARAM_BOOL);
     
-        $q->execute();
+        $Req->execute();
     }
 
-    public function delete(DBClass $datas){
-        self::$_Bdd->exec('DELETE FROM TContrat WHERE idContrat = '.$datas->idContrat());
+    public function delete(DBObject $Odatas){
+        self::$_BddConnexion->exec('DELETE FROM TContrat WHERE idContrat = '.$Odatas->idContrat());
     }
 
-    public function get($id){
-        $id = (int) $id;
+    // public function get($id){
+    //     $id = (int) $id;
 
-        $q = self::$_Bdd->query('SELECT idContrat, datedebut, datefin, actif FROM TContrat WHERE idContrat = '.$id);
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+    //     $Req = self::$_BddConnexion->query('SELECT idContrat, datedebut, datefin, actif FROM TContrat WHERE idContrat = '.$id);
+    //     $donnees = $Req->fetch(PDO::FETCH_ASSOC);
+    //     $Req->closeCursor();    
+    //     return new Contrat($donnees);
+    // }
+
+    // public function getList(){
+    //     $Contrats = [];
+
+    //     $Req = self::$_BddConnexion->query('SELECT idContrat, datedebut, datefin, actif FROM TContrat ORDER BY idContrat');
     
-        return new Contrat($donnees);
+    //     while ($donnees = $Req->fetch(PDO::FETCH_ASSOC))
+    //     {
+    //       $Contrats[] = new Contrat($donnees);
+    //     }
+    //     $Req->closeCursor();    
+    //     return $Contrats;
+    // }  
+
+    public function update(DBObject $Odatas){
+        $Req = self::$_BddConnexion->prepare('UPDATE TContrat SET datedebut = :datedebut, datefin = :datefin, actif = :actif WHERE idContrat = :idContrat');
+
+        $Req->bindValue(':datedebut', $Odatas->dateDebut());
+        $Req->bindValue(':datefin', $Odatas->dateFin());
+        $Req->bindValue(':actif', $Odatas->actif(), PDO::PARAM_BOOL);
+        $Req->bindValue(':idContrat', $Odatas->idContrat(), PDO::PARAM_INT);
+    
+        $Req->execute();
     }
 
-    public function getList(){
-        $Contrats = [];
-
-        $q = self::$_Bdd->query('SELECT idContrat, datedebut, datefin, actif FROM TContrat ORDER BY idContrat');
-    
-        while ($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-          $Contrats[] = new Contrat($donnees);
-        }
-    
-        return $Contrats;
-    }  
-
-    public function update(DBClass $datas){
-        $q = self::$_Bdd->prepare('UPDATE TContrat SET datedebut = :datedebut, datefin = :datefin, actif = :actif WHERE idContrat = :idContrat');
-
-        $q->bindValue(':datedebut', $datas->dateDebut());
-        $q->bindValue(':datefin', $datas->dateFin());
-        $q->bindValue(':actif', $class->actif(), PDO::PARAM_BOOL);
-        $q->bindValue(':idContrat', $datas->idContrat(), PDO::PARAM_INT);
-    
-        $q->execute();
-    }
-
-    public function clone(DBClass $datas){
-        $newContrat = clone $datas;
+    public function clone(DBObject $Odatas){
+        $newContrat = clone $Odatas;
         $this->add($newContrat);
         return $newContrat;
     }

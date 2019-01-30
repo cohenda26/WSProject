@@ -1,7 +1,7 @@
 <div class="h3-navbar">
     <div class="container">
         <nav class="navbar navbar-expand-lg h3-nav">
-            <a class="navbar-brand" href="#"><img src="<?=ASSETS?>images/logos/medic-logo.png" alt="Bitouel" /><br><img src="<?=ASSETS?>images/logos/logo-dark-text.jpg" class="spare-text m-t-10" alt="image"></a>
+            <a class="navbar-brand" href="<?=HOST?>"><img src="<?=ASSETS?>images/logos/medic-logo.png" alt="Bitouel" /><br><img src="<?=ASSETS?>images/logos/logo-dark-text.jpg" class="spare-text m-t-10" alt="image"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#header3" aria-controls="header3" aria-expanded="false" aria-label="Toggle navigation"><span class="ti-menu"></span></button>
             <div class="collapse navbar-collapse hover-dropdown" id="header3">
                 <ul class="navbar-nav">
@@ -134,7 +134,7 @@
                 if (isset($_SESSION['username'])){
                 ?>
                 <div class="form-inline ml-auto authentication-box">
-                    <button class="btn btn-sm btn-outline-success mr-sm-2"  onclick="location.href='user/logout';">Logout</button>
+                    <button class="btn btn-sm btn-outline-success mr-sm-2"  onclick="location.href='<?=HOST?>user/logout'">Logout</button>
                 </div>
                 <?php
                 } else  {

@@ -2,6 +2,18 @@
 
 class UserManager extends Model {
 
+    private function add(DBObject $Odatas){
+        $Req = self::$_BddConnexion->prepare('INSERT INTO tuser (username, email, password, idCourtier) VALUES(:username, :email, :password, :idCourtier)');
+
+        $Req->bindValue(':username', $Odatas->username());
+        $Req->bindValue(':email', $Odatas->email());
+        $Req->bindValue(':password', $Odatas->password());
+        $Req->bindValue(':idCourtier', $Odatas->idCourtier());
+
+        $userDB = $Req->execute();
+        return $userDB;
+    }
+
     public function activeSession($user){
         $_SESSION['username'] = $user->username();
         $_SESSION['useremail'] = $user->email();        
@@ -16,20 +28,29 @@ class UserManager extends Model {
     }
 
     public function getUser($data){
-        $this->getBdd();
-        $user = $this->get("tuser", "email", "User", $data['email']);
-        if (isset($user) && count($user) == 1){
-            if ($user[0]->password() == $data['password']){
-                return $user[0];
-            }
-            else {
-                throw new Exception (' Utilisateur inexistant');
-            }
-        }
-        else {
-            throw new Exception (' Utilisateur non trouvé');
-        }
+        $this->activeBddConnexion();
+        $user = $this->get("tuser", "User", "email", self::$_BddConnexion->quote($data['email']));
+        return $user;
+    }
 
+    public function registerUser($data){
+        $user = new User($data);
+        $this->activeBddConnexion();
+        $userDB = $this->add($user);
+        return $userDB;
+    }
+
+    public function registerPartenaire($data){
+        $courtierManager = new CourtierManager(null);
+        $courtier = $courtierManager->addCourtier($data);
+
+        $this->activeBddConnexion();
+        $user = new User($data);
+        $user->setIdCourtier($courtier->idCourtier());
+
+        $userDB = $this->add($user);
+
+        return $userDB;
     }
 }
 

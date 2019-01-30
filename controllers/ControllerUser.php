@@ -8,32 +8,54 @@
             $this->_userManager = new UserManager(null);
             $user = $this->_userManager->getUser($params);
             if (isset($user)){
-                $this->_userManager->activeSession($user);
-                header('Location: ../index.php');
-                // $this->_view = new View("Home");
-                // $this->_view->generate(array("user"=> $user));
+                if ($user->password() == $params['password']){
+                    $this->_userManager->activeSession($user);
+
+                    $this->_view = new View("Home");
+                    $this->_view->generate(array("user"=> $user));
+                }
+                else {
+                    throw new Exception (' Utilisateur inexistant');
+                }
             }
-                $this->_view = new View("Home");
-                $this->_view->generate(array("user"=> $user));
+            else {
+                throw new Exception (' Utilisateur non trouvé');
+            }
         }
 
         public function logout($params){
             $this->_userManager = new UserManager(null);
             if (isset($_SESSION['username'])){
                 $this->_userManager->destroySession();
-                header('Location: ../index.php');
-
-            // $this->_view = new View("Home");
-            // $this->_view->generate(array());
             }
+            $this->_view = new View("Home");
+            $this->_view->generate(array());
         }
 
         public function register($params){
-
+            $this->_userManager = new UserManager(null);
+            // verification que l'utilisateur n'existe pas dans la base
+            $user = $this->_userManager->getUser($params);
+            if (!isset($user) ){
+                // Enregistrement du nouveau User
+                $user = $this->_userManager->registerUser($params);
+                $this->login($params);                
+            } else {
+                throw new Exception (' Utilisateur déjà existant');
+            }
         }
 
-        public function partenaire($params){
-
+        public function registerPartenaire($params){
+            $this->_userManager = new UserManager(null);
+            // verification que l'utilisateur n'existe pas dans la base
+            $user = $this->_userManager->getUser($params);
+            if (!isset($user) ){
+                // Enregistrement du nouveau User
+                $user = $this->_userManager->registerPartenaire($params);
+                $this->login($params);                
+            } else {
+                throw new Exception (' Utilisateur déjà existant');
+            }
         }
     }
 ?>

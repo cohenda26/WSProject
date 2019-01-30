@@ -2,6 +2,10 @@
 
 class UserManager extends Model {
 
+    public static function getNewInstance(){
+        return new UserManager('tuser', 'User', 'idUser');
+    } 
+
     private function add(DBObject $Odatas){
         $Req = self::$_BddConnexion->prepare('INSERT INTO tuser (username, email, password, idCourtier) VALUES(:username, :email, :password, :idCourtier)');
 
@@ -29,7 +33,7 @@ class UserManager extends Model {
 
     public function getUser($data){
         $this->activeBddConnexion();
-        $user = $this->get("tuser", "User", "email", self::$_BddConnexion->quote($data['email']));
+        $user = $this->get("email", self::$_BddConnexion->quote($data['email']));
         return $user;
     }
 
@@ -41,7 +45,7 @@ class UserManager extends Model {
     }
 
     public function registerPartenaire($data){
-        $courtierManager = new CourtierManager(null);
+        $courtierManager = CourtierManager::getNewInstance();
         $courtier = $courtierManager->addCourtier($data);
 
         $this->activeBddConnexion();

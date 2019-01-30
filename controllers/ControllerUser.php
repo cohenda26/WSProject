@@ -5,7 +5,7 @@
         private $_view;
 
         public function login($params){
-            $this->_userManager = new UserManager(null);
+            $this->_userManager = UserManager::getNewInstance();
             $user = $this->_userManager->getUser($params);
             if (isset($user)){
                 if ($user->password() == $params['password']){
@@ -24,7 +24,7 @@
         }
 
         public function logout($params){
-            $this->_userManager = new UserManager(null);
+            $this->_userManager = UserManager::getNewInstance();
             if (isset($_SESSION['username'])){
                 $this->_userManager->destroySession();
             }
@@ -33,7 +33,7 @@
         }
 
         public function register($params){
-            $this->_userManager = new UserManager(null);
+            $this->_userManager = UserManager::getNewInstance();
             // verification que l'utilisateur n'existe pas dans la base
             $user = $this->_userManager->getUser($params);
             if (!isset($user) ){
@@ -46,7 +46,7 @@
         }
 
         public function registerPartenaire($params){
-            $this->_userManager = new UserManager(null);
+            $this->_userManager = UserManager::getNewInstance();
             // verification que l'utilisateur n'existe pas dans la base
             $user = $this->_userManager->getUser($params);
             if (!isset($user) ){

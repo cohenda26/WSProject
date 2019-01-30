@@ -5,7 +5,7 @@
         private $_view;
 
         private function listClients($params){
-            $this->_courtierManager = new CourtierManager(null);
+            $this->_courtierManager = CourtierManager::getNewInstance();
             $clients = $this->_courtierManager->getClients();
 
             $this->_view = new View("CourtierClients");

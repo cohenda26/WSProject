@@ -47,7 +47,7 @@
         public function telephone() { return $this->_telephone; }
 
         // public function getListAppartements(){
-        //   $appartementManager = new AppartementManager(DBConnexion::getInstanceConnection());
+        //   $appartementManager = AppartementManager::getNewInstance();
         //   return  $appartementManager->getListFromClient($this->idClient());
         // }
 

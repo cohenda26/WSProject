@@ -5,7 +5,7 @@
         private $_view;
 
         private function listContrats($params){
-            $this->_clientManager = new ClientManager(null);
+            $this->_clientManager = ClientManager::getNewInstance();
             $contrats = $this->_clientManager->getAllContrats($params);
 
             $this->_view = new View("ClientAllContrats");
@@ -13,7 +13,7 @@
         }
 
         private function listContratsHabitations($params){
-            $this->_clientManager = new ClientManager(null);
+            $this->_clientManager = ClientManager::getNewInstance();
             $contrats = $this->_clientManager->getContratsHabitations();
 
             $this->_view = new View("ClientContratHabitation");
@@ -21,7 +21,7 @@
         }
 
         private function listContratsVie($params){
-            $this->_clientManager = new ClientManager(null);
+            $this->_clientManager = ClientManager::getNewInstance();
             $contrats = $this->_clientManager->getContratsVie();
 
             $this->_view = new View("ClientContratVie");
@@ -29,7 +29,7 @@
         }
 
         private function listContratsVoitures($params){
-            $this->_clientManager = new ClientManager(null);
+            $this->_clientManager = ClientManager::getNewInstance();
             $contrats = $this->_clientManager->getContratsVoitures();
 
             $this->_view = new View("ClientContratVoiture");

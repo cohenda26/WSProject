@@ -165,3 +165,23 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+<!-- Modal HTML Markup -->
+<div id="ModalUserNotFound_Create" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">See more of this awesome website by logging in</h4>
+            </div>
+            <div class="modal-body">
+                <p class="lead text-xs-center">It only takes a few seconds to level up!</p>
+                <div class="lead text-xs-center"><a class="btn btn-info" href="<?=HOST?>/user/register">Create Account</a> or
+                    <a class="btn btn-success" href="<?=HOST?>/user/login">Sign In</a></div>
+            </div>
+            <div class="modal-footer">
+                :-)
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

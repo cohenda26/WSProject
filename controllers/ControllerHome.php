@@ -5,7 +5,7 @@
         private $_view;
 
         public function home($params){
-            $this->_homeManager = new HomeManager(null);
+            $this->_homeManager = HomeManager::getNewInstance();
             $home = $this->_homeManager->getHome();
 
             $this->_view = new View("Home");

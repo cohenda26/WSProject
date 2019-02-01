@@ -9,16 +9,28 @@
                 </ul>
             </div>
             <div class="col-md-7 t-r">
-                <?php
-                if (!isset($_SESSION['username'])){
-                ?>
+<?php
+        if (isset($_SESSION['currentUser']) ){
+            $Display =  'Bienvenue ' . $_SESSION['currentUser']->email();
+            if (isset($_SESSION['currentCourtier']) ) {
+                $Display =  $Display . ' / ' . $_SESSION['currentCourtier']->numEssek();
+            }
+?>
+                <ul class="list-inline">
+                    <li> <i class="icon-User info-icon"></i> <?=$Display?> </li>
+                </ul>
+<?php
+        }
+        else
+        {
+?>
                 <button class="btn btn-sm btn-danger-gradiant font-14 b-l" type="submit" data-toggle="modal" data-target="#ModalPartenaireSignInForm">Devenez partenaire</button>
                 <!-- <ul class="list-inline authentication-box">
                     <li><a href="" class="btn btn-danger-gradiant font-14 b-l" data-toggle="modal" data-target="#ModalPartenaireSignInForm">Devenez partenaire </a></li>
                 </ul> -->
-                <?php
-                }
-                ?>
+<?php
+        }
+?>
             </div>
         </div>
     </div>

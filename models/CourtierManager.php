@@ -5,7 +5,7 @@
 class CourtierManager extends Model {
 
     public static function getNewInstance(){
-        return new CourtierManager('tcourtier', 'Coutier', 'idCourtier');
+        return new CourtierManager('tcourtier', 'Courtier', 'idCourtier');
     } 
 
     public function add(DBObject $Odatas){
@@ -47,6 +47,12 @@ class CourtierManager extends Model {
         $this->add($courtier);
         $courtier->setIdCourtier(self::$_BddConnexion->lastInsertId()); 
         return $courtier;
+    }
+
+    public function getCourtier($oUser){
+        $this->activeBddConnexion();
+        $courtier = $this->getFromId($oUser->idCourtier());
+        return $courtier;        
     }
 }
 

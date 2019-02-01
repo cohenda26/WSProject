@@ -11,6 +11,10 @@ class User extends DBObject{
     private $_idCourtier=0;
     private $_isCourtier = false;
 
+    public function __construct($datas){
+        parent::__construct($datas);
+        $this->_isCourtier = $this->isCourtier();
+    }
 
     public function __clone() {
         parent::__clone();
@@ -82,7 +86,10 @@ class User extends DBObject{
      */ 
     public function idCourtier()
     {
-        return $this->_idCourtier;
+        if ($this->_idCourtier == 0){
+            return null;
+        } else 
+            return $this->_idCourtier;
     }
 
     /**
@@ -99,7 +106,7 @@ class User extends DBObject{
 
 
     public function isCourtier(){
-        return idCourtier() > 0;
+        return $this->idCourtier() > 0;
     }
 }
 

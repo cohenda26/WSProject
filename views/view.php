@@ -2,7 +2,8 @@
 
 class View{
     private $_file;
-    private $_titre;
+    private $_viewTitle;
+    private $_viewDatas;
 
     public function __construct($action){
        $this->_file = VIEWS."view". $action . ".php";
@@ -11,11 +12,13 @@ class View{
     public function generate($data){
         // GENERATION DU CONTENU DE LA VUE 
         // LE TITRE DOIT ETRE MISE A JOUR A L'INTERIEUR DE LA VIEW 
-        $content = $this->generateFile($this->_file, $data);
+        $this->_viewDatas = $data;
+        $content = $this->generateFile($this->_file, $this->_viewDatas);
 
         // GENERATION DU CONTENU DU TEMPLATE
-        $view = $this->generateFile(VIEWS."template.php", array('titre'=>$this->_titre, 
-                                                                'content'=>$content));
+        $view = $this->generateFile(VIEWS."template.php", array('viewTitle' => $this->_viewTitle, 
+                                                                'viewDatas' => $this->_viewDatas,
+                                                                'content'   => $content));
         echo $view;
     }
 

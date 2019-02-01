@@ -132,7 +132,7 @@
                     <div class="form-group">
                         <label class="control-label">Username</label>
                         <div>
-                            <input type="text" class="form-control input-lg" name="name" value="">
+                            <input type="text" class="form-control input-lg" name="userName" value="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -185,3 +185,9 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+<script>
+
+
+</script>

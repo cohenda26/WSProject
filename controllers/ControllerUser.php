@@ -2,6 +2,7 @@
 
     class ControllerUser Extends Controller{
         private $_userManager;
+        private $_courtierManager;
         private $_view;
 
         public function login($params){
@@ -9,10 +10,15 @@
             $user = $this->_userManager->getUser($params);
             if (isset($user)){
                 if ($user->password() == $params['password']){
-                    $this->_userManager->activeSession($user);
+                    $courtier = null;
+                    if ($user->isCourtier() == true){
+                        $this->_courtierManager = CourtierManager::getNewInstance();
+                        $courtier = $this->_courtierManager->getCourtier($user);
+                    }
+                    $this->_userManager->activeSession($user, $courtier);
 
                     $this->_view = new View("Home");
-                    $this->_view->generate(array("user"=> $user));
+                    $this->_view->generate(array("currentUser" => $user));
                 }
                 else {
                     throw new Exception (' Utilisateur inexistant');
@@ -25,7 +31,7 @@
 
         public function logout($params){
             $this->_userManager = UserManager::getNewInstance();
-            if (isset($_SESSION['username'])){
+            if (isset($_SESSION['currentUser'])){
                 $this->_userManager->destroySession();
             }
             $this->_view = new View("Home");

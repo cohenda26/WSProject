@@ -25,7 +25,7 @@
         }
 
         public function getFromId($id){
-          return $this->get($this->_nameIdTable(), $id);
+          return $this->get($this->_nameIdTable, $id);
         }
 
         protected function get($columnNameIdentifiant, $Identifiant){

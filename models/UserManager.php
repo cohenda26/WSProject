@@ -18,15 +18,15 @@ class UserManager extends Model {
         return $userDB;
     }
 
-    public function activeSession($user){
-        $_SESSION['username'] = $user->username();
-        $_SESSION['useremail'] = $user->email();        
+    public function activeSession($user, $courtier){
+        $_SESSION['currentUser'] = $user;     
+        $_SESSION['currentCourtier'] = $courtier;
     }
 
     public function destroySession(){
-        if (isset($_SESSION['username'])){
-            unset($_SESSION['username']);
-            unset($_SESSION['useremail']);   
+        if (isset($_SESSION['currentUser'])){
+            unset($_SESSION['currentUser']);
+            unset($_SESSION['currentCourtier']);
             //session_destroy();     
         }
     }

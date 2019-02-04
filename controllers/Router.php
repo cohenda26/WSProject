@@ -1,4 +1,7 @@
 <?php
+    require_once(MODELS .'DBObject.php');
+    require_once(MODELS .'User.php');
+
     session_start();
 
     require_once(VIEWS.'view.php');

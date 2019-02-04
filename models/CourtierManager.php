@@ -54,6 +54,13 @@ class CourtierManager extends Model {
         $courtier = $this->getFromId($oUser->idCourtier());
         return $courtier;        
     }
+
+    public function getClients(){
+        $this->activeBddConnexion();
+        $currentCourtier =  UserManager::getSessionCourtier();
+        $clientManager = ClientManager::getNewInstance();
+        return $clientManager->getClients();  
+    }
 }
 
 

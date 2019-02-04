@@ -10,14 +10,14 @@
                             Assurances <i class="fa fa-angle-down m-l-5"></i>
                         </a>
                         <ul class="b-none dropdown-menu font-14 animated fadeInUp">
-                            <li><a class="dropdown-item" href="Home/assuranceHabitation" target="_blank">Habitation</a></li>
-                            <li><a class="dropdown-item" href="Home/assuranceHypotheque" target="_blank">Hypothèque</a></li>
+                            <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceHabitation" target="_blank">Habitation</a></li>
+                            <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceHypotheque" target="_blank">Hypothèque</a></li>
                             <li class="divider" role="separator"></li>
-                            <li><a class="dropdown-item" href="Home/assuranceVoiture" target="_blank">Voiture</a></li>
-                            <li><a class="dropdown-item" href="Home/assuranceVoyage" target="_blank">Voyage</a></li>
+                            <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceVoiture" target="_blank">Voiture</a></li>
+                            <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceVoyage" target="_blank">Voyage</a></li>
                             <li class="divider" role="separator"></li>
-                            <li><a class="dropdown-item" ref="Home/assuranceSante" target="_blank">Santé</a></li>
-                            <li><a class="dropdown-item" href="Home/assuranceVie" target="_blank">Vie</a></li>
+                            <li><a class="dropdown-item" ref="<?=HOST?>Home/assuranceSante" target="_blank">Santé</a></li>
+                            <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceVie" target="_blank">Vie</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -48,7 +48,7 @@
                                 <div class="col-lg-2 col-md-4">
                                     <ul class="list-style-none">
                                         <li> <h6>Mes clients </h6></li>
-                                        <li><a href="courtier/listclients" target="_blank">Liste</a></li>
+                                        <li><a href="<?=HOST?>courtier/listclients" target="_blank">Liste</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-2 col-md-4">

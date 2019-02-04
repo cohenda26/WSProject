@@ -10,14 +10,20 @@
             </div>
             <div class="col-md-7 t-r">
 <?php
+        $DisplayUser = "";
+        $DisplayEssek = "";
         if (isset($_SESSION['currentUser']) ){
-            $Display =  'Bienvenue ' . $_SESSION['currentUser']->email();
+            $currentUser = UserManager::getSessionUser();
+            $DisplayUser =  'Bienvenue ' . $currentUser->email();
             if (isset($_SESSION['currentCourtier']) ) {
-                $Display =  $Display . ' / ' . $_SESSION['currentCourtier']->numEssek();
+                $currentCourtier = UserManager::getSessionCourtier();
+                $DisplayEssek = $currentCourtier->numEssek();
             }
 ?>
                 <ul class="list-inline">
-                    <li> <i class="icon-User info-icon"></i> <?=$Display?> </li>
+                    <li><a href="#"><i class="icon-User info-icon"></i> <?=$DisplayUser?></a></li>
+                    <li><a><span class="vdevider"></span></a></li>
+                    <li><a href="#"> <?=$DisplayEssek?> </a></li>
                 </ul>
 <?php
         }

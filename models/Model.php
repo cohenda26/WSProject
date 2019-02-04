@@ -42,16 +42,22 @@
           return $var;
         }
 
-        private function getAll($columnNameOrderBy = ""){
+        protected function getAll($columnNameIdentifiant="", $Identifiant="", $columnNameOrderBy = ""){
           $var = [];
           $stReq = 'SELECT * FROM ' . $this->_tableName ;
-          if (strlen($stReq) > 0) {
+
+          if (strlen($columnNameIdentifiant) > 0) {
+            $stReq = $stReq . ' WHERE '.  $columnNameIdentifiant .'='.$Identifiant;
+          }
+
+          if (strlen($columnNameOrderBy) > 0) {
             $stReq = $stReq . ' ORDER BY '. $columnNameOrderBy;
           }
+
           $Req = self::$_BddConnexion->prepare($stReq);
           $Req->execute();
           while($data = $Req->fetch(PDO::FETCH_ASSOC)){
-            $var[] = new $_classNameObject($data);
+            $var[] = new $this->_classNameObject($data);
           }
           $Req->closeCursor();
           return $var;

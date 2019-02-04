@@ -4,7 +4,7 @@
         private $_clientManager;
         private $_view;
 
-        private function listContrats($params){
+        public function listContrats($params){
             $this->_clientManager = ClientManager::getNewInstance();
             $contrats = $this->_clientManager->getAllContrats($params);
 
@@ -12,7 +12,7 @@
             $this->_view->generate(array("contrats"=> $contrats));
         }
 
-        private function listContratsHabitations($params){
+        public function listContratsHabitations($params){
             $this->_clientManager = ClientManager::getNewInstance();
             $contrats = $this->_clientManager->getContratsHabitations();
 
@@ -20,7 +20,7 @@
             $this->_view->generate(array("contrats"=> $contrats));
         }
 
-        private function listContratsVie($params){
+        public function listContratsVie($params){
             $this->_clientManager = ClientManager::getNewInstance();
             $contrats = $this->_clientManager->getContratsVie();
 
@@ -28,12 +28,21 @@
             $this->_view->generate(array("contrats"=> $contrats));
         }
 
-        private function listContratsVoitures($params){
+        public function listContratsVoitures($params){
             $this->_clientManager = ClientManager::getNewInstance();
             $contrats = $this->_clientManager->getContratsVoitures();
 
             $this->_view = new View("ClientContratVoiture");
             $this->_view->generate(array("contrats"=> $contrats));
         }
+
+        // public function souscrireContratHabitation($params){
+        //     $this->_clientManager = ClientManager::getNewInstance();
+        //     $currentUser = UserManager::getSessionUser();
+        //     $client = $this->_clientManager->get();
+
+        //     $this->_view = new View("ClientContratVoiture");
+        //     $this->_view->generate(array("contrats"=> $contrats));
+        // }        
     }
 ?>

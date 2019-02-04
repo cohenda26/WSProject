@@ -6,6 +6,14 @@ class UserManager extends Model {
         return new UserManager('tuser', 'User', 'idUser');
     } 
 
+    public static function getSessionUser(){
+        return unserialize($_SESSION['currentUser']);
+    }
+
+    public static function getSessionCourtier(){
+        return unserialize($_SESSION['currentCourtier']);    
+    }
+
     private function add(DBObject $Odatas){
         $Req = self::$_BddConnexion->prepare('INSERT INTO tuser (username, email, password, idCourtier) VALUES(:username, :email, :password, :idCourtier)');
 
@@ -19,8 +27,8 @@ class UserManager extends Model {
     }
 
     public function activeSession($user, $courtier){
-        $_SESSION['currentUser'] = $user;     
-        $_SESSION['currentCourtier'] = $courtier;
+        $_SESSION['currentUser'] = serialize($user);     
+        $_SESSION['currentCourtier'] = serialize($courtier);
     }
 
     public function destroySession(){

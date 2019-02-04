@@ -33,7 +33,7 @@ class ClientManager extends Model {
 
     public function getClients(){
         $this->activeBddConnexion();
-        //return $this->getAll();
+        return $this->getAll();
     }
 
     public function getAllContrats($params){

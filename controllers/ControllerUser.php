@@ -3,6 +3,7 @@
     class ControllerUser Extends Controller{
         private $_userManager;
         private $_courtierManager;
+        private $_clientManager;
         private $_view;
 
         public function login($params){
@@ -11,11 +12,16 @@
             if (isset($user)){
                 if ($user->password() == $params['password']){
                     $courtier = null;
+                    $client = null;
                     if ($user->isCourtier() == true){
                         $this->_courtierManager = CourtierManager::getNewInstance();
                         $courtier = $this->_courtierManager->getCourtier($user);
                     }
-                    $this->_userManager->activeSession($user, $courtier);
+                    if ($user->isClient() == true){
+                        $this->_clientManager = ClientManager::getNewInstance();
+                        $client = $this->_clientManager->getClient($user);
+                    }
+                    $this->_userManager->activeSession($user, $courtier, $client);
 
                     $this->_view = new View("Home");
                     $this->_view->generate(array("currentUser" => $user));

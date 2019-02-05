@@ -17,7 +17,9 @@
             $DisplayUser =  'Bienvenue ' . $currentUser->email();
             if (isset($_SESSION['currentCourtier']) ) {
                 $currentCourtier = UserManager::getSessionCourtier();
-                $DisplayEssek = $currentCourtier->numEssek();
+                if (isset($currentCourtier)){
+                    $DisplayEssek = $currentCourtier->numEssek();
+                }
             }
 ?>
                 <ul class="list-inline">

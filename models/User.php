@@ -9,11 +9,14 @@ class User extends DBObject{
     private $_email = "";
     private $_password="";
     private $_idCourtier=0;
+    private $_idClient=0;
     private $_isCourtier = false;
+    private $_isClient = false;
 
     public function __construct($datas){
         parent::__construct($datas);
         $this->_isCourtier = $this->isCourtier();
+        $this->_isClient = $this->isClient();
     }
 
     public function __clone() {
@@ -104,9 +107,36 @@ class User extends DBObject{
         return $this;
     }
 
+    /**
+     * Get the value of _idClient
+     */ 
+    public function idClient()
+    {
+        if ($this->_idClient == 0){
+            return null;
+        } else 
+            return $this->_idClient;
+    }
+
+    /**
+     * Set the value of _idClient
+     *
+     * @return  self
+     */ 
+    public function setIdClient($_idClient)
+    {
+        $this->_idClient = $_idClient;
+
+        return $this;
+    }
+
 
     public function isCourtier(){
         return $this->idCourtier() > 0;
+    }
+    
+    public function isClient(){
+        return $this->idClient() > 0;
     }
 }
 

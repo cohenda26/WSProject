@@ -31,6 +31,20 @@ class ClientManager extends Model {
         $Req->execute();
     }
 
+    public function addClient($data){
+        $this->activeBddConnexion();
+        $client = new Client($data);
+        $this->add($client);
+        $client->setIdClient(self::$_BddConnexion->lastInsertId()); 
+        return $client;
+    }
+
+    public function getClient($oUser){
+        $this->activeBddConnexion();
+        $client = $this->getFromId($oUser->idClient());
+        return $client;        
+    }
+
     public function getClients(){
         $this->activeBddConnexion();
         return $this->getAll();

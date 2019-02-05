@@ -14,27 +14,35 @@ class UserManager extends Model {
         return unserialize($_SESSION['currentCourtier']);    
     }
 
+    public static function getSessionClient(){
+        return unserialize($_SESSION['currentClient']);    
+    }
+
+
     private function add(DBObject $Odatas){
-        $Req = self::$_BddConnexion->prepare('INSERT INTO tuser (username, email, password, idCourtier) VALUES(:username, :email, :password, :idCourtier)');
+        $Req = self::$_BddConnexion->prepare('INSERT INTO tuser (username, email, password, idCourtier, idClient) VALUES(:username, :email, :password, :idCourtier, :idClient )');
 
         $Req->bindValue(':username', $Odatas->username());
         $Req->bindValue(':email', $Odatas->email());
         $Req->bindValue(':password', $Odatas->password());
         $Req->bindValue(':idCourtier', $Odatas->idCourtier());
+        $Req->bindValue(':idClient', $Odatas->idClient());
 
         $userDB = $Req->execute();
         return $userDB;
     }
 
-    public function activeSession($user, $courtier){
+    public function activeSession($user, $courtier, $client){
         $_SESSION['currentUser'] = serialize($user);     
         $_SESSION['currentCourtier'] = serialize($courtier);
+        $_SESSION['currentClient'] = serialize($client);
     }
 
     public function destroySession(){
         if (isset($_SESSION['currentUser'])){
             unset($_SESSION['currentUser']);
             unset($_SESSION['currentCourtier']);
+            unset($_SESSION['currentClient']);
             //session_destroy();     
         }
     }
@@ -46,8 +54,13 @@ class UserManager extends Model {
     }
 
     public function registerUser($data){
-        $user = new User($data);
+        $clientManager = ClientManager::getNewInstance();
+        $client = $clientManager->addClient($data);
+
         $this->activeBddConnexion();
+        $user = new User($data);
+        $user->setIdClient($client->idClient());
+
         $userDB = $this->add($user);
         return $userDB;
     }

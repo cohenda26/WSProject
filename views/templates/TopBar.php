@@ -12,14 +12,12 @@
 <?php
         $DisplayUser = "";
         $DisplayEssek = "";
-        if (isset($_SESSION['currentUser']) ){
-            $currentUser = UserManager::getSessionUser();
+        $currentUser = UserManager::getSessionUser();
+        if (isset($currentUser) ){
             $DisplayUser =  'Bienvenue ' . $currentUser->email();
-            if (isset($_SESSION['currentCourtier']) ) {
-                $currentCourtier = UserManager::getSessionCourtier();
-                if (isset($currentCourtier)){
+            $currentCourtier = UserManager::getSessionCourtier();
+            if (isset($currentCourtier) ) {            
                     $DisplayEssek = $currentCourtier->numEssek();
-                }
             }
 ?>
                 <ul class="list-inline">
@@ -32,7 +30,7 @@
         else
         {
 ?>
-                <button class="btn btn-sm btn-danger-gradiant font-14 b-l" type="submit" data-toggle="modal" data-target="#ModalPartenaireSignInForm">Devenez partenaire</button>
+                <button class="btn btn-sm btn-danger-gradiant font-14 b-l" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="userPartenaireSignIn">Devenez partenaire</button>
                 <!-- <ul class="list-inline authentication-box">
                     <li><a href="" class="btn btn-danger-gradiant font-14 b-l" data-toggle="modal" data-target="#ModalPartenaireSignInForm">Devenez partenaire </a></li>
                 </ul> -->

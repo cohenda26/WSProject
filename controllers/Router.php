@@ -6,6 +6,8 @@
 
     require_once(VIEWS.'view.php');
 
+    //var_dump(phpinfo());
+
 class Router{
     private $_Ctrl;
     private $_view;
@@ -13,7 +15,7 @@ class Router{
     private $_nameCtrl = 'Home';
     private $_nameMethod = 'Home';
     private $_params = null;
-
+    
     // Format des url : nameControlleur/Method/Params (Params par paire ex:Id/1)
     // Son rajouté dans la params les données envoyées en POST
     public function getParams(){   

@@ -1,28 +1,12 @@
-<div class="topbar">
-    <div class="header3">
-        <div class="po-relative">
-            <?php
-                require(VIEWS."templates/TopBar.php");
-
-                require(VIEWS."templates/NavBar.php");
-            ?>                  
-        </div>
-    </div>
-</div>
-
-<?php
-require_once('UserIdentification.php');
-?>
-
 <!-- --------------------------------------------------------   -->
 <!-- Modal HTML Markup                                          -->
 <!-- https://vegibit.com/bootstrap-modal-form-examples/         -->
 <!-- --------------------------------------------------------   -->
-
-<!-- Modal de login d'un utilisateur déjà enregistré -->
-<div id="ModalLoginForm" class="modal fade">
+<div id="ModalConnexion" class="modal fade">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
+
+        <!-- Modal de login d'un utilisateur déjà enregistré -->
+        <div id="userLogin" class="d-none userIdentification modal-content">
             <div class="modal-header">
                 <h1 class="modal-title">Login</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
@@ -54,20 +38,16 @@ require_once('UserIdentification.php');
                     <div class="form-group">
                         <div>
                             <button type="submit" class="btn btn-success"  name="login_user">Login</button>
- 
+
                             <a class="btn btn-link" href="">Forgot Your Password?</a>
                         </div>
                     </div>
                 </form>
             </div>
         </div><!-- /.modal-content -->        
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
-<!-- Modal d'enregistrement d'un nouvel utilisateur  -->
-<div id="ModalSignInForm" class="modal fade custom-modal">
-    <div class="modal-dialog modal-lg" role="dialog">
-        <div class="modal-content po-relative">
+        <!-- Modal d'enregistrement d'un nouvel utilisateur  -->
+        <div id="userSignIn" class="d-none userIdentification modal-content po-relative">
             <div class="modal-header">
                 <h1 class="modal-title">Login</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
@@ -110,14 +90,9 @@ require_once('UserIdentification.php');
                 </form>
             </div>
         </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
-
-<!-- Modal d'enregistrement d'un nouveau partenaire  -->
-<div id="ModalPartenaireSignInForm" class="modal fade custom-modal">
-    <div class="modal-dialog modal-lg" role="dialog">
-        <div class="modal-content po-relative">
+        <!-- Modal d'enregistrement d'un nouveau partenaire  -->
+        <div id="userPartenaireSignIn" class="d-none userIdentification modal-content po-relative">
             <div class="modal-header">
                 <h1 class="modal-title">New partenaire</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
@@ -166,14 +141,9 @@ require_once('UserIdentification.php');
                 </form>
             </div>
         </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
-
-<!-- Modal HTML Markup -->
-<div id="ModalUserNotFound_Create" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
+        <!-- Modal HTML Markup -->
+        <div id="userNotFoundCreate" class="d-none userIdentification modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">See more of this awesome website by logging in</h4>
             </div>
@@ -186,5 +156,6 @@ require_once('UserIdentification.php');
                 :-)
             </div>
         </div><!-- /.modal-content -->
+
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->

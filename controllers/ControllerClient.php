@@ -36,13 +36,13 @@
             $this->_view->generate(array("contrats"=> $contrats));
         }
 
-        // public function souscrireContratHabitation($params){
-        //     $this->_clientManager = ClientManager::getNewInstance();
-        //     $currentUser = UserManager::getSessionUser();
-        //     $client = $this->_clientManager->get();
+        public function souscrireContratHabitation($params){
+            $this->_clientManager = ClientManager::getNewInstance();
+            $currentUser = UserManager::getSessionUser();
+            $client = $this->_clientManager->getClient($currentUser);
 
-        //     $this->_view = new View("ClientContratVoiture");
-        //     $this->_view->generate(array("contrats"=> $contrats));
-        // }        
+            $this->_view = new View("ClientContratHabitation");
+            $this->_view->generate(array("client"=> $client));
+        }        
     }
 ?>

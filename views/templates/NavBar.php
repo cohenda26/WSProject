@@ -23,8 +23,8 @@
                 </ul>
 
 <?php 
-        if (isset($_SESSION['currentUser'])){ 
-            if ( isset($_SESSION['currentCourtier'])) {
+        if ( UserManager::getSessionUser() ) { 
+            if ( UserManager::getSessionCourtier()) {
 ?>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown mega-dropdown">
@@ -74,10 +74,10 @@
                 </ul>
 <?php
             }
-            else 
+            
+            if ( UserManager::getSessionClient()) 
             {
-?>              
-                    
+?>                    
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item dropdown mega-dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="h6-mega-dropdown1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -99,6 +99,7 @@
                                 </div>
                                 <div class="col-lg-2 col-md-4">
                                     <ul class="list-style-none">
+                                        <li><a href="<?=HOST?>client/souscrireContratHabitation" target="_blank">Souscrire un contrat d'habitation</a></li>
                                         <li> <h6>Mes contrats</h6></li>
                                         <li><a href="#" target="_blank">Habitation</a></li>
                                         <li><a href="#" target="_blank">Hypothèque</a></li>
@@ -137,8 +138,8 @@
 ?>
                 <ul class="navbar-nav ml-auto">
                     <div class="form-inline ml-auto authentication-box">
-                        <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalLoginForm">Login</button>
-                        <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalSignInForm">Register</button>
+                        <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="userLogin">Login</button>
+                        <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="userSignIn">Register</button>
                     </div>
                 </ul>
 <?php        

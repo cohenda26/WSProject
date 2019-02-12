@@ -1,4 +1,4 @@
-<div class="bg-light spacer p-b-0">
+<!-- <div class="bg-light spacer-p-130 p-b-0"> -->
     <section id="slider-sec" class="slider10">
         <div id="slider10" class="carousel bs-slider slide  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="7000">
             <ol class="carousel-indicators">
@@ -64,7 +64,7 @@
         </div>
         <!-- End Slider -->
     </section>
-</div>
+<!-- </div> -->
 
 <!--
 <h1>Starter kit</h1>
@@ -135,3 +135,4 @@
             </div>
         </div>
     </div>
+</div>

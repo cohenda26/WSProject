@@ -1,7 +1,7 @@
 <!-- ============================================================== -->
 <!-- FOOTER  -->
 <!-- ============================================================== -->
-<div class="footer4 spacer">
+<div class="footer4 spacer mini-spacer">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-6 m-b-30">

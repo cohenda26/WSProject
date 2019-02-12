@@ -7,15 +7,24 @@ class UserManager extends Model {
     } 
 
     public static function getSessionUser(){
-        return unserialize($_SESSION['currentUser']);
+        if (isset($_SESSION['currentUser'])){
+            return unserialize($_SESSION['currentUser']);
+        }
+        else return null;
     }
 
     public static function getSessionCourtier(){
-        return unserialize($_SESSION['currentCourtier']);    
+        if (isset($_SESSION['currentCourtier'])){
+            return unserialize($_SESSION['currentCourtier']);    
+        }
+        else return null;
     }
 
     public static function getSessionClient(){
-        return unserialize($_SESSION['currentClient']);    
+        if (isset($_SESSION['currentClient'])){
+            return unserialize($_SESSION['currentClient']);    
+        }
+        else return null;
     }
 
 

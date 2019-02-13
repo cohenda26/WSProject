@@ -3,7 +3,7 @@
 //=================================================================
 //                   CLASS OBJET - Courtier
 //=================================================================
-class Courtier extends DBObject{
+class Courtier extends DBObject implements JsonSerializable{
     private $_idCourtier = 0;
     private $_nom = "";
     private $_numEssek = "";
@@ -11,6 +11,13 @@ class Courtier extends DBObject{
     private $_rue = "";
     private $_numero = "";
     private $_telephone = "";
+
+    public function jsonSerialize()
+    {
+        $vars = get_object_vars($this);
+
+        return $vars;
+    }
 
     public function __clone() {
         parent::__clone();

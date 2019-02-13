@@ -2,12 +2,19 @@
     //=================================================================
     //                   CLASS OBJET - CLIENT
     //=================================================================
-    class Client extends DBObject{
+    class Client extends DBObject implements JsonSerializable{
         private $_idClient = 0;
         private $_nom = "";
         private $_prenom = "";
         private $_telephone;
 
+        public function jsonSerialize()
+        {
+            $vars = get_object_vars($this);
+    
+            return $vars;
+        }
+    
         public function __clone() {
             parent::__clone();
         }

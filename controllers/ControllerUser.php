@@ -5,6 +5,40 @@
         private $_courtierManager;
         private $_clientManager;
         private $_view;
+        private $_ajax;
+
+
+        public function newLogin($params){
+            $this->_userManager = UserManager::getNewInstance();
+            $user = $this->_userManager->getUser($params);
+            if (isset($user)){
+                if ($user->password() == $params['password']){
+                    $courtier = null;
+                    $client = null;
+                    if ($user->isCourtier() == true){
+                        $this->_courtierManager = CourtierManager::getNewInstance();
+                        $courtier = $this->_courtierManager->getCourtier($user);
+                    }
+                    if ($user->isClient() == true){
+                        $this->_clientManager = ClientManager::getNewInstance();
+                        $client = $this->_clientManager->getClient($user);
+                    }
+                    $this->_userManager->activeSession($user, $courtier, $client);
+
+                    $this->_ajax = new Ajax("User");
+                    $this->_ajax->generate(array("currentUser" => $user, 
+                                                 "currentCourtier" => $courtier,
+                                                 "currentClient" => $client ));
+                }
+                else {
+                    throw new Exception (' Utilisateur inexistant');
+                }
+            }
+            else {
+                throw new Exception (' Utilisateur non trouvé');
+            }
+        }
+
 
         public function login($params){
             $this->_userManager = UserManager::getNewInstance();

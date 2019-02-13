@@ -8,6 +8,7 @@
     define('CONTROLLERS', ROOT.'controllers/');
     define('VIEWS', ROOT.'views/');
     define ('MODELS', ROOT.'models/');
+    define('AJAX', ROOT.'ajax/');
 
     define('ASSETS', HOST.'assets/');
 ?>

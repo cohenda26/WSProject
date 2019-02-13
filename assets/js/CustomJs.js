@@ -13,6 +13,29 @@ $('#ModalConnexion').on('hide.bs.modal', function(e) {
     $('.userIdentification').addClass('d-none');
 });
 
+$("#ModalConnexion form").submit(function (e) {
+    var fromEnCours = $(this).closest('form');
+    // dataUrl contient les données de la form en cour de saisie
+    // pour les envoyer via la methode ajax
+    var dataUrl = fromEnCours.serialize();
+
+    e.preventDefault();
+
+    $.ajax({
+        type: "POST",
+        //url: location.host+"/"+"user/newLogin",
+        url: "user/newLogin",
+        data: dataUrl,
+        dataType : 'json',
+        ContentType : 'application/json',
+        success: function (data, status, xhr) {
+            console.log(data.user);
+        },
+        error: function () {
+            console.log('Erreur sur requete AJAX USER');
+        }
+    });
+});
 /* ============= SLIDER GESTION ======================================= */
 
 $('#slider10').bsTouchSlider();

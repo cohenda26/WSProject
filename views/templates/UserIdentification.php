@@ -12,7 +12,8 @@
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
             </div>
             <div class="modal-body">
-                <form role="form" method="POST" action="<?=HOST?>user/login">                
+                <!-- <form role="form" method="POST" action="<?=HOST?>user/login">   -->
+                <form role="form" method="POST" action="">                
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">E-Mail Address</label>

@@ -5,6 +5,7 @@
     session_start();
 
     require_once(VIEWS.'view.php');
+    require_once(AJAX.'ajax.php');
 
     //var_dump(phpinfo());
 

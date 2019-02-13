@@ -3,7 +3,7 @@
 //=================================================================
 //                   CLASS OBJET - User
 //=================================================================
-class User extends DBObject{
+class User extends DBObject implements JsonSerializable{
     private $_idUser = 0;
     private $_userName="";
     private $_email = "";
@@ -12,6 +12,30 @@ class User extends DBObject{
     private $_idClient=0;
     private $_isCourtier = false;
     private $_isClient = false;
+    public $pEmail = "";
+
+    public function jsonSerialize()
+    {
+        $vars = get_object_vars($this);
+
+        return $vars;
+    }
+
+    public function getProperties()
+    {
+        return get_object_vars($this);
+    }
+
+    public function _toJson()
+    {
+        $properties = $this->getProperties();
+        $object     = new StdClass();
+        $object->_class      = get_class($this);
+        foreach ($properties as $name => $value) {
+            $object->$name = $value;
+        }
+        return json_encode($object);
+    }
 
     public function __construct($datas){
         parent::__construct($datas);
@@ -63,6 +87,7 @@ class User extends DBObject{
     public function setEmail($_email)
     {
         $this->_email = $_email;
+        $this->pEmail = $_email;
 
         return $this;
     }

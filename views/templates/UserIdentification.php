@@ -11,6 +11,7 @@
                 <h1 class="modal-title">Login</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
             </div>
+            
             <div class="modal-body">
                 <!-- <form role="form" method="POST" action="<?=HOST?>user/login">   -->
                 <form role="form" method="POST" action="">                
@@ -38,7 +39,7 @@
                     </div>
                     <div class="form-group">
                         <div>
-                            <button type="submit" class="btn btn-success"  name="login_user">Login</button>
+                            <button type="submit" class="btn btn-success"  name="login">Login</button>
 
                             <a class="btn btn-link" href="">Forgot Your Password?</a>
                         </div>
@@ -50,12 +51,13 @@
         <!-- Modal d'enregistrement d'un nouvel utilisateur  -->
         <div id="userSignIn" class="d-none userIdentification modal-content po-relative">
             <div class="modal-header">
-                <h1 class="modal-title">Login</h1>
+                <h1 class="modal-title">Register</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
             </div>
             
             <div class="modal-body">
-                <form role="form" method="POST" action="<?=HOST?>user/register">
+                <!-- <form role="form" method="POST" action="<?=HOST?>user/register"> -->
+                <form role="form" method="POST" action=""> 
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">Username</label>
@@ -83,7 +85,7 @@
                     </div>
                     <div class="form-group">
                         <div>
-                            <button type="submit" class="btn btn-success">
+                            <button type="submit" class="btn btn-success" name="register">
                                 Register
                             </button>
                         </div>
@@ -93,14 +95,15 @@
         </div><!-- /.modal-content -->
 
         <!-- Modal d'enregistrement d'un nouveau partenaire  -->
-        <div id="userPartenaireSignIn" class="d-none userIdentification modal-content po-relative">
+        <div id="userCourtierSignIn" class="d-none userIdentification modal-content po-relative">
             <div class="modal-header">
-                <h1 class="modal-title">New partenaire</h1>
+                <h1 class="modal-title">Nouveau partenaire</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
             </div>
             
             <div class="modal-body">
-                <form role="form" method="POST" action="<?=HOST?>user/registerPartenaire">
+                <!-- <form role="form" method="POST" action="<?=HOST?>user/registerPartenaire"> -->
+                <form role="form" method="POST" action=""> 
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">Numessek</label>
@@ -134,7 +137,7 @@
                     </div>
                     <div class="form-group">
                         <div>
-                            <button type="submit" class="btn btn-danger-gradiant">
+                            <button type="submit" class="btn btn-danger-gradiant" name="registerCourtier">
                                 Register
                             </button>
                         </div>

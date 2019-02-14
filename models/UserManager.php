@@ -27,6 +27,20 @@ class UserManager extends Model {
         else return null;
     }
 
+    public static function activeSession($user, $courtier, $client){
+        $_SESSION['currentUser'] = serialize($user);     
+        $_SESSION['currentCourtier'] = serialize($courtier);
+        $_SESSION['currentClient'] = serialize($client);
+    }
+
+    public static function destroySession(){
+        if (isset($_SESSION['currentUser'])){
+            unset($_SESSION['currentUser']);
+            unset($_SESSION['currentCourtier']);
+            unset($_SESSION['currentClient']);
+            //session_destroy();     
+        }
+    }
 
     private function add(DBObject $Odatas){
         $Req = self::$_BddConnexion->prepare('INSERT INTO tuser (username, email, password, idCourtier, idClient) VALUES(:username, :email, :password, :idCourtier, :idClient )');
@@ -39,21 +53,6 @@ class UserManager extends Model {
 
         $userDB = $Req->execute();
         return $userDB;
-    }
-
-    public function activeSession($user, $courtier, $client){
-        $_SESSION['currentUser'] = serialize($user);     
-        $_SESSION['currentCourtier'] = serialize($courtier);
-        $_SESSION['currentClient'] = serialize($client);
-    }
-
-    public function destroySession(){
-        if (isset($_SESSION['currentUser'])){
-            unset($_SESSION['currentUser']);
-            unset($_SESSION['currentCourtier']);
-            unset($_SESSION['currentClient']);
-            //session_destroy();     
-        }
     }
 
     public function getUser($data){
@@ -74,7 +73,7 @@ class UserManager extends Model {
         return $userDB;
     }
 
-    public function registerPartenaire($data){
+    public function registerCourtier($data){
         $courtierManager = CourtierManager::getNewInstance();
         $courtier = $courtierManager->addCourtier($data);
 

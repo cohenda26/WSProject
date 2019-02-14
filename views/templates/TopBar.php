@@ -9,34 +9,16 @@
                 </ul>
             </div>
             <div class="col-md-7 t-r">
-<?php
-        $DisplayUser = "";
-        $DisplayEssek = "";
-        $currentUser = UserManager::getSessionUser();
-        if (isset($currentUser) ){
-            $DisplayUser =  'Bienvenue ' . $currentUser->email();
-            $currentCourtier = UserManager::getSessionCourtier();
-            if (isset($currentCourtier) ) {            
-                    $DisplayEssek = $currentCourtier->numEssek();
-            }
-?>
                 <ul class="list-inline">
-                    <li><a href="#"><i class="icon-User info-icon"></i> <?=$DisplayUser?></a></li>
-                    <li><a><span class="vdevider"></span></a></li>
-                    <li><a href="#"> <?=$DisplayEssek?> </a></li>
+                    <div class="topbar-UserConnected d-none">
+                        <li><a href="#"><i class="icon-User info-icon"></i> <span id="user">Name user</span></a></li>
+                        <li><a><span class="vdevider"></span></a></li>
+                        <li><a href="#">  <span id="numEssek">Nun Essek</span> </a></li>
+                    </div>
+                    <div class="topbar-UserDisconnected d-none">
+                        <button class="btn btn-sm btn-danger-gradiant font-14 b-l" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="userCourtierSignIn">Devenez partenaire</button>
+                    </div>
                 </ul>
-<?php
-        }
-        else
-        {
-?>
-                <button class="btn btn-sm btn-danger-gradiant font-14 b-l" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="userPartenaireSignIn">Devenez partenaire</button>
-                <!-- <ul class="list-inline authentication-box">
-                    <li><a href="" class="btn btn-danger-gradiant font-14 b-l" data-toggle="modal" data-target="#ModalPartenaireSignInForm">Devenez partenaire </a></li>
-                </ul> -->
-<?php
-        }
-?>
             </div>
         </div>
     </div>

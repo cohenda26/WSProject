@@ -42,17 +42,9 @@ class UserManager extends Model {
         }
     }
 
-    private function add(DBObject $Odatas){
-        $Req = self::$_BddConnexion->prepare('INSERT INTO tuser (username, email, password, idCourtier, idClient) VALUES(:username, :email, :password, :idCourtier, :idClient )');
-
-        $Req->bindValue(':username', $Odatas->username());
-        $Req->bindValue(':email', $Odatas->email());
-        $Req->bindValue(':password', $Odatas->password());
-        $Req->bindValue(':idCourtier', $Odatas->idCourtier());
-        $Req->bindValue(':idClient', $Odatas->idClient());
-
-        $userDB = $Req->execute();
-        return $userDB;
+    protected function getListPropertyTable(){
+        $p = [ 'userName', 'email', 'password', 'idCourtier', 'idClient' ];
+        return $p;
     }
 
     public function getUser($data){

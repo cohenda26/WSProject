@@ -16,12 +16,65 @@
           $this->_nameIdTable = $nameIdTable;
         }
 
-        private function add(DBObject $Odatas){
-
+        // action identifie si on est en INSERT = 0 / UPDATE = 1
+        protected function getListPropertyTable(){
+          $p = [ ];
+          return $p;
+        }
+    
+        function aliasMethod($e){
+            return ":".$e;
         }
 
-        private function delete(DBObject $Odatas){
+        private function getArrayToString($a){
+          $st = "";
+          $arr_length = count($a); 
+          for($i=0 ; $i<$arr_length ; $i++) 
+          { 
+            if ($i == $arr_length-1) {
+              $st = $st . $a[$i];
+            }
+            else {
+              $st = $st .  $a[$i] . ",";
+            }
+          }  
+          return $st;    
+        }
+    
+        private function getListAliasBinding(){
+            $p = $this->getListPropertyTable();
+            $pb = array_map(array('Model','aliasMethod'), $p);
+            return $pb;
+        }
+    
+        private function bindValue(DBObject $Odatas, $Req){
+            $p = $this->getListPropertyTable();
+            foreach ($p as $key => $value)
+            {
+              $method = $value;  
+              if (method_exists($Odatas, $method))
+              {
+                $Req->bindValue($this->aliasMethod($value), $Odatas->$method());
+              }
+            }            
+        }
 
+        protected function add(DBObject $Odatas){
+          $p = $this->getListPropertyTable();
+          $pb = $this->getListAliasBinding();
+  
+          $ReqSt = 'INSERT INTO ' . $this->_tableName . ' ( ' . $this->getArrayToString($p) . ' ) VALUES ( ' . $this->getArrayToString($pb) . ' )';
+          $Req = self::$_BddConnexion->prepare( $ReqSt );
+  
+          $this->bindValue($Odatas, $Req);
+  
+          $itemDB = $Req->execute();
+          return $itemDB;
+        }
+
+        protected function delete(DBObject $Odatas){
+          $reqSt = 'DELETE FROM '. $this->_tableName . ' WHERE ' . $this->_nameIdTable .' = '. $Odatas->$this->_nameIdTable();
+          self::$_BddConnexion->exec( $reqSt );
         }
 
         public function getFromId($id){
@@ -63,8 +116,31 @@
           return $var;
         }  
 
-        private function update(DBObject $Odatas){
+        protected function update(DBObject $Odatas){
+          $p = $this->getListPropertyTable();
+          $pb = $this->getListAliasBinding();
 
+          $st = "";
+          $arr_length = count($p); 
+          for($i=0 ; $i<$arr_length ; $i++) 
+          { 
+            if ($i == $arr_length-1) {
+              $st = $st . $p[$i] . '=' . $pb[$i];
+            }
+            else {
+              $st = $st .  $p[$i] . '=' . $pb[$i] . ",";
+            }
+          }
+  
+          $ReqSt = 'UPDATE ' . $this->_tableName . ' SET ' . $st . ' WHERE ' . $this->_nameIdTable .'= :'.$this->_nameIdTable;
+
+          $Req = self::$_BddConnexion->prepare( $ReqSt );
+  
+          $this->bindValue($Odatas, $Req);
+          $Req->bindValue($this->aliasMethod($this->_nameIdTable), $Odatas->$this->_nameIdTable(), PDO::PARAM_INT);
+  
+          $itemDB = $Req->execute();
+          return $itemDB;
         }
         
         public function clone(DBObject $Odatas){

@@ -1,6 +1,7 @@
 <div class="bg-light mini-spacer p-b-0"></div>
 <section id="" class="container p-t-10">
 
+    <div class="row col-12">
     <div class="stepwizard">
         <div class="stepwizard-row setup-panel">
             <div class="stepwizard-step">
@@ -21,6 +22,7 @@
             </div>
         </div>
     </div>
+    </div>
 
     <!-- <div class="row col-md-12"> -->
         <!-- Une CARD pour l'enveloppe pour le titre -->
@@ -32,14 +34,14 @@
                 <form class="form-horizontal" action="" method="post">
                     <!-- DEBUT STEP 1 pour le contenu de la saisie -->
                     <div class="row setup-content" id="step-1">
-                        <div class="col-xs-6">
-                            <div class="col-md-12">
+                        <div class="col-xs-6 col-md-12">
+                            <!-- <div class="col-md-12"> -->
                                 <h3> Renseignements sur le logement </h3>
                         
                                 <!-- Information de saisie sur la nature de l'appartement -->
                                 <div class="form-group row">
                                     <label class="col-3 col-form-label" for="typeAppartement" >Vous habitez en </label>
-                                    <div class="col-9 btn-group" role="group" aria-label="type appartement" id="typeAppartement">
+                                    <div class="col-9 btn-group" name="test" role="test" aria-label="type appartement" id="typeAppartement">
                                         <button class="btn btn-sm btn-secondary" aria-expanded="true" 
                                                 aria-controls="collapseAppartement" type="button" 
                                                 data-target="#collapseAppartement" data-toggle="collapse">Appartement</button>
@@ -109,7 +111,7 @@
                                         <div class="form-group row">
                                             <div class="col-3"> </div>
                                             <label class="col-4 col-form-label" for="HabiteDeja" >J'habite déjà ce logement ? </label>
-                                            <div class="col-5 btn-group" role="group" aria-label="habite deja" id="HabiteDeja">
+                                            <div class="col-5 btn-group" name="test2" role="group" aria-label="habite deja" id="HabiteDeja">
                                                 <button class="btn btn-sm btn-secondary" aria-expanded="true" aria-controls="collapseHabiteOui" type="button" data-target="#collapseHabiteOui" data-toggle="HabiteDeja">Oui</button>
                                                 <button class="btn btn-sm btn-secondary" aria-expanded="true" aria-controls="collapseHabiteNon" type="button" data-target="#collapseHabiteNon" data-toggle="HabiteDeja">Non</button>
                                             </div>
@@ -147,15 +149,15 @@
                                     <div class="tab-pane fade" id="list_nonoccupant" role="tabpanel" 
                                             aria-labelledby="list-nonoccupant-list">...</div>
                                 </div>
-                                <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next 2</button>
-                            </div>
+                                <button class="btn btn-primary nextBtn pull-right" type="button">Next</button>
+                            <!-- </div> -->
                         </div>
                     </div>       
 
                     <!-- DEBUT STEP 2 pour les informations sur le logement -->
                     <div class="row setup-content" id="step-2">
-                        <div class="col-xs-6">
-                            <div class="col-md-12">
+                        <div class="col-xs-6 col-md-12">
+                            <!-- <div class="col-md-12"> -->
                                 <h3> Renseignements sur le logement </h3>
                                 <!-- Information de saisie sur la nature de l'appartement -->
                                 <div class="form-group row">
@@ -258,7 +260,7 @@
                                 <!-- fin chauffage  -->
                                 <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
                                 <button class="btn btn-primary nextBtn btn-lg pull-right" type="button">Next</button>
-                            </div>
+                            <!-- </div> -->
                         </div>  
                     </div>
 
@@ -380,3 +382,4 @@
         </div>
     <!-- </div> -->
 </section>
+<div class="mini-spacer"> </div>

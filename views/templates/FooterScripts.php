@@ -17,4 +17,6 @@
     <script src="<?=ASSETS?>node_modules/bootstrap-touch-slider/bootstrap-touch-slider.js"></script>
     <script src="<?=ASSETS?>node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
     <!-- Fichier Javascript personnel -->
-    <script src="<?=ASSETS?>js/CustomJs.js"></script>
+    <script src="<?=ASSETS?>js/CustomUser.js"></script>
+    <script src="<?=ASSETS?>js/CustomStepper.js"></script>
+    <script src="<?=ASSETS?>js/CustomSlider.js"></script>

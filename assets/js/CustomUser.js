@@ -8,7 +8,7 @@ $(function () {
     // });
 
     $(window).on("load", function() {
-        console.log("Customjs.js OnLoad function");
+        console.log("CustomUser.js OnLoad function");
         // Execution d'une requete Ajax afin de déterminer si une session existe déjà
         $.ajax({
             type: "POST",
@@ -100,8 +100,20 @@ $('.btn-logout').click(function(){
     });
 });
 /* ============= USER IDENTIFICATION GESTION ========================== */
+  // Email validation.
+$("input[type=email]").change(function() {
+    var email = $(this);
+    if (email.is(':invalid')) {
+        email.removeClass('is-valid').addClass('is-invalid');
+        email.siblings(".invalid-feedback").text(email.prop("validationMessage"))
+    } else {
+        email.removeClass('is-invalid').addClass('is-valid');
+    }
+});
 
 $('#ModalConnexion').on('show.bs.modal', function(e) {
+    this.classList.remove('was-validated');
+
     // récupération du button sur qui on a cliqué
     var button = $(e.relatedTarget);
     // récupération de l'information data-user du boutton
@@ -115,98 +127,42 @@ $('#ModalConnexion').on('hide.bs.modal', function(e) {
 });
 
 $("#ModalConnexion form").submit(function (e) {
-    var formEnCours = $(this).closest('form');
-    // dataUrl contient les données de la form en cour de saisie
-    // pour les envoyer via la methode ajax
-    var dataUrl = formEnCours.serialize();
-
-    var pwd = $(formEnCours).find('[type=password]');
-    pwdValue = pwd[0].value;
-
-    var btnSubmit = $(formEnCours).find('[type=submit]');
-    var action = btnSubmit[0].name;
-
-    e.preventDefault();
-
-    $.ajax({
-        type: "POST",
-        url: "user/"+action,
-        data: dataUrl,
-        dataType : 'json',
-        ContentType : 'application/json',
-        success: function (data, status, xhr) {
-            if (pwdValue == data.user._password){
-                $('#ModalConnexion').modal('hide');
-
-                displayUserFromTopBar(data.user, data.courtier, data.client);
-                displayUserFromNavBar(data.user, data.courtier, data.client);
-            }
-        },
-        error: function () {
-            console.log('Erreur sur requete AJAX USER');
-        }
-    });
-});
-
-/* ============= SLIDER GESTION ======================================= */
-
-$('#slider10').bsTouchSlider();
-$(".carousel .carousel-inner").swipe({
-    swipeLeft: function (event, direction, distance, duration, fingerCount) { this.parent().carousel('next'); } , 
-    swipeRight: function () { this.parent().carousel('prev'); } , 
-    threshold: 0
- });
-
- 
-/* =============   STEPPER GESTION ===================================== */
- $(document).ready(function () {
-    var navListItems = $('div.setup-panel div a'),
-            allWells = $('.setup-content'),
-            allNextBtn = $('.nextBtn'),
-              allPrevBtn = $('.prevBtn');
-  
-    allWells.hide();
-  
-    navListItems.click(function (e) {
+    var dataValid = this.checkValidity();
+    this.classList.add('was-validated');
+    if ( dataValid === false) {
         e.preventDefault();
-        var $target = $($(this).attr('href')),
-                $item = $(this);
-  
-        if (!$item.hasClass('disabled')) {
-            navListItems.removeClass('btn-primary').addClass('btn-default');
-            $item.addClass('btn-primary');
-            allWells.hide();
-            $target.show();
-            $target.find('input:eq(0)').focus();
-        }
-    });
-    
-    allPrevBtn.click(function(){
-        var curStep = $(this).closest(".setup-content"),
-            curStepBtn = curStep.attr("id"),
-            prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
-  
-            prevStepWizard.removeAttr('disabled').trigger('click');
-    });
-  
-    allNextBtn.click(function(){
-        var curStep = $(this).closest(".setup-content"),
-            curStepBtn = curStep.attr("id"),
-            nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-            curInputs = curStep.find("input[type='text'],input[type='url']"),
-            isValid = true;
-  
-        $(".form-group").removeClass("has-error");
-        for(var i=0; i<curInputs.length; i++){
-            if (!curInputs[i].validity.valid){
-                isValid = false;
-                $(curInputs[i]).closest(".form-group").addClass("has-error");
+        e.stopPropagation();
+     }
+     else
+     {  // dataUrl contient les données de la form en cour de saisie
+        // pour les envoyer via la methode ajax
+        var dataUrl = $(this).serialize();
+
+        var pwd = $(this).find('[type=password]');
+        pwdValue = pwd[0].value;
+
+        var btnSubmit = $(this).find('[type=submit]');
+        var action = btnSubmit[0].name;
+
+        e.preventDefault();
+
+        $.ajax({
+            type: "POST",
+            url: "user/"+action,
+            data: dataUrl,
+            dataType : 'json',
+            ContentType : 'application/json',
+            success: function (data, status, xhr) {
+                if (pwdValue == data.user._password){
+                    $('#ModalConnexion').modal('hide');
+
+                    displayUserFromTopBar(data.user, data.courtier, data.client);
+                    displayUserFromNavBar(data.user, data.courtier, data.client);
+                }
+            },
+            error: function () {
+                console.log('Erreur sur requete AJAX USER');
             }
-        }
-  
-        if (isValid)
-            nextStepWizard.removeAttr('disabled').trigger('click');
-    });
-  
-    $('div.setup-panel div a.btn-primary').trigger('click');
-  });
+        });
+    }
+});

@@ -21,18 +21,34 @@ class ClientManager extends Model {
         return $client;
     }
 
+    // Retourne la fiche client à partir de l'IdClient du User connecté
     public function getClient($oUser){
         $this->activeBddConnexion();
         $client = $this->getFromId($oUser->idClient());
         return $client;        
     }
 
-    public function getClients(){
+    // Retourne la liste de tous les clients à partir d'un courtier
+    public function getClientsCourtier($oCourtier){
         $this->activeBddConnexion();
         return $this->getAll();
     }
 
-    public function getAllContrats($params){
+    public function getAllDevis($oClient){
+        $this->activeBddConnexion();
+        $devisManager = DevisManager::getNewInstance();
+        return $devisManager->getAllDevis($oClient);
+    }
+
+    public function getAllContrats($oClient){
+        return null;
+        $this->activeBddConnexion();
+        $contratManager = ContratManager::getNewInstance();
+        return $contratManager->getAllContrats($oClient);
+    }
+
+    public function getAllSinistres($oClient){
+        return null;
 
     }
 

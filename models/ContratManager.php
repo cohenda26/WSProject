@@ -13,6 +13,10 @@ class ContratManager extends Model {
         return $p;
     }
 
+    public function getAllContrats($oClient){
+        $this->activeBddConnexion();
+        return $this->getAll('idClient', $oClient->idClient());
+    }
 }
 
 

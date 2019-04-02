@@ -52,9 +52,13 @@
             foreach ($p as $key => $value)
             {
               $method = $value;  
+              $alias = $this->aliasMethod($value);
               if (method_exists($Odatas, $method))
               {
-                $Req->bindValue($this->aliasMethod($value), $Odatas->$method());
+                $Req->bindValue($alias, $Odatas->$method());
+              }
+              else{
+                echo "Model.bindValue error " . $alias . " " . $method;
               }
             }            
         }

@@ -25,7 +25,10 @@
         private $_dateAmenagementSouhaitee; // date   
         private $_dateDebutContratSouhaitee; // date 
         private $_montantMinSouhaite = 0; // double 
-        private $_montatnMaxSouhaite = 0; // double  
+        private $_montantMaxSouhaite = 0; // double  
+        private $_valeurMobilier = 0;
+        private $_idClient;
+        private $_status;
 
         public function jsonSerialize()
         {
@@ -34,442 +37,318 @@
             return $vars;
         }
 
-        /**
-         * Get the value of _surface
-         */ 
         public function surface()
         {
                 return $this->_surface;
         }
 
-        /**
-         * Set the value of _surface
-         *
-         * @return  self
-         */ 
-        public function set_surface($_surface)
+        public function setSurface($_surface)
         {
                 $this->_surface = $_surface;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _idDevis
-         */ 
         public function idDevis()
         {
                 return $this->_idDevis;
         }
 
-        /**
-         * Set the value of _idDevis
-         *
-         * @return  self
-         */ 
-        public function set_idDevis($_idDevis)
+        public function setIdDevis($_idDevis)
         {
                 $this->_idDevis = $_idDevis;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _categorieAppart
-         */ 
+ 
         public function categorieAppart()
         {
                 return $this->_categorieAppart;
         }
 
-        /**
-         * Set the value of _categorieAppart
-         *
-         * @return  self
-         */ 
-        public function set_categorieAppart($_categorieAppart)
+        public function setCategorieAppart($_categorieAppart)
         {
                 $this->_categorieAppart = $_categorieAppart;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _statusLogement
-         */ 
         public function statusLogement()
         {
                 return $this->_statusLogement;
         }
 
-        /**
-         * Set the value of _statusLogement
-         *
-         * @return  self
-         */ 
-        public function set_statusLogement($_statusLogement)
+        public function setStatusLogement($_statusLogement)
         {
                 $this->_statusLogement = $_statusLogement;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _logementHabite
-         */ 
         public function logementHabite()
         {
                 return $this->_logementHabite;
         }
 
-        /**
-         * Set the value of _logementHabite
-         *
-         * @return  self
-         */ 
-        public function set_logementHabite($_logementHabite)
+
+        public function setLogementHabite($_logementHabite)
         {
                 $this->_logementHabite = $_logementHabite;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _typeLogement
-         */ 
         public function typeLogement()
         {
                 return $this->_typeLogement;
         }
 
-        /**
-         * Set the value of _typeLogement
-         *
-         * @return  self
-         */ 
-        public function set_typeLogement($_typeLogement)
+        public function setTypeLogement($_typeLogement)
         {
                 $this->_typeLogement = $_typeLogement;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _adresseNum
-         */ 
         public function adresseNum()
         {
                 return $this->_adresseNum;
         }
 
-        /**
-         * Set the value of _adresseNum
-         *
-         * @return  self
-         */ 
-        public function set_adresseNum($_adresseNum)
+        public function setAdresseNum($_adresseNum)
         {
                 $this->_adresseNum = $_adresseNum;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _adresseRue
-         */ 
         public function adresseRue()
         {
                 return $this->_adresseRue;
         }
 
-        /**
-         * Set the value of _adresseRue
-         *
-         * @return  self
-         */ 
-        public function set_adresseRue($_adresseRue)
+        public function setAdresseRue($_adresseRue)
         {
                 $this->_adresseRue = $_adresseRue;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _adresseVille
-         */ 
         public function adresseVille()
         {
                 return $this->_adresseVille;
         }
 
-        /**
-         * Set the value of _adresseVille
-         *
-         * @return  self
-         */ 
-        public function set_adresseVille($_adresseVille)
+        public function setAdresseVille($_adresseVille)
         {
                 $this->_adresseVille = $_adresseVille;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _nbPieces
-         */ 
         public function nbPieces()
         {
                 return $this->_nbPieces;
         }
 
-        /**
-         * Set the value of _nbPieces
-         *
-         * @return  self
-         */ 
-        public function set_nbPieces($_nbPieces)
+        public function setNbPieces($_nbPieces)
         {
                 $this->_nbPieces = $_nbPieces;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _surfaceDependances
-         */ 
         public function surfaceDependances()
         {
                 return $this->_surfaceDependances;
         }
 
-        /**
-         * Set the value of _surfaceDependances
-         *
-         * @return  self
-         */ 
-        public function set_surfaceDependances($_surfaceDependances)
+        public function setSurfaceDependances($_surfaceDependances)
         {
                 $this->_surfaceDependances = $_surfaceDependances;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _garage
-         */ 
         public function garage()
         {
                 return $this->_garage;
         }
 
-        /**
-         * Set the value of _garage
-         *
-         * @return  self
-         */ 
-        public function set_garage($_garage)
+        public function setGarage($_garage)
         {
                 $this->_garage = $_garage;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _verandas
-         */ 
         public function verandas()
         {
                 return $this->_verandas;
         }
 
-        /**
-         * Set the value of _verandas
-         *
-         * @return  self
-         */ 
-        public function set_verandas($_verandas)
+        public function setVerandas($_verandas)
         {
                 $this->_verandas = $_verandas;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _alarme
-         */ 
         public function alarme()
         {
                 return $this->_alarme;
         }
 
-        /**
-         * Set the value of _alarme
-         *
-         * @return  self
-         */ 
-        public function set_alarme($_alarme)
+        public function setAlarme($_alarme)
         {
                 $this->_alarme = $_alarme;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _typeChauffage
-         */ 
         public function typeChauffage()
         {
                 return $this->_typeChauffage;
         }
 
-        /**
-         * Set the value of _typeChauffage
-         *
-         * @return  self
-         */ 
-        public function set_typeChauffage($_typeChauffage)
+        public function setTypeChauffage($_typeChauffage)
         {
                 $this->_typeChauffage = $_typeChauffage;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _anneeConstruction
-         */ 
         public function anneeConstruction()
         {
                 return $this->_anneeConstruction;
         }
 
-        /**
-         * Set the value of _anneeConstruction
-         *
-         * @return  self
-         */ 
-        public function set_anneeConstruction($_anneeConstruction)
+        public function setAnneeConstruction($_anneeConstruction)
         {
                 $this->_anneeConstruction = $_anneeConstruction;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _nbSinitres
-         */ 
         public function nbSinitres()
         {
                 return $this->_nbSinitres;
         }
 
-        /**
-         * Set the value of _nbSinitres
-         *
-         * @return  self
-         */ 
-        public function set_nbSinitres($_nbSinitres)
+        public function setNbSinitres($_nbSinitres)
         {
                 $this->_nbSinitres = $_nbSinitres;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _resiliationRecente
-         */ 
         public function resiliationRecente()
         {
                 return $this->_resiliationRecente;
         }
 
-        /**
-         * Set the value of _resiliationRecente
-         *
-         * @return  self
-         */ 
-        public function set_resiliationRecente($_resiliationRecente)
+        public function setResiliationRecente($_resiliationRecente)
         {
                 $this->_resiliationRecente = $_resiliationRecente;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _logementDejaAssure
-         */ 
         public function logementDejaAssure()
         {
                 return $this->_logementDejaAssure;
         }
 
-        /**
-         * Set the value of _logementDejaAssure
-         *
-         * @return  self
-         */ 
-        public function set_logementDejaAssure($_logementDejaAssure)
+        public function setLogementDejaAssure($_logementDejaAssure)
         {
                 $this->_logementDejaAssure = $_logementDejaAssure;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _dateDebutContratSouhaitee
-         */ 
         public function dateDebutContratSouhaitee()
         {
                 return $this->_dateDebutContratSouhaitee;
         }
 
-        /**
-         * Set the value of _dateDebutContratSouhaitee
-         *
-         * @return  self
-         */ 
-        public function set_dateDebutContratSouhaitee($_dateDebutContratSouhaitee)
+        public function setDateDebutContratSouhaitee($_dateDebutContratSouhaitee)
         {
                 $this->_dateDebutContratSouhaitee = $_dateDebutContratSouhaitee;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _montantMinSouhaite
-         */ 
         public function montantMinSouhaite()
         {
                 return $this->_montantMinSouhaite;
         }
 
-        /**
-         * Set the value of _montantMinSouhaite
-         *
-         * @return  self
-         */ 
-        public function set_montantMinSouhaite($_montantMinSouhaite)
+        public function setMontantMinSouhaite($_montantMinSouhaite)
         {
                 $this->_montantMinSouhaite = $_montantMinSouhaite;
 
                 return $this;
         }
 
-        /**
-         * Get the value of _montatnMaxSouhaite
-         */ 
-        public function montatnMaxSouhaite()
+        public function montantMaxSouhaite()
         {
-                return $this->_montatnMaxSouhaite;
+                return $this->_montantMaxSouhaite;
         }
 
-        /**
-         * Set the value of _montatnMaxSouhaite
-         *
-         * @return  self
-         */ 
-        public function set_montatnMaxSouhaite($_montatnMaxSouhaite)
+        public function setMontantMaxSouhaite($_montantMaxSouhaite)
         {
-                $this->_montatnMaxSouhaite = $_montatnMaxSouhaite;
+                $this->_montantMaxSouhaite = $_montantMaxSouhaite;
+
+                return $this;
+        }
+
+
+        public function idClient()
+        {
+                return $this->_idClient;
+        }
+
+        public function setIdClient($_idClient)
+        {
+                $this->_idClient = $_idClient;
+
+                return $this;
+        }
+
+
+        public function valeurMobilier()
+        {
+                return $this->_valeurMobilier;
+        }
+
+        public function setValeurMobilier($_valeurMobilier)
+        {
+                $this->_valeurMobilier = $_valeurMobilier;
+
+                return $this;
+        }
+
+        public function dateAmenagementSouhaitee()
+        {
+                return $this->_dateAmenagementSouhaitee;
+        }
+
+        public function setDateAmenagementSouhaitee($_dateAmenagementSouhaitee)
+        {
+                $this->_dateAmenagementSouhaitee = $_dateAmenagementSouhaitee;
+
+                return $this;
+        }
+
+        public function status()
+        {
+                return $this->_status;
+        }
+
+        public function setStatus($_status)
+        {
+                $this->_status = $_status;
 
                 return $this;
         }

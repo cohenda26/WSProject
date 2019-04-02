@@ -6,7 +6,8 @@ class View{
     private $_viewDatas;
 
     public function __construct($action){
-       $this->_file = VIEWS."view". $action . ".php";
+       $this->_file = VIEWS. $action . ".php";
+//       $this->_file = VIEWS."view". $action . ".php";
     }
 
     public function generate($data){

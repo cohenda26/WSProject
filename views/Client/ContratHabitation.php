@@ -31,7 +31,7 @@
                 <h4 class="m-b-0 text-white">Contrat d'habitation</h4>
             </div>
             <div class="card-body">
-                <form class="form-horizontal" action="" method="post">
+                <form class="form-horizontal" action="<?=HOST?>client/validerContratHabitation" method="post">
                     <!-- DEBUT STEP 1 pour le contenu de la saisie -->
                     <div class="row setup-content" id="step-1">
                         <div class="col-xs-6 col-md-12">
@@ -351,29 +351,29 @@
                                 <div class="form-group row">
                                     <label class="col-3 col-form-label" for="date-emenagement">Date d'eménagement </label>
                                     <div class="col-4">
-                                        <input class="form-control" type="date" value="" id="date-emenagement-input">
+                                        <input class="form-control" type="date" value="" name="dateAmenagementSouhaitee" id="date-emenagement-input">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-3 col-form-label" for="date-debut-contrat">Date de début de contrat souhaité </label>
                                     <div class="col-4">
-                                        <input class="form-control" type="date" value="" id="date-debut-contrat-input">
+                                        <input class="form-control" type="date" value="" name="dateDebutContratSouhaitee" id="date-debut-contrat-input">
                                     </div>
                                 </div>
 
                                 <div class="form-group row">
                                     <label class="col-3 col-form-label" for="montant-max-cotisation">Montant de la cotisation annuelle souhaitée </label>
                                     <div class="col-4">
-                                        <input class="form-control" type="number" value="" id="cotisationMin">
+                                        <input class="form-control" type="number" value="" name="montantMinSouhaite" id="cotisationMin">
                                     </div>
                                     <label class="col-1 col-form-label" for="montant-max-cotisation"> à </label>
                                     <div class="col-4">
-                                        <input class="form-control" type="number" value="" id="cotisationMax">
+                                        <input class="form-control" type="number" value="" name="montantMaxSouhaite" id="cotisationMax">
                                     </div>
                                 </div>  
                                 <button class="btn btn-primary prevBtn btn-lg pull-left" type="button">Previous</button>
-                                <button class="btn btn-inverse nextBtn btn-lg pull-right" type="button">envoyer</button>
+                                <button class="btn btn-inverse nextBtn btn-lg pull-right" type="submit">envoyer</button>
                             </div>
                         </div>
                     </div>

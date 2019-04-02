@@ -32,7 +32,7 @@ class CourtierManager extends Model {
         $this->activeBddConnexion();
         $currentCourtier =  UserManager::getSessionCourtier();
         $clientManager = ClientManager::getNewInstance();
-        return $clientManager->getClients();  
+        return $clientManager->getClientsCourtier($currentCourtier);  
     }
 }
 

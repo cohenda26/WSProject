@@ -16,7 +16,7 @@
             $this->_homeManager = HomeManager::getNewInstance();
             $assHabitation = $this->_homeManager->getAssHabitation();
 
-            $this->_view = new View("HomeAssHabitation");
+            $this->_view = new View("Home/AssHabitation");
             $this->_view->generate(array("assHabitation"=> $assHabitation));            
         }
 
@@ -24,7 +24,7 @@
             $this->_homeManager = HomeManager::getNewInstance();
             $assHypotheque = $this->_homeManager->getAssHypotheque();
 
-            $this->_view = new View("HomeAssHypotheque");
+            $this->_view = new View("Home/AssHypotheque");
             $this->_view->generate(array("assHypotheque"=> $assHypotheque));            
         }
 
@@ -32,7 +32,7 @@
             $this->_homeManager = HomeManager::getNewInstance();
             $assVoiture = $this->_homeManager->getAssVoiture();
 
-            $this->_view = new View("HomeAssVoiture");
+            $this->_view = new View("Home/AssVoiture");
             $this->_view->generate(array("assHVoiture"=> $assVoiture));            
         }
 
@@ -40,7 +40,7 @@
             $this->_homeManager = HomeManager::getNewInstance();
             $assVie = $this->_homeManager->getAssVie();
 
-            $this->_view = new View("HomeAssVie");
+            $this->_view = new View("Home/AssVie");
             $this->_view->generate(array("assVie"=> $assVie));            
         }
 
@@ -48,7 +48,7 @@
             $this->_homeManager = HomeManager::getNewInstance();
             $assSante = $this->_homeManager->getAssSante();
 
-            $this->_view = new View("HomeAssSante");
+            $this->_view = new View("Home/AssSante");
             $this->_view->generate(array("assSante"=> $assSante));            
         }
 
@@ -56,7 +56,7 @@
             $this->_homeManager = HomeManager::getNewInstance();
             $assVoyage = $this->_homeManager->getAssVoyage();
 
-            $this->_view = new View("HomeAssVoyage");
+            $this->_view = new View("Home/AssVoyage");
             $this->_view->generate(array("assVoyage"=> $assVoyage));            
         }
     }

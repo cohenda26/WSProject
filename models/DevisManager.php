@@ -2,6 +2,8 @@
 //=================================================================
 //                   CLASS MANAGER - Devis
 //=================================================================
+define('DEVIS_ENATTENTE', 0);
+
 class DevisManager extends Model {
 
     public static function getNewInstance(){
@@ -9,17 +11,18 @@ class DevisManager extends Model {
     } 
 
     protected function getListPropertyTable(){
-        $p = ['categorieAppart', 'statusLogement', 'logementHabite', 'typeLogement', 'adresseNum', 'adresseRue', 'adresseVille',
+        $p = ['idClient', 'status', 'categorieAppart', 'statusLogement', 'logementHabite', 'typeLogement', 'adresseNum', 'adresseRue', 'adresseVille',
         'surface', 'nbPieces', 'surfaceDependances', 'garage', 'verandas', 'alarme', 'typeChauffage', 
         'anneeConstruction', 'nbSinitres', 'resiliationRecente', 'logementDejaAssure', 'dateAmenagementSouhaitee', 'dateDebutContratSouhaitee', 
-        'montantMinSouhaite', 'montatnMaxSouhaite', 'categorieAppart'
+        'montantMinSouhaite', 'montantMaxSouhaite', 'valeurMobilier'
         ];
         return $p;
     }
 
-    public function addDevis($data){
+    public function addDevis($data, $client){
         $this->activeBddConnexion();
         $Devis = new Devis($data);
+        $Devis->setIdClient($client->idClient());
         $this->add($Devis);
         $Devis->setIdDevis(self::$_BddConnexion->lastInsertId()); 
         return $Devis;
@@ -31,9 +34,14 @@ class DevisManager extends Model {
         return $Devis;        
     }
 
-    public function getAllDevis($oUser){
+    public function getAllDevis($oClient){
         $this->activeBddConnexion();
-        return $this->getAll();
+        return $this->getAll('idClient', $oClient->idClient());
+    }
+
+    public function getDevisEnAttente(){
+        $this->activeBddConnexion();
+        return $this->getAll('status', DEVIS_ENATTENTE);
     }
 
 

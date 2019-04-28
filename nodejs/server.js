@@ -43,16 +43,16 @@ app.get('/', (req, res) => {
 // ==========================
 
 wss.on('connection', (ws) => {
-    console.log('Server WebSocket Connection ');
+    console.log('Server WebSocket OPEN Connexion ');
 
     ws.on('close', (ws) => {
-        console.log('Server WebSocket CLOSE', ws)
+        console.log('Server WebSocket CLOSE Connexion ', ws);
     });
 
     //connection is up, let's add a simple simple event
     ws.on('message', (message) => {
         //log the received message and send it back to the client
-        console.log('Server WebSocket Message Rec:u: %s', message);
+        console.log('Server WebSocket Message Recu: %s', message);
         // ws.send(`Hello, you sent -> ${message}`);
 
         const broadcastRegex = /^broadcast\:/;
@@ -83,7 +83,7 @@ wss.on('connection', (ws) => {
 //
 // =====================================
 server.listen(port, hostname, () => {
-    console.log(`Server WebSocket démarré : Port : ${server.address().port} :)`);
+    console.log(`Server WebSocket actif : Port : ${server.address().port} :)`);
 });
 
 

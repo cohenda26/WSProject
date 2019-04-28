@@ -21,9 +21,9 @@ $("#ContratHabitation form").submit(function (e) {
             dataType : 'html',
             ContentType : 'application/json',
             success: function (data, status, xhr) {
-                WebSocket_SendNotification();
+                WebSocket_SendMessage("Devis ", true);
                 url = window.location.protocol + "//" + window.location.host + "/" +'client/espacePersonnel';
-                // similar behavior as an HTTP redirect
+                // redirection vers l'espace personnel du client
                 window.location.replace( url);
             },
             error: function () {

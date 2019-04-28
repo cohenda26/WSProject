@@ -20,7 +20,7 @@
                             <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceVie" target="_blank">Vie</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul>                   
 
                 <ul class="navbar-nav ml-auto">
                     <div class="navbar-menu-courtier d-none">
@@ -34,7 +34,9 @@
                 </ul>
 
                 <div class="navbar-menu-courtier d-none">
+                
                     <div class="form-inline ml-auto authentication-box">
+                    <a href="#"><i class="icon-Bell p-2 m-2 d-none" id="alerteDevis"></i> </a>
                         <button class="btn btn-sm btn-outline-success mr-sm-2 btn-logout"  onclick="location.href='<?=HOST?>'">Logout</button>
                     </div>
                 </div>

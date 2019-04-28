@@ -19,11 +19,13 @@ $(function () {
             success: function (data, status, xhr) {
                 displayUserFromTopBar(data.user, data.courtier, data.client);
                 displayUserFromNavBar(data.user, data.courtier, data.client);
+                WebSocket_Connect();
             },
             error: function () {
                 traceLog('userConnected : erreur requete AJAX');
                 displayUserFromTopBar(null, null, null);
                 displayUserFromNavBar(null, null, null);
+                WebSocket_Disconnect();
             }
         });
     });
@@ -48,6 +50,7 @@ function displayUserFromTopBar(user, courtier, client) {
         }
         $('.topbar-UserConnected').removeClass('d-none');
         $('.topbar-UserDisconnected').addClass('d-none');
+        // activation du WebSocket
     }
 }
 
@@ -91,6 +94,7 @@ $('.btn-logout').click(function(){
         success: function (data, status, xhr) {
             displayUserFromTopBar(null, null, null);
             displayUserFromNavBar(null, null, null);
+            WebSocket_Disconnect();
         },
         error: function () {
             traceLog('userConnected : erreur requete AJAX');
@@ -158,6 +162,7 @@ $("#ModalConnexion form").submit(function (e) {
 
                     displayUserFromTopBar(data.user, data.courtier, data.client);
                     displayUserFromNavBar(data.user, data.courtier, data.client);
+                    WebSocket_Connect();
                 }
             },
             error: function () {

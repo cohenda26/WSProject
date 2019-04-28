@@ -5,11 +5,11 @@
     Define('HOST', 'http://'.$host.'/');
     define('ROOT', $root.'/');
 
-    define('CONTROLLERS', ROOT.'controllers/');
-    define('VIEWS', ROOT.'views/');
-    define ('MODELS', ROOT.'models/');
-    define('AJAX', ROOT.'ajax/');
-    define('NODEJS', ROOT.'nodejs/');
+    define('CONTROLLERS', ROOT.'src/controllers/');
+    define('VIEWS', ROOT.'src/views/');
+    define ('MODELS', ROOT.'src/models/');
+    define('AJAX', ROOT.'src/ajax/');
 
+    define('NODEJS', ROOT.'nodejs/');
     define('ASSETS', HOST.'assets/');
 ?>

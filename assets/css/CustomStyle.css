@@ -107,6 +107,7 @@ FEATURE41-BOX
   display: table;
   width: 50%;
   position: relative;
+  width:100%;
 }
 .stepwizard-step button[disabled] {
   opacity: 1 !important;
@@ -126,6 +127,8 @@ FEATURE41-BOX
   display: table-cell;
   text-align: center;
   position: relative;
+  width:25%;
+  font-size: 14px;
 }
 .stepbtn-circle {
   width: 30px;

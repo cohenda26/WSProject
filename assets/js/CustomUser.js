@@ -8,7 +8,7 @@ $(function () {
     // });
 
     $(window).on("load", function() {
-        console.log("CustomUser.js OnLoad function");
+        traceLog("CustomUser.js OnLoad function");
         // Execution d'une requete Ajax afin de déterminer si une session existe déjà
         $.ajax({
             type: "POST",
@@ -21,7 +21,7 @@ $(function () {
                 displayUserFromNavBar(data.user, data.courtier, data.client);
             },
             error: function () {
-                console.log('userConnected : erreur requete AJAX');
+                traceLog('userConnected : erreur requete AJAX');
                 displayUserFromTopBar(null, null, null);
                 displayUserFromNavBar(null, null, null);
             }
@@ -32,7 +32,7 @@ $(function () {
 
 // Fonction qui gère l'affichage de la TopBar et Nav pour les informations USER
 function displayUserFromTopBar(user, courtier, client) {
-    console.log("displayUserFromTopBar, param user / courtier / client ", user, courtier, client);
+    traceLog("displayUserFromTopBar, param user / courtier / client ", user, courtier, client);
 
     if ((user == null) || (user == undefined)) {
         $('.topbar-UserConnected').addClass('d-none');
@@ -52,7 +52,7 @@ function displayUserFromTopBar(user, courtier, client) {
 }
 
 function displayUserFromNavBar(user, courtier, client){
-    console.log("displayUserFromNavBar, param user / courtier / client ",
+    traceLog("displayUserFromNavBar, param user / courtier / client ",
      user ? true : false, user ? user._isCourtier : false, user ? user._isClient : false);
 
     if (user) {
@@ -93,7 +93,7 @@ $('.btn-logout').click(function(){
             displayUserFromNavBar(null, null, null);
         },
         error: function () {
-            console.log('userConnected : erreur requete AJAX');
+            traceLog('userConnected : erreur requete AJAX');
             displayUserFromTopBar(null, null, null);
             displayUserFromNavBar(null, null, null);
         }
@@ -161,7 +161,7 @@ $("#ModalConnexion form").submit(function (e) {
                 }
             },
             error: function () {
-                console.log('Erreur sur requete AJAX USER');
+                traceLog('Erreur sur requete AJAX USER');
             }
         });
     }

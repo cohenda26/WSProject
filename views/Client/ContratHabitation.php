@@ -1,5 +1,5 @@
 <div class="bg-light mini-spacer p-b-0"></div>
-<section id="" class="container p-t-10">
+<section id="ContratHabitation" class="container p-t-10">
 
     <div class="row col-12">
     <div class="stepwizard">
@@ -31,10 +31,11 @@
                 <h4 class="m-b-0 text-white">Contrat d'habitation</h4>
             </div>
             <div class="card-body">
-                <form class="form-horizontal" action="<?=HOST?>client/validerContratHabitation" method="post">
+                <!-- <form class="form-horizontal" action="<?=HOST?>client/validerContratHabitation" method="post"> -->
+                <form class="form-horizontal" action="" method="post">
                     <!-- DEBUT STEP 1 pour le contenu de la saisie -->
                     <div class="row setup-content" id="step-1">
-                        <div class="col-xs-6 col-md-12">
+                        <div class="col-6 col-md-12">
                             <!-- <div class="col-md-12"> -->
                                 <h3> Renseignements sur le logement </h3>
                         
@@ -156,18 +157,18 @@
 
                     <!-- DEBUT STEP 2 pour les informations sur le logement -->
                     <div class="row setup-content" id="step-2">
-                        <div class="col-xs-6 col-md-12">
+                        <div class="col-6 col-md-12">
                             <!-- <div class="col-md-12"> -->
                                 <h3> Renseignements sur le logement </h3>
                                 <!-- Information de saisie sur la nature de l'appartement -->
                                 <div class="form-group row">
                                     <label class="col-3 col-form-label" for="adresseLogement" >Adresse du logement </label>
-                                    <input class="col-2 form-control" type="text" value="" id="NumeroRue">
-                                    <input class="col-7 form-control" type="text" value="" id="Rue">
+                                    <input class="col-2 form-control" type="text" value="" id="DevisAdresseNum">
+                                    <input class="col-7 form-control" type="text" value="" id="DevisAdresseRue">
                                 </div>   
                                 <div class="form-group row">
                                     <label class="col-3 col-form-label" for="villeLogement" >Ville </label>
-                                    <input class="col-9 form-control" type="text" value="" id="Ville">
+                                    <input class="col-9 form-control" type="text" value="" id="DevisAdresseVille">
                                 </div>    
                                 <div class="form-group row">
                                     <label class="col-3 col-form-label" for="surfaceLogement" >Surface habitable (m²) </label>
@@ -266,7 +267,7 @@
 
                     <!-- DEBUT STEP 3 pour le contenu de la saisie -->
                     <div class="row setup-content" id="step-3">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="col-md-12">
                                 <h3> Mes besoins </h3>
                                 <div class="form-group row">
@@ -344,7 +345,7 @@
 
                     <!-- DEBUT STEP 4 pour le contenu de la saisie -->
                     <div class="row setup-content" id="step-4">
-                        <div class="col-xs-6">
+                        <div class="col-6">
                             <div class="col-md-12">
                                 <h3> Validation </h3>
 

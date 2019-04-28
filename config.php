@@ -9,6 +9,7 @@
     define('VIEWS', ROOT.'views/');
     define ('MODELS', ROOT.'models/');
     define('AJAX', ROOT.'ajax/');
+    define('NODEJS', ROOT.'nodejs/');
 
     define('ASSETS', HOST.'assets/');
 ?>

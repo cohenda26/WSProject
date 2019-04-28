@@ -67,7 +67,7 @@
             $this->_devisManager->addDevis($params, $client);
 
             $homeManager = HomeManager::getNewInstance();
-            $homeManager->sendMail();
+           // a remettre $homeManager->sendMail();
 
 
             //$this->listDevis($params);

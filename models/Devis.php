@@ -8,9 +8,9 @@
         private $_statusLogement = 0;      
         private $_logementHabite = 0;              
         private $_typeLogement = 0;         
-        private $_adresseNum = "";       
-        private $_adresseRue = "";  
-        private $_adresseVille = "";   
+        private $_devisAdresseNum = "";       
+        private $_devisAdresseRue = "";  
+        private $_devisAdresseVille = "";   
         private $_surface = 0;      
         private $_nbPieces = 0;     
         private $_surfaceDependances = 0;  
@@ -111,38 +111,38 @@
                 return $this;
         }
 
-        public function adresseNum()
+        public function devisAdresseNum()
         {
-                return $this->_adresseNum;
+                return $this->_devisAdresseNum;
         }
 
-        public function setAdresseNum($_adresseNum)
+        public function setDevisAdresseNum($_devisAdresseNum)
         {
-                $this->_adresseNum = $_adresseNum;
+                $this->_devisAdresseNum = $_devisAdresseNum;
 
                 return $this;
         }
 
-        public function adresseRue()
+        public function devisAdresseRue()
         {
-                return $this->_adresseRue;
+                return $this->_devisAdresseRue;
         }
 
-        public function setAdresseRue($_adresseRue)
+        public function setDevisAdresseRue($_devisAdresseRue)
         {
-                $this->_adresseRue = $_adresseRue;
+                $this->_devisAdresseRue = $_devisAdresseRue;
 
                 return $this;
         }
 
-        public function adresseVille()
+        public function devisAdresseVille()
         {
-                return $this->_adresseVille;
+                return $this->_devisAdresseVille;
         }
 
-        public function setAdresseVille($_adresseVille)
+        public function setDevisAdresseVille($_devisAdresseVille)
         {
-                $this->_adresseVille = $_adresseVille;
+                $this->_devisAdresseVille = $_devisAdresseVille;
 
                 return $this;
         }

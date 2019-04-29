@@ -16,7 +16,7 @@
                             <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceVoiture" target="_blank">Voiture</a></li>
                             <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceVoyage" target="_blank">Voyage</a></li>
                             <li class="divider" role="separator"></li>
-                            <li><a class="dropdown-item" ref="<?=HOST?>Home/assuranceSante" target="_blank">Santé</a></li>
+                            <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceSante" target="_blank">Santé</a></li>
                             <li><a class="dropdown-item" href="<?=HOST?>Home/assuranceVie" target="_blank">Vie</a></li>
                         </ul>
                     </li>

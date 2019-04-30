@@ -10,9 +10,10 @@ $(function () {
     $(window).on("load", function() {
         traceLog("CustomUser.js OnLoad function");
         // Execution d'une requete Ajax afin de déterminer si une session existe déjà
+
         $.ajax({
             type: "POST",
-            url: "/user/userConnected",
+            url: getUrlComplete("/user/userConnected"),
             data: "",
             dataType : 'json',
             ContentType : 'application/json',
@@ -87,7 +88,7 @@ function displayUserFromNavBar(user, courtier, client){
 $('.btn-logout').click(function(){
     $.ajax({
         type: "POST",
-        url: "/user/logout",
+        url: getUrlComplete("/user/logout"),
         data: "",
         dataType : 'json',
         ContentType : 'application/json',
@@ -103,6 +104,8 @@ $('.btn-logout').click(function(){
         }
     });
 });
+
+
 /* ============= USER IDENTIFICATION GESTION ========================== */
   // Email validation.
 $("input[type=email]").change(function() {
@@ -123,7 +126,7 @@ $('#ModalConnexion').on('show.bs.modal', function(e) {
     // récupération de l'information data-user du boutton
     var recipient = button.data('user');
 
-    $('#'+recipient).removeClass('d-none');
+    $('#Frm'+recipient).removeClass('d-none');
 });
 
 $('#ModalConnexion').on('hide.bs.modal', function(e) {
@@ -152,7 +155,7 @@ $("#ModalConnexion form").submit(function (e) {
 
         $.ajax({
             type: "POST",
-            url: "user/"+action,
+            url: getUrlComplete("user/"+action),
             data: dataUrl,
             dataType : 'json',
             ContentType : 'application/json',

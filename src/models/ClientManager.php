@@ -23,8 +23,11 @@ class ClientManager extends Model {
 
     // Retourne la fiche client à partir de l'IdClient du User connecté
     public function getClient($oUser){
-        $this->activeBddConnexion();
-        $client = $this->getFromId($oUser->idClient());
+        $client = null;
+        if ($oUser){
+            $this->activeBddConnexion();
+            $client = $this->getFromId($oUser->idClient());
+        }
         return $client;        
     }
 

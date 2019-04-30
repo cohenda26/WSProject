@@ -6,7 +6,7 @@
     <div class="modal-dialog" role="document">
 
         <!-- Modal de login d'un utilisateur déjà enregistré -->
-        <div id="userLogin" class="d-none userIdentification modal-content">
+        <div id="FrmUserLogin" class="d-none userIdentification modal-content">
             <div class="modal-header">
                 <h1 class="modal-title">Login</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
@@ -49,7 +49,7 @@
         </div><!-- /.modal-content -->        
 
         <!-- Modal d'enregistrement d'un nouvel utilisateur  -->
-        <div id="userSignIn" class="d-none userIdentification modal-content po-relative">
+        <div id="FrmUserSignIn" class="d-none userIdentification modal-content po-relative">
             <div class="modal-header">
                 <h1 class="modal-title">Register</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
@@ -95,7 +95,7 @@
         </div><!-- /.modal-content -->
 
         <!-- Modal d'enregistrement d'un nouveau partenaire  -->
-        <div id="userCourtierSignIn" class="d-none userIdentification modal-content po-relative">
+        <div id="FrmUserCourtierSignIn" class="d-none userIdentification modal-content po-relative">
             <div class="modal-header">
                 <h1 class="modal-title">Nouveau Courtier</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
@@ -145,7 +145,7 @@
         </div><!-- /.modal-content -->
 
         <!-- Modal HTML Markup -->
-        <div id="userNotFoundCreate" class="d-none userIdentification modal-content">
+        <div id="FrmUserNotFoundCreate" class="d-none userIdentification modal-content">
             <div class="modal-header">
                 <h4 class="modal-title">See more of this awesome website by logging in</h4>
             </div>

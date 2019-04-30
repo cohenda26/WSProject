@@ -47,8 +47,8 @@
                 </div>
                 <div class="navbar-btn-connexion">
                     <div class="form-inline ml-auto authentication-box">
-                        <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="userLogin">Login</button>
-                        <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="userSignIn">Register</button>
+                        <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="UserLogin">Login</button>
+                        <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="UserSignIn" id="userSignIn">Register</button>
                     </div>
                 </div>
                 <!-- <ul class="ml-auto list-inline authentication-box">

@@ -11,7 +11,7 @@ class DevisManager extends Model {
     } 
 
     protected function getListPropertyTable(){
-        $p = ['idClient', 'status', 'categorieAppart', 'statusLogement', 'logementHabite', 'typeLogement', 'adresseNum', 'adresseRue', 'adresseVille',
+        $p = ['idClient', 'status', 'categorieAppart', 'statusLogement', 'logementHabite', 'typeLogement', 'devisAdresseNum', 'devisAdresseRue', 'devisAdresseVille',
         'surface', 'nbPieces', 'surfaceDependances', 'garage', 'verandas', 'alarme', 'typeChauffage', 
         'anneeConstruction', 'nbSinitres', 'resiliationRecente', 'logementDejaAssure', 'dateAmenagementSouhaitee', 'dateDebutContratSouhaitee', 
         'montantMinSouhaite', 'montantMaxSouhaite', 'valeurMobilier'

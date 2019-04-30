@@ -142,7 +142,7 @@
                             <p class="m-t-30">Propriétaire ou locataire ? </p> 
                             <p class="m-t-5">Résidence principale ou secondaire ? </p>
                             <p class="m-t-5">Maison ou appartement ? </p>
-                            <p class="m-t-5"> <a class="btn btn-info-gradiant btn-arrow m-t-10" data-toggle="Modal" href="./AssuranceHabitation.html">
+                            <p class="m-t-5"> <a class="btn btn-info-gradiant btn-arrow m-t-10" data-toggle="Modal" href="<?=HOST?>client/souscrireContratHabitation">
                                 <span>Souscrire <i class="ti-arrow-right"></i></span>
                             </a> à l'assurance qui vous convient </p>
                         </div>

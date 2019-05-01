@@ -24,9 +24,8 @@ class QuestionManager extends Model {
         $list = [];
         for($i=0 ; $i<count($question) ; $i++) 
         { 
-            $list[$question[i]->idsysQuestion()]
-
-        } 
+           // $list[$question[i]->idsysQuestion()]
+        }
     }
 }
 

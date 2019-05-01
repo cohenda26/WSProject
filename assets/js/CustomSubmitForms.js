@@ -1,12 +1,14 @@
-function ValiderContratHabitation(dataFrm){
+function ValiderContratHabitation(dataFrm, Frm){
     $.ajax({
         type: "POST",
         url: getUrlComplete("client/validerContratHabitation"),
-        data: dataFrm,
+        data: Frm.serialize(),
         dataType : 'html',
         ContentType : 'application/json',
         success: function (data, status, xhr) {
-            WebSocket_SendMessage("Devis ", true);
+            var data = Frm.serializeArray();
+            WebSocket_SendMessage("Devis ", data, true);
+            //WebSocket_SendMessage("Devis ", true);
             // redirection vers l'espace personnel du client
             window.location.replace( getUrlComplete('client/espacePersonnel'));
         },
@@ -34,6 +36,7 @@ $("#ContratHabitation form").submit(function (e) {
         e.preventDefault();
         // dataFrm contient les données de la form en cour de saisie
         // pour les envoyer via la methode ajax
+        let Frm = $(this);
         var dataFrm = $(this).serialize();
     
         $.ajax({
@@ -43,20 +46,20 @@ $("#ContratHabitation form").submit(function (e) {
             dataType : 'json',
             ContentType : 'application/json',
             success: function (data, status, xhr) {
-                // Test pour savoir si l'utilisateur est connecté
+                // L'utilisateur n'est pas connecté
                 if (!data.user) {  
-                    // Mise en place d'un evenement sur le deuxieme partie de la form
-                    // afin de declencher la validation du contrat au submit
-                    $("#ModalConnexion form")[1].addEventListener('submit', 
+                    // On pointe la form dont Id=UserSignIn et 
+                    // on declenche la validation du contrat au submit
+                    $("form#UserSignIn")[0].addEventListener('submit',
                     function () {
-                        ValiderContratHabitation(dataFrm);
+                        ValiderContratHabitation(dataFrm, Frm);
                     }, {once : true});
 
                     // Appel de la form correspondant à l'enregistrement d'un USER
-                    $('#userSignIn').trigger('click');
+                    $('#btnUserSignIn').trigger('click');
                   } 
                 else {
-                    ValiderContratHabitation(dataFrm);
+                    ValiderContratHabitation(dataFrm, Frm);
                 }
             },
             error: function (xhr, textStatus, error) {

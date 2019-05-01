@@ -49,14 +49,18 @@ function openWSConnection(protocol, hostname, port, endpoint) {
         };
 
         webSocket.onmessage = function (messageEvent) {
-            var wsMsg = messageEvent.data;
+            // La structure recu dans la partie .data est une struture JSON composé de 
+            // msg = string pour le titre du message
+            // data = tableau d'objet des informations envoyées
+            let obj = JSON.parse(messageEvent.data);
+            let wsMsg = obj.msg;
+
             traceLog("Client WebSocket MESSAGE: " + wsMsg, messageEvent);
+            // Notre message contient "Devis" --> nous affichons la cloche pour alerter 
+            // que des nouveaux devis sont arrivés
             if (wsMsg.indexOf("Devis") > 0) {
                 $("#alerteDevis").removeClass('d-none');
-                //document.getElementById("incomingMsgOutput").value += "error: " + wsMsg.error + "\r\n";
-            } else {
-                //document.getElementById("incomingMsgOutput").value += "message: " + wsMsg + "\r\n";
-            }
+            } 
         };
     } catch (exception) {
         console.error(exception);
@@ -65,7 +69,7 @@ function openWSConnection(protocol, hostname, port, endpoint) {
 /**
  * Send a message to the WebSocket server
  */
-function WebSocket_SendMessage(msg, broadcast = false) {
+function WebSocket_SendMessage(msg, data, broadcast = false) {
     if (webSocket){
         if (webSocket.readyState != WebSocket.OPEN) {
             //console.error("webSocket is not open: " + webSocket.readyState);
@@ -75,6 +79,10 @@ function WebSocket_SendMessage(msg, broadcast = false) {
         if (broadcast){
             msg = "broadcast: " + msg;
         }
-        webSocket.send(msg);
+
+        var datas = {};
+        datas.msg = msg;
+        datas.data = data;
+        webSocket.send( JSON.stringify( datas) );
     }
 }

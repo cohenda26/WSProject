@@ -1,16 +1,10 @@
 $(function () {
     "use strict";
-    // ============================================================== 
-    //This is for xxxxx
-    // ============================================================== 
-    // $(function () {
-        
-    // });
 
     $(window).on("load", function() {
-        traceLog("CustomUser.js OnLoad function");
-        // Execution d'une requete Ajax afin de déterminer si une session existe déjà
+        traceLog("CustomUser.js OnLoad ");
 
+        // Execution d'une requete Ajax afin de déterminer si une session existe déjà
         $.ajax({
             type: "POST",
             url: getUrlComplete("/user/userConnected"),
@@ -51,7 +45,6 @@ function displayUserFromTopBar(user, courtier, client) {
         }
         $('.topbar-UserConnected').removeClass('d-none');
         $('.topbar-UserDisconnected').addClass('d-none');
-        // activation du WebSocket
     }
 }
 
@@ -130,6 +123,7 @@ $('#ModalConnexion').on('show.bs.modal', function(e) {
 });
 
 $('#ModalConnexion').on('hide.bs.modal', function(e) {
+    // On desactive toutes les forms possédant la class "userIdentification"
     $('.userIdentification').addClass('d-none');
 });
 
@@ -141,7 +135,8 @@ $("#ModalConnexion form").submit(function (e) {
         e.stopPropagation();
      }
      else
-     {  // dataUrl contient les données de la form en cour de saisie
+     {  
+        // dataUrl contient les données de la form en cour de saisie
         // pour les envoyer via la methode ajax
         var dataUrl = $(this).serialize();
 

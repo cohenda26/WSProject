@@ -43,6 +43,8 @@ app.get('/', (req, res) => {
 // ==========================
 
 wss.on('connection', (ws) => {
+    let JSON_Obj = {};
+
     console.log('Server WebSocket OPEN Connexion ');
 
     ws.on('close', (ws) => {
@@ -51,30 +53,38 @@ wss.on('connection', (ws) => {
 
     //connection is up, let's add a simple simple event
     ws.on('message', (message) => {
+
+        JSON_Obj = JSON.parse(message);
+        let msg = JSON_Obj.msg;
+
         //log the received message and send it back to the client
-        console.log('Server WebSocket Message Recu: %s', message);
-        // ws.send(`Hello, you sent -> ${message}`);
+        console.log('Server WebSocket Message Recu: %s', msg);
+        // ws.send(`Hello, you sent -> ${msg}`);
 
         const broadcastRegex = /^broadcast\:/;
 
-        if (broadcastRegex.test(message)) {
-            message = message.replace(broadcastRegex, '');
+        if (broadcastRegex.test(msg)) {
+            JSON_Obj.msg = msg.replace(broadcastRegex, '');
     
-            //send back the message to the other clients
+            //Envoye du message aux autres Clients connecté aux server
             wss.clients
                 .forEach(client => {
                     if (client != ws) {
-                        client.send(`WebSocket : Message Partagé -> ${message}`);
+                        //client.send(`WebSocket : Message Partagé -> ${msg}`);
+                        client.send(JSON.stringify(JSON_Obj));
                     }    
                 });
             
         } else {
-            ws.send(`WebSocket : Message envoyé -> ${message}`);
+            //ws.send(`WebSocket : Message envoyé -> ${message}`);
+            ws.send(JSON.stringify(JSON_Obj));
         }
     });
 
-    //send immediatly a feedback to the incoming connection    
-    ws.send('WebSocket : Connection en cours');
+    //Envoy d'un message pour signaler la connexion   
+    JSON_Obj.msg = 'WebSocket : Connection en cours';
+    JSON_Obj.data = undefined;
+    ws.send(JSON.stringify( JSON_Obj));
 });
 
 // =====================================

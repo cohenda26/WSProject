@@ -14,12 +14,12 @@
             
             <div class="modal-body">
                 <!-- <form role="form" method="POST" action="<?=HOST?>user/login">   -->
-                <form role="form" method="POST" action="">                
+                <form role="form" method="POST" action="" id="UserLogin">                
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">E-Mail Address</label>
                         <div>
-                            <input type="email"  id="email" class="form-control" name="email" value="">
+                            <input type="email"  id="emailLogin" class="form-control" data-bind="email" name="email" value="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -57,7 +57,7 @@
             
             <div class="modal-body">
                 <!-- <form role="form" method="POST" action="<?=HOST?>user/register"> -->
-                <form role="form" method="POST" action=""> 
+                <form role="form" method="POST" action="" id="UserSignIn"> 
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">Username</label>
@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label class="control-label">E-Mail Address</label>
                         <div>
-                            <input type="email"  id="email" class="form-control" name="email" value="">
+                            <input type="email"  id="emailSignIn" class="form-control" data-bind="email" name="email" value="">
                         </div>
                     </div>
                     <div class="form-group">
@@ -117,7 +117,7 @@
                     </div>
                     <div class="form-group">
                         <label class="form-control-label">E-Mail Address</label>
-                        <input type="email" id="email" class="form-control" name="email" value="" required>
+                        <input type="email" id="emailCourtier" class="form-control" data-bind="email" name="email" value="" required>
                         <div class="invalid-feedback"> Merci de remplir l'email </div>
                     </div>
                     <div class="form-group">

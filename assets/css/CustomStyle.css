@@ -11,6 +11,10 @@ File: scss
   padding: 130px 0;
 }
 
+.spacer-p-260 {
+  padding: 260px 0;
+}
+
 .h3-navbar .navbar-brand{
   border-radius: 25px;
   padding: 15px 15px;

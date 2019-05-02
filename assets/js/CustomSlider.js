@@ -8,4 +8,5 @@ $(".carousel .carousel-inner").swipe({
     threshold: 0
  });
 
+
  

@@ -2,9 +2,9 @@
     <section id="ContratHabitation" class="container p-t-10 ">
 
         <!-- <div class="row col-12"> -->
-            
-                <!-- Prototype pour avoir le stepper dnas la meme zone que  -->
-            <div class="stepwizard">
+            <!-- Prototype pour avoir le stepper dnas la meme zone que  -->
+
+            <!-- <div class="stepwizard">
                 <div class="stepwizard-row setup-panel">
                     <div class="stepwizard-step">
                         <a href="#step-1" type="button" class="btn btn-primary stepbtn-circle">1</a>
@@ -23,7 +23,7 @@
                         <p>Validation</p>
                     </div>
                 </div>
-            </div> 
+            </div>  -->
             
         <!-- </div> -->
 

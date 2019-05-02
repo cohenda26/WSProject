@@ -4,9 +4,11 @@ class View{
     private $_file;
     private $_viewTitle;
     private $_viewDatas;
+    private $_fileStepper;
 
     public function __construct($action){
        $this->_file = VIEWS. $action . ".php";
+       $this->_fileStepper = VIEWS. $action . "Stepper.php";
 //       $this->_file = VIEWS."view". $action . ".php";
     }
 
@@ -16,10 +18,16 @@ class View{
         $this->_viewDatas = $data;
         $content = $this->generateFile($this->_file, $this->_viewDatas);
 
+        $stepper = null;
+        if (file_exists($this->_fileStepper)){
+            $stepper = $this->generateFile($this->_fileStepper, $this->_viewDatas);
+        }
+
         // GENERATION DU CONTENU DU TEMPLATE
         $view = $this->generateFile(VIEWS."template.php", array('viewTitle' => $this->_viewTitle, 
                                                                 'viewDatas' => $this->_viewDatas,
-                                                                'content'   => $content));
+                                                                'content'   => $content,
+                                                                'stepper'   => $stepper));
         echo $view;
     }
 

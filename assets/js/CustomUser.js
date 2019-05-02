@@ -27,6 +27,15 @@ $(function () {
     
 });
 
+$().ready(function() {
+   // On verifie la présence de l'Id sectionStepper
+   // si present alors on change la class pour agrandir la zone globale du header
+    if ( $( "#sectionStepper" ).length ) {
+        $("#blocContent").removeClass('spacer-p-130');
+        $("#blocContent").addClass('spacer-p-260');
+    }
+});
+
 // Fonction qui gère l'affichage de la TopBar et Nav pour les informations USER
 function displayUserFromTopBar(user, courtier, client) {
     traceLog("displayUserFromTopBar, param user / courtier / client ", user, courtier, client);

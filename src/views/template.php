@@ -38,7 +38,7 @@
             <!-- ============================================================== -->
             <div class="container-fluid">
                  
-                <div class="bg-light spacer-p-130 p-b-0">
+                <div id="blocContent" class="bg-light spacer-p-130 p-b-0">
                     <?=$content ?>
                 </div>
                  

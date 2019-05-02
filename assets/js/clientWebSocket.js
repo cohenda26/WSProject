@@ -8,7 +8,7 @@ var ws_endpoint = null;
  */
 function WebSocket_Connect() {
     var ws_protocol = "ws";
-    var ws_hostname = "localhost";
+    var ws_hostname = "127.0.0.1"; //"localhost";
     var ws_port     = 3000;
     var ws_endpoint = "";
     openWSConnection(ws_protocol, ws_hostname, ws_port, ws_endpoint);
@@ -80,9 +80,11 @@ function WebSocket_SendMessage(msg, data, broadcast = false) {
             msg = "broadcast: " + msg;
         }
 
-        var datas = {};
-        datas.msg = msg;
-        datas.data = data;
-        webSocket.send( JSON.stringify( datas) );
+        // var datas = {};
+        // datas.msg = msg;
+        // datas.data = data;
+        // webSocket.send( JSON.stringify( datas) );
+
+        webSocket.send( JSON.stringify( {msg : msg, data : data }) );
     }
 }

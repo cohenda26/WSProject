@@ -8,6 +8,7 @@
 $tabJson['user'] = $currentUser;
 $tabJson['client'] = $currentClient;
 $tabJson['courtier'] = $currentCourtier;
+$tabJson['locationPage'] = $locationPage;
 
 echo json_encode($tabJson);
 

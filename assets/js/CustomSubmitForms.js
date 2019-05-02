@@ -1,4 +1,4 @@
-function ValiderContratHabitation(dataFrm, Frm){
+function ValiderContratHabitation(Frm){
     $.ajax({
         type: "POST",
         url: getUrlComplete("client/validerContratHabitation"),
@@ -34,10 +34,8 @@ $("#ContratHabitation form").submit(function (e) {
      else
      {  
         e.preventDefault();
-        // dataFrm contient les données de la form en cour de saisie
-        // pour les envoyer via la methode ajax
+        // Frm est la Form d'où les données vont être récupérées pour être traitées
         let Frm = $(this);
-        var dataFrm = $(this).serialize();
     
         $.ajax({
             type: "POST",
@@ -52,14 +50,14 @@ $("#ContratHabitation form").submit(function (e) {
                     // on declenche la validation du contrat au submit
                     $("form#UserSignIn")[0].addEventListener('submit',
                     function () {
-                        ValiderContratHabitation(dataFrm, Frm);
+                        ValiderContratHabitation(Frm);
                     }, {once : true});
 
                     // Appel de la form correspondant à l'enregistrement d'un USER
                     $('#btnUserSignIn').trigger('click');
                   } 
                 else {
-                    ValiderContratHabitation(dataFrm, Frm);
+                    ValiderContratHabitation(Frm);
                 }
             },
             error: function (xhr, textStatus, error) {
@@ -67,28 +65,5 @@ $("#ContratHabitation form").submit(function (e) {
             }
         });
 
-/*
-        $.ajax({
-            type: "POST",
-            url: getUrlComplete("client/validerContratHabitation"),
-            data: dataUrl,
-            dataType : 'html',
-            ContentType : 'application/json',
-            beforeSend : function (xhr, settings){
-            },
-            success: function (data, status, xhr) {
-                WebSocket_SendMessage("Devis ", true);
-                // redirection vers l'espace personnel du client
-                window.location.replace( getUrlComplete('client/espacePersonnel'));
-            },
-            error: function (xhr, textStatus, error) {
-                traceLog('Erreur sur requete AJAX ContratHabitation');
-            },
-            Complete: function (xhr, testStatus){
-                if (textStatus == "success"){
-                }
-            }
-        });
-*/
     }
 });

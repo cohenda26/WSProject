@@ -12,7 +12,8 @@
             $this->_ajax = new Ajax("User");
             $this->_ajax->generate(array("currentUser" => UserManager::getSessionUser(), 
                                          "currentCourtier" => UserManager::getSessionCourtier(),
-                                         "currentClient" => UserManager::getSessionClient() ));
+                                         "currentClient" => UserManager::getSessionClient(),
+                                         "locationPage" => "" ));
         }
 
         public function login($params){
@@ -22,20 +23,24 @@
                 if ($user->password() == $params['password']){
                     $courtier = null;
                     $client = null;
+                    $locationPage = "";
                     if ($user->isCourtier() == true){
                         $this->_courtierManager = CourtierManager::getNewInstance();
                         $courtier = $this->_courtierManager->getCourtier($user);
+                        $locationPage = "courtier/espaceProfessionnel";
                     }
                     if ($user->isClient() == true){
                         $this->_clientManager = ClientManager::getNewInstance();
                         $client = $this->_clientManager->getClient($user);
+                        $locationPage = "client/espacePersonnel";
                     }
                     UserManager::activeSession($user, $courtier, $client);
 
                     $this->_ajax = new Ajax("User");
                     $this->_ajax->generate(array("currentUser" => $user, 
                                                  "currentCourtier" => $courtier,
-                                                 "currentClient" => $client ));
+                                                 "currentClient" => $client,
+                                                 "locationPage" => $locationPage));
                 }
                 else {
                     throw new Exception (' Utilisateur inexistant');
@@ -56,7 +61,8 @@
             $this->_ajax = new Ajax("User");
             $this->_ajax->generate(array("currentUser" => $this->_userManager, 
                                          "currentCourtier" => $this->_courtierManager,
-                                         "currentClient" => $this->_clientManager ));
+                                         "currentClient" => $this->_clientManager,
+                                         "locationPage" => "" ));
         }
 
         public function register($params){

@@ -144,7 +144,7 @@ $("#ModalConnexion form").submit(function (e) {
         pwdValue = pwd[0].value;
 
         var btnSubmit = $(this).find('[type=submit]');
-        var action = btnSubmit[0].name;
+        var action = btnSubmit[0].name;  // Login / Register / RegisterCourtier
 
         e.preventDefault();
 
@@ -161,6 +161,10 @@ $("#ModalConnexion form").submit(function (e) {
                     displayUserFromTopBar(data.user, data.courtier, data.client);
                     displayUserFromNavBar(data.user, data.courtier, data.client);
                     WebSocket_Connect();
+
+                    if (data.locationPage.length > 0){
+                        window.location.replace( getUrlComplete(data.locationPage));
+                    }
                 }
             },
             error: function () {

@@ -20,7 +20,10 @@
             $this->_userManager = UserManager::getNewInstance();
             $user = $this->_userManager->getUser($params);
             if (isset($user)){
-                if ($user->password() == $params['password']){
+                $hash_password = hash('sha256', $params['password']);
+                //$decrypt_password = hash('sha256', $user->password());
+                // if ($user->password() == $params['password']){
+               if ($user->password() == $hash_password){
                     $courtier = null;
                     $client = null;
                     $locationPage = "";
@@ -83,7 +86,7 @@
             // verification que l'utilisateur n'existe pas dans la base
             $user = $this->_userManager->getUser($params);
             if (!isset($user) ){
-                // Enregistrement du nouveau User
+                // Enregistrement du nouveau Courtier
                 $user = $this->_userManager->registerCourtier($params);
                 $this->login($params);                
             } else {

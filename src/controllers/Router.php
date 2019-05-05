@@ -53,6 +53,7 @@ class Router{
         try {
             // Chargement automatique des Classes
             spl_autoload_register(function($class){
+                // echo $class . '<br>';
                 if (file_exists(MODELS.$class.'.php')){
                     require_once(MODELS.$class.'.php');
                 } else if (file_exists(CONTROLLERS.$class.'.php')){

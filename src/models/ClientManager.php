@@ -9,7 +9,7 @@ class ClientManager extends Model {
     } 
 
     protected function getListPropertyTable(){
-        $p = [ 'nom', 'prenom'];
+        $p = [ 'nom', 'prenom', 'teoudatZeout', 'telephone', 'civilite', 'dateNaissance'];
          return $p;
     }
 

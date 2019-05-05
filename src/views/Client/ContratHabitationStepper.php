@@ -15,7 +15,7 @@
                     <p>Mes besoins</p>
                 </div>
                 <div class="stepwizard-step">
-                    <a href="#step-4" type="button" class="btn btn-default stepbtn-circle" disabled="disabled">3</a>
+                    <a href="#step-4" type="button" class="btn btn-default stepbtn-circle" disabled="disabled">4</a>
                     <p>Validation</p>
                 </div>
             </div>

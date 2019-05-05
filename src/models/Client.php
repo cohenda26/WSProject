@@ -7,6 +7,9 @@
         private $_nom = "";
         private $_prenom = "";
         private $_telephone;
+        private $_teoudatZeout;
+        private $_civilite;
+        private $_dateNaissance;
 
         public function jsonSerialize()
         {
@@ -58,6 +61,66 @@
         //   return  $appartementManager->getListFromClient($this->idClient());
         // }
 
+
+        /**
+         * Get the value of _teoudatZeout
+         */ 
+        public function teoudatZeout()
+        {
+                return $this->_teoudatZeout;
+        }
+
+        /**
+         * Set the value of _teoudatZeout
+         *
+         * @return  self
+         */ 
+        public function setTeoudatZeout($_teoudatZeout)
+        {
+                $this->_teoudatZeout = $_teoudatZeout;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of _civilite
+         */ 
+        public function civilite()
+        {
+                return $this->_civilite;
+        }
+
+        /**
+         * Set the value of _civilite
+         *
+         * @return  self
+         */ 
+        public function setCivilite($_civilite)
+        {
+                $this->_civilite = $_civilite;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of _dateNaissance
+         */ 
+        public function getDateNaissance()
+        {
+                return $this->_dateNaissance;
+        }
+
+        /**
+         * Set the value of _dateNaissance
+         *
+         * @return  self
+         */ 
+        public function dateNaissance($_dateNaissance)
+        {
+                $this->_dateNaissance = $_dateNaissance;
+
+                return $this;
+        }
     }
 
 ?>

@@ -8,87 +8,68 @@
         <!-- Modal de login d'un utilisateur déjà enregistré -->
         <div id="FrmUserLogin" class="d-none userIdentification modal-content">
             <div class="modal-header">
-                <h1 class="modal-title">Login</h1>
+                <h1 class="modal-title">Identification</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
             </div>
             
             <div class="modal-body">
-                <!-- <form role="form" method="POST" action="<?=HOST?>user/login">   -->
                 <form role="form" method="POST" action="" id="UserLogin">                
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">E-Mail Address</label>
-                        <div>
-                            <input type="email"  id="emailLogin" class="form-control" data-bind="email" name="email" value="">
-                        </div>
+                        <input type="email"  id="emailLogin" class="form-control" name="email" value="" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Password</label>
-                        <div>
-                            <input type="password" class="form-control" name="password">
-                        </div>
+                        <input type="password" id="passwordLogin" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
-                        <div>
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" name="remember"> Remember Me
-                                </label>
-                            </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="remember" disabled> Se souvenir
+                            </label>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group disabled">
                         <div>
-                            <button type="submit" class="btn btn-success"  name="login">Login</button>
-
-                            <a class="btn btn-link" href="">Forgot Your Password?</a>
+                            <button type="submit" class="btn btn-success"  name="login">S'identifier</button>
+                            <a style="pointer-events: none; display: inline-block;" class="btn btn-link" href="">Mot de passe oublié?</a>
                         </div>
                     </div>
-                </form>
+                </form> 
             </div>
         </div><!-- /.modal-content -->        
 
         <!-- Modal d'enregistrement d'un nouvel utilisateur  -->
         <div id="FrmUserSignIn" class="d-none userIdentification modal-content po-relative">
             <div class="modal-header">
-                <h1 class="modal-title">Register</h1>
+                <h1 class="modal-title">Nouveau Client</h1>
                 <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
             </div>
             
             <div class="modal-body">
-                <!-- <form role="form" method="POST" action="<?=HOST?>user/register"> -->
                 <form role="form" method="POST" action="" id="UserSignIn"> 
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
                         <label class="control-label">Username</label>
-                        <div>
-                            <input type="text" class="form-control" name="username" value="">
-                        </div>
+                        <input type="text" class="form-control" name="username" value="" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label">E-Mail Address</label>
-                        <div>
-                            <input type="email"  id="emailSignIn" class="form-control" data-bind="email" name="email" value="">
-                        </div>
+                        <input type="email"  id="emailSignIn" class="form-control" name="email" value="" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Password</label>
-                        <div>
-                            <input type="password" class="form-control" name="password">
-                        </div>
+                        <input type="password" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
                         <label class="control-label">Confirm Password</label>
-                        <div>
-                            <input type="password" class="form-control" name="password_confirmation">
-                        </div>
+                        <input type="password" class="form-control" name="password_confirmation" required>
                     </div>
                     <div class="form-group">
-                        <div>
-                            <button type="submit" class="btn btn-success" name="register">
-                                Register
-                            </button>
-                        </div>
+                        <button type="submit" class="btn btn-success" name="register">
+                            Register
+                        </button>
                     </div>
                 </form>
             </div>
@@ -102,40 +83,39 @@
             </div>
             
             <div class="modal-body">
-                <!-- <form role="form" method="POST" action="<?=HOST?>user/registerPartenaire"> -->
-                <form role="form" method="POST" action="" novalidate> 
+                <form role="form" method="POST" action=""> 
                     <input type="hidden" name="_token" value="">
                     
                     <div class="form-group">
                         <label class="form-control-label" data-error="wrong" data-success="right">Numéro Essek</label>
-                        <input type="text" class="form-control validate" name="numEssek" value="" required>
+                        <input type="text" class="form-control" name="numEssek" value="" required>
                         <div class="invalid-feedback"> Merci de remplir le num de Essek </div>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label">Username</label>
-                        <input type="text" class="form-control" name="userName" value="">
+                        <input type="text" class="form-control" name="userName" value="" required>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label">E-Mail Address</label>
-                        <input type="email" id="emailCourtier" class="form-control" data-bind="email" name="email" value="" required>
+                        <input type="email" id="emailCourtier" class="form-control" name="email" value="" required>
                         <div class="invalid-feedback"> Merci de remplir l'email </div>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label">Password</label>
-                        <input type="password" class="form-control" name="password">
+                        <input type="password" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
                         <label class="form-control-label">Confirm Password</label>
-                        <input type="password" class="form-control" name="password_confirmation">
+                        <input type="password" class="form-control" name="password_confirmation" required>
                     </div>
-                    <div class="row form-group">
+                    <div class="form-group">
                         <label class="form-control-label" for="adresseCourtier" >Adresse</label>
-                        <input class="form-control" type="text" value="" name="adresseNum" id="NumeroRue">
-                        <input class="form-control" type="text" value="" name="adresseRue" id="Rue">
+                        <input class="form-control" type="text" value="" name="numero" id="NumeroRue">
+                        <input class="form-control" type="text" value="" name="rue" id="Rue">
                     </div>   
                     <div class="form-group">
                         <label class="form-control-label" for="villeCourtier" >Ville </label>
-                        <input class="form-control" type="text" value="" name="adresseVille" id="Ville">
+                        <input class="form-control" type="text" value="" name="ville" id="Ville">
                     </div> 
                     <div class="form-group">
                         <button type="submit" class="btn btn-danger-gradiant" name="registerCourtier"> Register </button>
@@ -147,12 +127,12 @@
         <!-- Modal HTML Markup -->
         <div id="FrmUserNotFoundCreate" class="d-none userIdentification modal-content">
             <div class="modal-header">
-                <h4 class="modal-title">See more of this awesome website by logging in</h4>
+                <h4 class="modal-title">Authentification nescessaire pour continuer...</h4>
             </div>
             <div class="modal-body">
                 <p class="lead text-xs-center">It only takes a few seconds to level up!</p>
-                <div class="lead text-xs-center"><a class="btn btn-info" href="<?=HOST?>/user/register">Create Account</a> or
-                    <a class="btn btn-success" href="<?=HOST?>/user/login">Sign In</a></div>
+                <div class="lead text-xs-center"><a class="btn btn-info" href="<?=HOST?>/user/register">Créer un compte</a> or
+                    <a class="btn btn-success" href="<?=HOST?>/user/login">S'authentifier</a></div>
             </div>
             <div class="modal-footer">
                 :-)

@@ -6,6 +6,25 @@ class UserManager extends Model {
         return new UserManager('tuser', 'User', 'idUser');
     } 
 
+    protected function getListPropertyTable(){
+        $p = [ 'userName', 'email', 'password', 'idCourtier', 'idClient' ];
+        return $p;
+    }
+
+    protected function add(DBObject $Odatas){
+        $Req = self::$_BddConnexion->prepare('INSERT INTO tuser (userName, email, password, idCourtier, idClient) VALUES(:userName, :email, :password, :idCourtier, :idClient)');
+
+        $Req->bindValue(':userName', $Odatas->userName());
+        $Req->bindValue(':email', $Odatas->email());
+        $hash_password = hash('sha256', $Odatas->password());
+        $Req->bindValue(':password', $hash_password);
+        $Req->bindValue(':idCourtier', $Odatas->idCourtier());
+        $Req->bindValue(':idClient', $Odatas->idClient());
+
+        $userDB = $Req->execute();
+        return $userDB;
+    }
+
     public static function getSessionUser(){
         if (isset($_SESSION['currentUser'])){
             return unserialize($_SESSION['currentUser']);
@@ -40,11 +59,6 @@ class UserManager extends Model {
             unset($_SESSION['currentClient']);
             //session_destroy();     
         }
-    }
-
-    protected function getListPropertyTable(){
-        $p = [ 'userName', 'email', 'password', 'idCourtier', 'idClient' ];
-        return $p;
     }
 
     public function getUser($data){

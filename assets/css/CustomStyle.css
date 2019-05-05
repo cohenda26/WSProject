@@ -91,8 +91,10 @@ FEATURE41-BOX
 }
 
 .footer4 .f4-bottom-bar {
-    padding-top: 10px;
-    margin-top: 20px;
+    /* padding-top: 10px;
+    margin-top: 20px; */
+    padding-top: 1px;
+    margin-top: 2px;
     border-top: 1px solid border;
   }
 

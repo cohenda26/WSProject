@@ -77,7 +77,11 @@ class User extends DBObject implements JsonSerializable{
     /**
      * Get the value of _password
      */ 
-    public function password() { return $this->_password; }
+    public function password() { 
+        // $hash_password= hash('sha256', $this->_password);
+        // return $hash_password; 
+        return $this->_password;
+    }
 
     /**
      * Set the value of _password
@@ -86,6 +90,8 @@ class User extends DBObject implements JsonSerializable{
      */ 
     public function setPassword($_password)
     {
+        // $hash_password= hash('sha256', $_password);
+        // $this->_password = $hash_password;
         $this->_password = $_password;
 
         return $this;

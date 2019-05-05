@@ -9,6 +9,9 @@
     <script src="<?=ASSETS?>node_modules/bootstrap/js/popper.min.js"></script>
     <script src="<?=ASSETS?>node_modules/bootstrap/js/bootstrap.js"></script>
     <script src="<?=ASSETS?>node_modules/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="<?=ASSETS?>node_modules/bootstrap/js/bootstrap-validate.js"></script>
+
     <!-- This is for the animation -->
     <script src="<?=ASSETS?>node_modules/aos/dist/aos.js"></script>
     <!--Custom JavaScript -->
@@ -20,8 +23,12 @@
     <script src="<?=ASSETS?>node_modules/bootstrap-touch-slider/bootstrap-touch-slider.js"></script>
     <script src="<?=ASSETS?>node_modules/owl.carousel/dist/owl.carousel.min.js"></script>
     <!-- Fichier Javascript personnel -->
-    <script src="<?=ASSETS?>js/CustomUser.js"></script>
-    <script src="<?=ASSETS?>js/CustomStepper.js"></script>
     <script src="<?=ASSETS?>js/CustomSlider.js"></script>
+    <script src="<?=ASSETS?>js/CustomUser.js"></script>
     <script src="<?=ASSETS?>js/ClientWebSocket.js"></script>
-    <script src="<?=ASSETS?>js/CustomSubmitForms.js"></script>
+
+<?php
+  if (!is_null($formJs)) {
+      echo $formJs;
+  }
+?>

@@ -34,6 +34,9 @@ $().ready(function() {
         $("#blocContent").removeClass('spacer-p-130');
         $("#blocContent").addClass('spacer-p-260');
     }
+
+    // bootstrapValidate('#emailLogin', 'email:Saisir un email valide');
+    // bootstrapValidate('#passwordLogin', 'required:Mot de passe obligatoire!');
 });
 
 // Fonction qui gère l'affichage de la TopBar et Nav pour les informations USER
@@ -95,14 +98,14 @@ $('.btn-logout').click(function(){
         dataType : 'json',
         ContentType : 'application/json',
         success: function (data, status, xhr) {
-            displayUserFromTopBar(null, null, null);
-            displayUserFromNavBar(null, null, null);
+            // displayUserFromTopBar(null, null, null);
+            // displayUserFromNavBar(null, null, null);
             WebSocket_Disconnect();
         },
         error: function () {
             traceLog('userConnected : erreur requete AJAX');
-            displayUserFromTopBar(null, null, null);
-            displayUserFromNavBar(null, null, null);
+            // displayUserFromTopBar(null, null, null);
+            // displayUserFromNavBar(null, null, null);
         }
     });
 });
@@ -164,7 +167,7 @@ $("#ModalConnexion form").submit(function (e) {
             dataType : 'json',
             ContentType : 'application/json',
             success: function (data, status, xhr) {
-                if (pwdValue == data.user._password){
+                // if (pwdValue == data.user._password){
                     $('#ModalConnexion').modal('hide');
 
                     displayUserFromTopBar(data.user, data.courtier, data.client);
@@ -174,7 +177,7 @@ $("#ModalConnexion form").submit(function (e) {
                     if (data.locationPage.length > 0){
                         window.location.replace( getUrlComplete(data.locationPage));
                     }
-                }
+                // }
             },
             error: function () {
                 traceLog('Erreur sur requete AJAX USER');

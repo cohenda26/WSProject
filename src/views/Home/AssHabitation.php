@@ -8,7 +8,7 @@
 Pour les contrats d’assurance habitation on parle de contrat MRH « multirisques habitation » (pour les locaux de professionnel on parle de multirisque professionnel).
                     </p>
                     <p>En France, le locataire est obligé de justifier au propriétaire qu'il a souscrit une MRH, l'absence de souscription étant une cause de rupture de contrat de bail1. </p>
-                    <a href="javascript:void(0)" class="linking">souscrire <i class="ti-arrow-right"></i></a>
+                    <a class="linking" href="<?=HOST?>client/souscrireContratHabitation">Demander un devis <i class="ti-arrow-right"></i></a>
                 </div>
             </div>
             <div class="col-md-5 col-md-5 ml-auto "> <img src="../assets/images/assurance-habitation.jpg" alt="AssuranceHabitation" class="img-responsive"> </div>

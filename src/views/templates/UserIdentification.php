@@ -16,11 +16,11 @@
                 <form role="form" method="POST" action="" id="UserLogin">                
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
-                        <label class="control-label">E-Mail Address</label>
+                        <label class="control-label">E-Mail </label>
                         <input type="email"  id="emailLogin" class="form-control" name="email" value="" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Password</label>
+                        <label class="control-label">Mot de passe</label>
                         <input type="password" id="passwordLogin" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
@@ -51,24 +51,24 @@
                 <form role="form" method="POST" action="" id="UserSignIn"> 
                     <input type="hidden" name="_token" value="">
                     <div class="form-group">
-                        <label class="control-label">Username</label>
+                        <label class="control-label">Identifiant</label>
                         <input type="text" class="form-control" name="username" value="" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">E-Mail Address</label>
+                        <label class="control-label">E-Mail</label>
                         <input type="email"  id="emailSignIn" class="form-control" name="email" value="" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Password</label>
+                        <label class="control-label">Mot de passe</label>
                         <input type="password" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
-                        <label class="control-label">Confirm Password</label>
+                        <label class="control-label">Confirmer le mot de passe</label>
                         <input type="password" class="form-control" name="password_confirmation" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success" name="register">
-                            Register
+                            S'enregistrer
                         </button>
                     </div>
                 </form>
@@ -89,23 +89,21 @@
                     <div class="form-group">
                         <label class="form-control-label" data-error="wrong" data-success="right">Numéro Essek</label>
                         <input type="text" class="form-control" name="numEssek" value="" required>
-                        <div class="invalid-feedback"> Merci de remplir le num de Essek </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Username</label>
+                        <label class="form-control-label">Identifiant</label>
                         <input type="text" class="form-control" name="userName" value="" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">E-Mail Address</label>
+                        <label class="form-control-label">E-Mail</label>
                         <input type="email" id="emailCourtier" class="form-control" name="email" value="" required>
-                        <div class="invalid-feedback"> Merci de remplir l'email </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Password</label>
+                        <label class="form-control-label">Mot de passe</label>
                         <input type="password" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-control-label">Confirm Password</label>
+                        <label class="form-control-label">Confirmer le mot de passe</label>
                         <input type="password" class="form-control" name="password_confirmation" required>
                     </div>
                     <div class="form-group">
@@ -118,7 +116,7 @@
                         <input class="form-control" type="text" value="" name="ville" id="Ville">
                     </div> 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-danger-gradiant" name="registerCourtier"> Register </button>
+                        <button type="submit" class="btn btn-danger-gradiant" name="registerCourtier"> S'enregistrer </button>
                     </div>
                 </form>
             </div>

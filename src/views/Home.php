@@ -92,7 +92,7 @@
 <!--
 <h1>Starter kit</h1>
 -->
-<div class="bg-light spacer feature41">
+<div class="bg-light spacer-p-60 feature41">
     <div class="container">
             <!-- Row  -->
             <div class="row m-t-40 wrap-feature41-box">
@@ -142,21 +142,22 @@
                             <p class="m-t-30">Propriétaire ou locataire ? </p> 
                             <p class="m-t-5">Résidence principale ou secondaire ? </p>
                             <p class="m-t-5">Maison ou appartement ? </p>
-                            <p class="m-t-5"> <a class="btn btn-info-gradiant btn-arrow m-t-10" data-toggle="Modal" href="<?=HOST?>client/souscrireContratHabitation">
-                                <span>Souscrire <i class="ti-arrow-right"></i></span>
-                            </a> à l'assurance qui vous convient </p>
+                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-10" data-toggle="Modal" href="<?=HOST?>client/souscrireContratHabitation">
+                                <span>Demander un devis <i class="ti-arrow-right"></i></span>
+                            </a> sur l'assurance qui vous convient </p>
                         </div>
                         <!-- Assurance Voiture -->
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <img src="<?=ASSETS?>images/features/feature41/img2.jpg" alt="wrapkit" class="rounded img-fluid" />
                             <p class="m-t-30">Assurance au tiers ou tous risque ?</p>
                             <p class="m-t-5">Trouvez l'assurance idéale et roulez en toute sécurité</p>
-                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-20" data-toggle="collapse" href="#f41"><span>Souscrivez <i class="ti-arrow-right"></i></span>
+                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-20" data-toggle="collapse" href="#f41"><span>Demander une offre <i class="ti-arrow-right"></i></span>
                             </a> et bonne route ! </p> 
                         </div>
                         <!-- Assurance Vie -->
                         <div class="tab-pane fade" id="dropdown1" role="tabpanel" aria-labelledby="dropdown1-tab"> <img src="<?=ASSETS?>images/features/feature41/img3.jpg" alt="wrapkit" class="rounded img-fluid" />
                             <p class="m-t-40">Souscrivez à une assurance qui vous accompagne à chaque étape de votre vie.</p> 
-                            <a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href="#f41"><span>Souscrire <i class="ti-arrow-right"></i></span></a> 
+                            <p class="m-t-5"><a class="btn btn-success-gradiant btn-md btn-arrow m-t-20" data-toggle="collapse" href="#f41"><span>Demander un devis <i class="ti-arrow-right"></i></span>
+                            </a> </p> 
                         </div>
                         <!-- Credit Immobilier -->
                         <div class="tab-pane fade" id="ssd" role="tabpanel" aria-labelledby="ssd-tab"> <img src="<?=ASSETS?>images/features/feature41/img4.jpg" alt="wrapkit" class="rounded img-fluid" />

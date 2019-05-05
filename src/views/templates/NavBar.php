@@ -37,18 +37,18 @@
                 
                     <div class="form-inline ml-auto authentication-box">
                     <a href="#"><i class="icon-Bell p-2 m-2 d-none" id="alerteDevis"></i> </a>
-                        <button class="btn btn-sm btn-outline-success mr-sm-2 btn-logout"  onclick="location.href='<?=HOST?>'">Logout</button>
+                        <button class="btn btn-sm btn-outline-success mr-sm-2 btn-logout"  onclick="location.href='<?=HOST?>'">Se déconnecter</button>
                     </div>
                 </div>
                 <div class="navbar-menu-client d-none">
                     <div class="form-inline ml-auto authentication-box">
-                        <button class="btn btn-sm btn-outline-success mr-sm-2 btn-logout"  onclick="location.href='<?=HOST?>'">Logout</button>
+                        <button class="btn btn-sm btn-outline-success mr-sm-2 btn-logout"  onclick="location.href='<?=HOST?>'">Se déconnecter</button>
                     </div>
                 </div>
                 <div class="navbar-btn-connexion">
                     <div class="form-inline ml-auto authentication-box">
-                        <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="UserLogin">Login</button>
-                        <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="UserSignIn" id="btnUserSignIn">Register</button>
+                        <button class="btn btn-sm btn-outline-success mr-sm-2" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="UserLogin">Se connecter</button>
+                        <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit" data-toggle="modal" data-target="#ModalConnexion" data-user="UserSignIn" id="btnUserSignIn">S'enregistrer</button>
                     </div>
                 </div>
                 <!-- <ul class="ml-auto list-inline authentication-box">

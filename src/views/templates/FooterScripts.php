@@ -11,6 +11,7 @@
     <script src="<?=ASSETS?>node_modules/bootstrap/js/bootstrap.min.js"></script>
 
     <script src="<?=ASSETS?>node_modules/bootstrap/js/bootstrap-validate.js"></script>
+    <script src="<?=ASSETS?>node_modules/bootstrap4-notify/bootstrap-notify.js"></script>
 
     <!-- This is for the animation -->
     <script src="<?=ASSETS?>node_modules/aos/dist/aos.js"></script>

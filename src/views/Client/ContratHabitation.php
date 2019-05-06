@@ -121,39 +121,39 @@
                             <!-- Information de saisie sur la nature de l'appartement -->
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="DevisAdresseNum" >Adresse du logement </label>
-                                <input class="col-2 form-control" type="number" value="" id="DevisAdresseNum" required>
-                                <input class="col-7 form-control" type="text" value="" id="DevisAdresseRue" required>
+                                <input class="col-2 form-control" type="number" value="" name="DevisAdresseNum" id="DevisAdresseNum" required>
+                                <input class="col-7 form-control" type="text" value="" name="DevisAdresseRue" id="DevisAdresseRue" required>
                             </div>   
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="DevisAdresseVille" >Ville </label>
-                                <input class="col-9 form-control" type="text" value="" id="DevisAdresseVille" required>
+                                <input class="col-9 form-control" type="text" value="" name="DevisAdresseVille" id="DevisAdresseVille" required>
                             </div>    
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="surface" >Surface habitable (m²) </label>
-                                <input class="col-9 form-control" type="number" value="" id="surface" required>
+                                <input class="col-9 form-control" type="number" value="" name="surface" id="surface" required>
                             </div>    
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="nbpiecesLogement" >Nombre de pièces </label>
                                 <div class="col-3 form-group m-t-20">
-                                    <select class="form-control">
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
+                                    <select class="form-control" name="nbPieces">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
                                     </select>
                                 </div>
                             </div>        
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="annexesLogement" >Surface des dépendances annexes </label>
                                 <div class="col-3 form-group m-t-20">
-                                    <select class="form-control">
-                                        <option>sans</option>
-                                        <option>moins de 40m²</option>
-                                        <option>de 40 à 80 m²</option>
-                                        <option>supèrieur à 80m²</option>
+                                    <select class="form-control" name="surfaceDependances">
+                                        <option value="1">sans</option>
+                                        <option value="2">moins de 40m²</option>
+                                        <option value="3">de 40 à 80 m²</option>
+                                        <option value="4">supèrieur à 80m²</option>
                                     </select>
                                 </div>
                             </div>   
@@ -180,7 +180,7 @@
                                         <div class="col-3"> </div>
                                         <label class="col-3 col-form-label" for="surface-veranda">surface globale (m²) </label>
                                         <div class="col-6">
-                                            <input type="number" class="form-control" value="0" id="surfaceVeranda">
+                                            <input type="number" class="form-control" value="0" name="surfaceVeranda" id="surfaceVeranda">
                                             <!-- <input type="range" class="form-control" id="surfaceVeranda" min="3" max="200" step="1" value="50"> -->
                                         </div>
                                     </div>
@@ -203,12 +203,12 @@
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="chauffage" >Moyen de chauffage </label>
                                 <div class="col-6 form-group m-t-20">
-                                    <select class="form-control">
-                                        <option></option>
-                                        <option>Cheminée foyer ouvert</option>
-                                        <option>Cheminée foyer fermé</option>
-                                        <option>Poêle au bois</option>
-                                        <option>Aucun de ces moyens</option>
+                                    <select class="form-control" name="typeChauffage">
+                                        <option value="0"></option>
+                                        <option value="1">Cheminée foyer ouvert</option>
+                                        <option value="2">Cheminée foyer fermé</option>
+                                        <option value="3">Poêle au bois</option>
+                                        <option value="4">Aucun de ces moyens</option>
                                     </select>
                                 </div>
                             </div>  
@@ -229,30 +229,30 @@
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="valeurMobilier" >Valeur du mobilier à assurer </label>
                                 <div class="col-6 form-group m-t-20">
-                                    <select class="form-control">
-                                        <option>- de 50 000 Nis</option>
-                                        <option>50 000 - 100 000 Nis</option>
-                                        <option>100 000 - 200 000 Nis</option>
-                                        <option>+ de 200 000 Nis</option>
+                                    <select class="form-control" name="valeurMobilier">
+                                        <option value="1">- de 50 000 Nis</option>
+                                        <option value="2">50 000 - 100 000 Nis</option>
+                                        <option value="3">100 000 - 200 000 Nis</option>
+                                        <option value="4">+ de 200 000 Nis</option>
                                     </select>
                                 </div>
                             </div> 
 
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="anneeConstruction" >Année de construction du logement </label>
-                                <input class="col-4 form-control" type="number" value="" id="anneeConstruction">
+                                <input class="col-4 form-control" type="number" value="" name="'anneeConstruction'" id="anneeConstruction">
                             </div> 
 
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="nbSinistreDeclares" >Nombre de sinistre depuis 3 ans </label>
                                 <div class="col-3 form-group m-t-20">
-                                    <select class="form-control">
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
+                                    <select class="form-control" name="nbSinitres">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
                                 </div>
                             </div> 
@@ -260,12 +260,12 @@
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="dejaResilie" >Avez-vous déjà été résilié au cours des 3 dernieres années </label>
                                 <div class="col-6 form-group m-t-20">
-                                    <select class="form-control">
-                                        <option>Non jamais</option>
-                                        <option>Oui pour sinistre</option>
-                                        <option>Oui pour fausse déclaration</option>
-                                        <option>Oui pour impayé</option>
-                                        <option>Oui pour autre motif</option>
+                                    <select class="form-control" name="resiliationRecente">
+                                        <option value="0">Non jamais</option>
+                                        <option value="1">Oui pour sinistre</option>
+                                        <option value="2">Oui pour fausse déclaration</option>
+                                        <option value="3">Oui pour impayé</option>
+                                        <option value="4">Oui pour autre motif</option>
                                     </select>
                                 </div>
                             </div> 

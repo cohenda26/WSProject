@@ -59,7 +59,23 @@ function openWSConnection(protocol, hostname, port, endpoint) {
             // Notre message contient "Devis" --> nous affichons la cloche pour alerter 
             // que des nouveaux devis sont arrivés
             if (wsMsg.indexOf("Devis") > 0) {
-                $("#alerteDevis").removeClass('d-none');
+                //$("#alerteDevis").removeClass('d-none');
+
+                // http://bootstrap-notify.remabledesigns.com/#documentation
+                $.notify({
+                    title: '<strong>Information importante</strong>',
+                    message: `Une nouvelle demande vient d'être enregistrée.`,
+                    target: '_blank'
+                },{
+                    type: "info",
+                    offset: 20,
+                    spacing: 10,
+                    z_index: 1031,
+                    animate: {
+                        enter: 'animated fadeInRight',
+                        exit: 'animated fadeOutRight'
+                    }
+                });
             } 
         };
     } catch (exception) {

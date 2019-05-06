@@ -62,20 +62,26 @@ class Router{
             });
 
             $this->getParams();
+            // Controle le fait qu'une connexion soit present pour entrer dans les fonctions
+            // autres que celles appartenant à HOME
+            $Ctrler = strtoupper ($this->_nameCtrl);
+            $AccesPermis = (($Ctrler == 'HOME') || ($Ctrler == 'USER' ));
+            if (!$AccesPermis && !UserManager::getSessionUser() ){
+                header('Location: '. HOST .'home');
+            } else {
+                // nom de la class controller : (ex : ControllerHome, pour le controller de l'action Home)
+                $controllerClass = "Controller".$this->_nameCtrl;
 
-            // nom de la class controller : (ex : ControllerHome, pour le controller de l'action Home)
-            $controllerClass = "Controller".$this->_nameCtrl;
+                // nom du fichier = dossierController + le fichier ControllerClass.php
+                $controllerFile = CONTROLLERS.$controllerClass.".php";
 
-            // nom du fichier = dossierController + le fichier ControllerClass.php
-            $controllerFile = CONTROLLERS.$controllerClass.".php";
-
-            if (file_exists($controllerFile)){
-                $this->_Ctrl = new $controllerClass($this->_nameCtrl, $this->_nameMethod, $this->_params);
+                if (file_exists($controllerFile)){
+                    $this->_Ctrl = new $controllerClass($this->_nameCtrl, $this->_nameMethod, $this->_params);
+                }
+                else {
+                    throw new Exception ('Page introuvable : '.$controllerFile);
+                }
             }
-            else {
-                throw new Exception ('Page introuvable : '.$controllerFile);
-            }
-
         } catch (Exception $e) {
             $errorMsg = $e->getMessage();
             

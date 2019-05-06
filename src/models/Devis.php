@@ -15,7 +15,7 @@
         private $_nbPieces = 0;     
         private $_surfaceDependances = 0;  
         private $_garage = 0; // boolean       
-        private $_verandas = 0; // boolean  
+        private $_surfaceVeranda = 0; // boolean  
         private $_alarme = 0; // boolean     
         private $_typeChauffage = 0;   
         private $_anneeConstruction = 0;    
@@ -29,6 +29,7 @@
         private $_valeurMobilier = 0;
         private $_idClient;
         private $_status;
+        private $_nomAssureur = "";
 
         public function jsonSerialize()
         {
@@ -183,14 +184,14 @@
                 return $this;
         }
 
-        public function verandas()
+        public function surfaceVeranda()
         {
-                return $this->_verandas;
+                return $this->_surfaceVeranda;
         }
 
-        public function setVerandas($_verandas)
+        public function setVerandas($_surfaceVeranda)
         {
-                $this->_verandas = $_verandas;
+                $this->_surfaceVeranda = $_surfaceVeranda;
 
                 return $this;
         }
@@ -349,6 +350,26 @@
         public function setStatus($_status)
         {
                 $this->_status = $_status;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of _nomAssureur
+         */ 
+        public function nomAssureur()
+        {
+                return $this->_nomAssureur;
+        }
+
+        /**
+         * Set the value of _nomAssureur
+         *
+         * @return  self
+         */ 
+        public function setNomAssureur($_nomAssureur)
+        {
+                $this->_nomAssureur = $_nomAssureur;
 
                 return $this;
         }

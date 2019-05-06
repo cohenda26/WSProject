@@ -1,5 +1,5 @@
 
-<section id="" class="container">
+<section id="" class="container spacer-p-60">
     <div class="row">
         <div class="col-lg-12">
 
@@ -28,9 +28,9 @@
                                     <tr>
                                         <td><?= $indice ?></td>
                                         <td> <?= $devi->dateDebutContratSouhaitee(); ?> </td>
-                                        <td> <?= $devi->adresseNum(); ?> </td>
-                                        <td> <?= $devi->adresseRue(); ?> </td>
-                                        <td> <?= $devi->adresseVille(); ?> </td>
+                                        <td> <?= $devi->devisAdresseNum(); ?> </td>
+                                        <td> <?= $devi->devisAdresseRue(); ?> </td>
+                                        <td> <?= $devi->devisAdresseVille(); ?> </td>
                                         <td class="text-nowrap">
                                             <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
                                             <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>

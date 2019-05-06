@@ -35,15 +35,15 @@
 
         public function listDevis($params){
             $currentUser = UserManager::getSessionUser();
-
             $this->_clientManager = ClientManager::getNewInstance();
             $client = $this->_clientManager->getClient($currentUser);
             $devis = $this->_clientManager->getAllDevis($client);
 
             $this->_view = new View("Client/ListeDevis");
             $this->_view->generate(array("user" => $currentUser,
-                                         "client" => $client, 
-                                         "devis"=> $devis));
+                                        "client" => $client, 
+                                        "devis"=> $devis));
+
         }
 
         // GESTION DES CONTRATS DE TYPE HABITATION

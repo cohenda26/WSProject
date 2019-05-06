@@ -10,7 +10,7 @@
                 <!-- Premier Slide -->
                 <div class="carousel-item active">
                     <!-- Slide Background -->
-                    <img src="<?=ASSETS?>images/slider-img.jpg" alt="We are Digital Agency" class="slide-image" />
+                    <img src="<?=ASSETS?>images/slider-img.jpg" alt="Assurance sante" class="slide-image" />
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_left">
                         <div class="container">
@@ -18,10 +18,10 @@
                                 <div class="col-sm-10 col-md-8 col-lg-5" data-animation="animated slideInDown">
                                     <div class="bg-white text-center slide-content po-relative">
                                         <label class="label text-white font-14 m-0 label-rounded bg-success">Assurance santé</label>
-                                        <h2 data-animation="animated flipInX" class="title m-b-0">Get Well Soon</h2>
+                                        <h2 data-animation="animated flipInX" class="title m-b-0">Portez-vous bien</h2>
                                         <p data-animation="animated fadeInLeft" class="m-t-30">Bénéficiez d'une couverture santé efficace et adaptée à vos besoins.</p>
-                                        <a href="#" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
-                                        <a href="#" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
+                                        <a href="<?=HOST?>home/souscrireContratHabitation" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
+                                        <a href="<?=HOST?>home/souscrireContratHabitation" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                 <!-- Deuxieme Slide -->
                 <div class="carousel-item">
                     <!-- Slide Background -->
-                    <img src="<?=ASSETS?>images/slider-img1.jpg" alt="Building Magical Apps" class="slide-image" />
+                    <img src="<?=ASSETS?>images/slider-img1.jpg" alt="Assurance vie" class="slide-image" />
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_left">
                         <div class="container">
@@ -40,7 +40,7 @@
                                 <div class="col-sm-10 col-md-8 col-lg-5" data-animation="animated slideInDown">
                                     <div class="bg-white text-center slide-content po-relative">
                                         <label class="label text-white font-14 m-0 label-rounded bg-info">Assurance vie</label>
-                                        <h2 data-animation="animated flipInX" class="title m-b-0">Get Well Soon</h2>
+                                        <h2 data-animation="animated flipInX" class="title m-b-0">Protégez votre famille</h2>
                                         <p data-animation="animated fadeInLeft" class="m-t-30">Souscrivez à une assurance qui vous accompagne à chaque étape de votre vie.</p>
                                         <a href="#" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
                                         <a href="#" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
@@ -54,7 +54,7 @@
                 <!-- Troisieme Slide -->
                 <div class="carousel-item">
                     <!-- Slide Background -->
-                    <img src="<?=ASSETS?>images/slider-img-auto.jpg" alt="Building Magical Apps" class="slide-image" />
+                    <img src="<?=ASSETS?>images/slider-img-auto.jpg" alt="Assurance voiture" class="slide-image" />
                     <!-- Slide Text Layer -->
                     <div class="slide-text slide_style_left">
                         <div class="container">
@@ -62,7 +62,7 @@
                                 <div class="col-sm-10 col-md-8 col-lg-5 ml-auto" data-animation="animated slideInDown">
                                     <div class="bg-white text-center slide-content po-relative">
                                         <label class="label text-white font-14 m-0 label-rounded bg-info">Assurance voiture</label>
-                                        <h2 data-animation="animated flipInX" class="title m-b-0">Get Well Soon</h2>
+                                        <h2 data-animation="animated flipInX" class="title m-b-0">Circulez sereinement</h2>
                                         <p data-animation="animated fadeInLeft" class="m-t-30">Tiers ou Tous risques, roulez en toute sécurité.</p>
                                         <a href="#" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
                                         <a href="#" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
@@ -142,7 +142,7 @@
                             <p class="m-t-30">Propriétaire ou locataire ? </p> 
                             <p class="m-t-5">Résidence principale ou secondaire ? </p>
                             <p class="m-t-5">Maison ou appartement ? </p>
-                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-10" data-toggle="Modal" href="<?=HOST?>client/souscrireContratHabitation">
+                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-10" data-toggle="Modal" href="<?=HOST?>home/souscrireContratHabitation">
                                 <span>Demander un devis <i class="ti-arrow-right"></i></span>
                             </a> sur l'assurance qui vous convient </p>
                         </div>
@@ -150,7 +150,7 @@
                         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> <img src="<?=ASSETS?>images/features/feature41/img2.jpg" alt="wrapkit" class="rounded img-fluid" />
                             <p class="m-t-30">Assurance au tiers ou tous risque ?</p>
                             <p class="m-t-5">Trouvez l'assurance idéale et roulez en toute sécurité</p>
-                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-20" data-toggle="collapse" href="#f41"><span>Demander une offre <i class="ti-arrow-right"></i></span>
+                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-20" data-toggle="collapse" href="#"><span>Demander une offre <i class="ti-arrow-right"></i></span>
                             </a> et bonne route ! </p> 
                         </div>
                         <!-- Assurance Vie -->

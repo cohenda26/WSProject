@@ -59,5 +59,10 @@
             $this->_view = new View("Home/AssVoyage");
             $this->_view->generate(array("assVoyage"=> $assVoyage));            
         }
+
+        // Gestion de l'appel à la demande d'un devis habitation même si on est pas connecté
+        public function SouscrireContratHabitation($params){
+            $ClientController = new ControllerClient ('ControllerClient', 'SouscrireContratHabitation', $params);          
+        }
     }
 ?>

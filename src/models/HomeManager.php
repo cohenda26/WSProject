@@ -1,5 +1,4 @@
 <?php
-require_once(MODELS.'WebSocketClient.php');
 
 class HomeManager extends Model {
 
@@ -55,19 +54,6 @@ class HomeManager extends Model {
 
         mail($to, $subject, $message);
     }
-
-    // public function notifyServer(){
-    //     $headers = ["Cookie: SID=".session_id()];
-    //     $sp = websocket_open('ws://localhost:3000',3000,$headers,$errstr,16);
-    //     if($sp){
-    //        $bytes_written = websocket_write($sp,"hello server");
-    //        if($bytes_written){
-    //          $data = websocket_read($sp,$errstr);
-    //          echo "Server responed with: " . $errstr ? $errstr : $data;
-    //        }
-    //     }   
-
-    // }
 
 }
 

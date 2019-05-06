@@ -1,3 +1,7 @@
+$(window).on("load", function() {
+    traceLog("Custom Submit Form.js OnLoad ");
+});
+
 function ValiderContratHabitation(Frm){
     $.ajax({
         type: "POST",

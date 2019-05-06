@@ -28,7 +28,7 @@
     <script src="<?=ASSETS?>js/ClientWebSocket.js"></script>
 
 <?php
-  if (!is_null($formJs)) {
-      echo $formJs;
+  if (!is_null($contentJs)) {
+      echo $contentJs;
   }
 ?>

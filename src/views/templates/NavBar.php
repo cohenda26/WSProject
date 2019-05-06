@@ -25,7 +25,6 @@
                 <ul class="navbar-nav ml-auto">
                     <div class="navbar-menu-courtier d-none">
                         <li class="nav-item"><a href="<?=HOST?>courtier/EspaceProfessionnel" class="nav-link">Espace Professionnel</a></li>
-                        <!-- <li><a href="<?=HOST?>courtier/listclients" target="_blank">Liste</a></li> -->
                     </div>
 
                     <div class="navbar-menu-client d-none">
@@ -62,8 +61,8 @@
 </div>
 
 <?php
-  if (!is_null($stepper)) {
-      echo $stepper;
+  if (!is_null($contentStepper)) {
+      echo $contentStepper;
   }
 ?>
 

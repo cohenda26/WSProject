@@ -6,11 +6,13 @@ class View{
     private $_viewDatas;
     private $_fileStepper;
     private $_fileJs;
+    private $_fileCss;
 
     public function __construct($action){
        $this->_file = VIEWS. $action . ".php";
        $this->_fileStepper = VIEWS. $action . "Stepper.php";
        $this->_fileJs = VIEWS. $action . ".js";
+       $this->_fileCss = VIEWS. $action . ".css";
        
     //    try {
     //         list($Ctrler, $fonction) = explode("/", $action);
@@ -29,22 +31,29 @@ class View{
         $this->_viewDatas = $data;
         $content = $this->generateFile($this->_file, $this->_viewDatas);
 
-        $stepper = null;
+        $contentStepper = null;
         if (file_exists($this->_fileStepper)){
-            $stepper = $this->generateFile($this->_fileStepper, $this->_viewDatas);
+            $contentStepper = $this->generateFile($this->_fileStepper, $this->_viewDatas);
         }
 
-        $formJs = null;
+        $contentJs = null;
         if (file_exists($this->_fileJs)){
-            $formJs = $this->generateFile($this->_fileJs, $this->_viewDatas);
+            $contentJs = $this->generateFile($this->_fileJs, $this->_viewDatas);
+        }
+
+        $contentCss = null;
+        if (file_exists($this->_fileJs)){
+            $contentCss = $this->generateFile($this->_fileCss, $this->_viewDatas);
         }
 
         // GENERATION DU CONTENU DU TEMPLATE
         $view = $this->generateFile(VIEWS."template.php", array('viewTitle' => $this->_viewTitle, 
                                                                 'viewDatas' => $this->_viewDatas,
                                                                 'content'   => $content,
-                                                                'stepper'   => $stepper,
-                                                                'formJs'    => $formJs));
+                                                                'contentStepper'   => $contentStepper,
+                                                                'contentJs'    => $contentJs,
+                                                                'contentCss'    => $contentCss
+                                                            ));
         echo $view;
     }
 

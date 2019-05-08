@@ -12,7 +12,6 @@ function ValiderContratHabitation(Frm){
         success: function (data, status, xhr) {
             var data = Frm.serializeArray();
             WebSocket_SendMessage("Devis ", data, true);
-            //WebSocket_SendMessage("Devis ", true);
             // redirection vers l'espace personnel du client
             window.location.replace( getUrlComplete('client/espacePersonnel'));
         },

@@ -42,7 +42,7 @@ class View{
         }
 
         $contentCss = null;
-        if (file_exists($this->_fileJs)){
+        if (file_exists($this->_fileCss)){
             $contentCss = $this->generateFile($this->_fileCss, $this->_viewDatas);
         }
 

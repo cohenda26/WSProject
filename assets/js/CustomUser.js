@@ -1,31 +1,112 @@
-$(function () {
-    "use strict";
-
-    $(window).on("load", function() {
-        traceLog("CustomUser.js OnLoad ");
-
-        // Execution d'une requete Ajax afin de déterminer si une session existe déjà
-        $.ajax({
-            type: "POST",
-            url: getUrlComplete("/user/userConnected"),
-            data: "",
-            dataType : 'json',
-            ContentType : 'application/json',
-            success: function (data, status, xhr) {
-                displayUserFromTopBar(data.user, data.courtier, data.client);
-                displayUserFromNavBar(data.user, data.courtier, data.client);
-                WebSocket_Connect();
-            },
-            error: function () {
-                traceLog('userConnected : erreur requete AJAX');
-                displayUserFromTopBar(null, null, null);
-                displayUserFromNavBar(null, null, null);
-                WebSocket_Disconnect();
-            }
-        });
+function TestNotify(){
+    var notification = $.notify ({
+        // options
+        //icon: 'glyphicon glyphicon-envelope',
+        icon: 'icon-Mail info-icon',
+        title: 'Bootstrap notify',
+        message: 'Turning standard Bootstrap alerts into "notify" like notifications',
+        url: 'http://www.google.fr',
+        target: '_blank'
+    },{
+        // settings
+        element: 'body',
+        position: null,
+        type: "info",
+        allow_dismiss: true,
+        newest_on_top: true, //false,
+        showProgressbar: false,
+        placement: {
+            from: "top",
+            align: "right"
+        },
+        offset: 20,
+        spacing: 10,
+        z_index: 1031,
+        delay: 5000,
+        timer: 1000,
+        width : 400,
+        url_target: '_blank',
+        mouse_over: null,
+        animate: {
+            enter: 'animated fadeInDown',
+            exit: 'animated fadeOutUp'
+        },
+        onShow: null,
+        onShown: null,
+        onClose: null,
+        onClosed: null,
+        icon_type: 'class',
+        template: '<div data-notify="container" class="col-11 cold-md-6 col-sm-3 alert alert-{0}" role="alert">' +
+            '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+            '<span data-notify="icon"></span> ' +
+            '<span data-notify="title">{1}</span> ' +
+            '<span data-notify="message">{2}</span>' +
+            '<div class="progress" data-notify="progressbar">' +
+                '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+            '</div>' +
+            '<a href="{3}" target="{4}" data-notify="url"></a>' +
+        '</div>' 
     });
-    
+
+    setTimeout(function() {
+        notification.update({'type': 'success', 'message': '<strong>Success</strong> Your page has been saved!'});
+    }, 2000);
+}
+
+$(window).on("load", function() {
+    traceLog("CustomUser.js OnLoad ");
+
+    // Execution d'une requete Ajax afin de déterminer si une session existe déjà
+    $.ajax({
+        type: "POST",
+        url: getUrlComplete("/user/userConnected"),
+        data: "",
+        dataType : 'json',
+        ContentType : 'application/json',
+        success: function (data, status, xhr) {
+            displayUserFromTopBar(data.user, data.courtier, data.client);
+            displayUserFromNavBar(data.user, data.courtier, data.client);
+            //WebSocket_Connect(data.user);
+        },
+        error: function () {
+            traceLog('userConnected : erreur requete AJAX');
+            displayUserFromTopBar(null, null, null);
+            displayUserFromNavBar(null, null, null);
+            WebSocket_Disconnect();
+        }
+    });
 });
+
+// $(function () {
+//     //"use strict";
+
+//     //TestNotify();
+    
+//     $(window).on("load", function() {
+//         traceLog("CustomUser.js OnLoad ");
+
+//         // Execution d'une requete Ajax afin de déterminer si une session existe déjà
+//         $.ajax({
+//             type: "POST",
+//             url: getUrlComplete("/user/userConnected"),
+//             data: "",
+//             dataType : 'json',
+//             ContentType : 'application/json',
+//             success: function (data, status, xhr) {
+//                 displayUserFromTopBar(data.user, data.courtier, data.client);
+//                 displayUserFromNavBar(data.user, data.courtier, data.client);
+//                 //WebSocket_Connect(data.user);
+//             },
+//             error: function () {
+//                 traceLog('userConnected : erreur requete AJAX');
+//                 displayUserFromTopBar(null, null, null);
+//                 displayUserFromNavBar(null, null, null);
+//                 WebSocket_Disconnect();
+//             }
+//         });
+//     });
+    
+// });
 
 $().ready(function() {
    // On verifie la présence de l'Id sectionStepper
@@ -58,6 +139,7 @@ function displayUserFromTopBar(user, courtier, client) {
         $('.topbar-UserConnected').removeClass('d-none');
         $('.topbar-UserDisconnected').addClass('d-none');
     }
+    WebSocket_Connect(user);
 }
 
 function displayUserFromNavBar(user, courtier, client){
@@ -170,13 +252,17 @@ $("#ModalConnexion form").submit(function (e) {
                 // if (pwdValue == data.user._password){
                     $('#ModalConnexion').modal('hide');
 
-                    displayUserFromTopBar(data.user, data.courtier, data.client);
-                    displayUserFromNavBar(data.user, data.courtier, data.client);
-                    WebSocket_Connect();
-
                     if (data.locationPage.length > 0){
                         window.location.replace( getUrlComplete(data.locationPage));
                     }
+
+                    displayUserFromTopBar(data.user, data.courtier, data.client);
+                    displayUserFromNavBar(data.user, data.courtier, data.client);
+                    //WebSocket_Connect();
+
+                    // if (data.locationPage.length > 0){
+                    //     window.location.replace( getUrlComplete(data.locationPage));
+                    // }
                 // }
             },
             error: function () {

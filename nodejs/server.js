@@ -43,16 +43,19 @@ app.get('/', (req, res) => {
 // ==========================
 
 wss.on('connection', (ws) => {
-    let JSON_Obj = {};
-
     console.log('Server WebSocket OPEN Connexion ');
 
-    ws.on('close', (ws) => {
-        console.log('Server WebSocket CLOSE Connexion ', ws);
+    ws.on('close', (ws, reason) => {
+        console.log('Server WebSocket CLOSE Connexion ', ws, ' ', reason);
+    });
+
+    ws.on ('error', (error) => {
+        console.log('Server WebSocket ERROR Connexion ', error);
     });
 
     //connection is up, let's add a simple simple event
     ws.on('message', (message) => {
+        let JSON_Obj = {};
 
         JSON_Obj = JSON.parse(message);
         let msg = JSON_Obj.msg;
@@ -82,9 +85,7 @@ wss.on('connection', (ws) => {
     });
 
     //Envoy d'un message pour signaler la connexion   
-    JSON_Obj.msg = 'WebSocket : Connection en cours';
-    JSON_Obj.data = undefined;
-    ws.send(JSON.stringify( JSON_Obj));
+    ws.send(JSON.stringify( {msg : 'WebSocket : Connection en cours', data : undefined } ));
 });
 
 // =====================================

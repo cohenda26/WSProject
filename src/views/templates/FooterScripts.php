@@ -30,6 +30,6 @@
 
 <?php
   if (!is_null($contentJs)) {
-      echo $contentJs;
+     echo $contentJs;
   }
 ?>

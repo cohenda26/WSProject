@@ -34,7 +34,7 @@
 
     <?php
         if (!is_null($contentCss)) {
-            echo $contentCss;
+           echo $contentCss;
         }
     ?>
 </head>

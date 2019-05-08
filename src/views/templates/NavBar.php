@@ -62,7 +62,7 @@
 
 <?php
   if (!is_null($contentStepper)) {
-      echo $contentStepper;
+  echo $contentStepper;
   }
 ?>
 

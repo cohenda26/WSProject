@@ -3,5 +3,5 @@ function getUrlComplete(smallUrl){
 }
 
 function traceLog(message, ...args){
-    console.log(message, args);
+   // console.log(message, args);
 }

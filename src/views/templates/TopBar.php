@@ -11,7 +11,7 @@
             <div class="col-md-7 t-r">
                 <ul class="list-inline">
                     <div class="topbar-UserConnected d-none">
-                        <li><a href="#"><i class="icon-User info-icon"></i> <span id="user">Name user</span></a></li>
+                        <li><a href="#"><i class="icon-User info-icon"></i> <span id="user">Undefined</span></a></li>
                         <li><a><span class="vdevider"></span></a></li>
                         <li><a href="#">  <span id="numEssek">Nun Essek</span> </a></li>
                     </div>

@@ -3,9 +3,11 @@
         <!-- Row  -->
         <div class="row justify-content-center">
             <div class="col-md-7 text-center">
-                <span class="label label-info label-rounded">Espace Client Personnel</span>
-                <h2 class="title">Awesome with Extra Ordinary Flexibility</h2>
-                <h6 class="subtitle">You can relay on our amazing features list and also our customer services will be great experience for you without doubt and in no-time</h6>
+                <!-- <span class="label label-info label-rounded">Espace Client Personnel</span> -->
+                <h2 class="title">Votre espace personnel </h2>
+                <h6 class="subtitle">
+                Accessible 24h/24 depuis n’importe quel appareil connecté à internet (ordinateur, tablette ou téléphone), votre espace personnel sécurisé vise à vous faire gagner du temps en vous permettant de suivre vos contrats de chez vous et partout où vous êtes.
+                </h6>
             </div>
         </div>
         <!-- Row  -->
@@ -13,7 +15,7 @@
             <!-- Column -->
             <div class="col-md-4 wrap-feature2-box">
                 <div class="card card-shadow" data-aos="flip-left" data-aos-duration="1200">
-                    <img class="card-img-top" src="../assets/images/Devis.png" alt="wrappixel kit" />
+                    <img class="card-img-top" src="../assets/images/Devis.png" alt="devis" />
                     <div class="card-body text-center">
                         <h5 class="font-medium">Mes demandes</h5>
                         <p class="m-t-20">Vous avez effectué des demandes d'assurances, </p><p>retrouvez les
@@ -28,7 +30,7 @@
             <!-- Column -->
             <div class="col-md-4 wrap-feature2-box">
                 <div class="card card-shadow" data-aos="flip-up" data-aos-duration="1200">
-                    <img class="card-img-top" src="../assets/images/Contrats.png" alt="wrappixel kit" />
+                    <img class="card-img-top" src="../assets/images/Contrats.png" alt="contrats" />
                     <div class="card-body text-center">
                         <h5 class="font-medium">Mes contrats</h5>
                         <p class="m-t-20">Gérer vos contrats d'assurances en un clique.</p>
@@ -38,7 +40,7 @@
             <!-- Column -->
             <div class="col-md-4 wrap-feature2-box">
                 <div class="card card-shadow" data-aos="flip-right" data-aos-duration="1200">
-                    <img class="card-img-top" src="../assets/images/Sinistres.jpg" alt="wrappixel kit" />
+                    <img class="card-img-top" src="../assets/images/Sinistres.jpg" alt="sinistres" />
                     <div class="card-body text-center">
                         <h5 class="font-medium">Mes sinistres en cours</h5>
                         <p class="m-t-20">Le suivi de vos sinistres n'a jamais été aussi simple.</p>

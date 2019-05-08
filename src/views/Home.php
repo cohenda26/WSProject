@@ -7,8 +7,30 @@
             </ol>
             <!-- Wrapper For Slides -->
             <div class="carousel-inner" role="listbox">
-                <!-- Premier Slide -->
+                <!-- 1er Slide -->
                 <div class="carousel-item active">
+                    <!-- Slide Background -->
+                    <img src="<?=ASSETS?>images/slider-img-hab.jpg" alt="Assurance habitation" class="slide-image" />
+                    <!-- Slide Text Layer -->
+                    <div class="slide-text slide_style_left">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-10 col-md-8 col-lg-5 ml-auto" data-animation="animated slideInDown">
+                                    <div class="bg-white text-center slide-content po-relative">
+                                        <label class="label text-white font-14 m-0 label-rounded bg-success">Assurance habitation</label>
+                                        <h2 data-animation="animated flipInX" class="title m-b-0">Mettez votre famille à l’abri</h2>
+                                        <p data-animation="animated fadeInLeft" class="m-t-30">Locataire ou propriétaire, assurez votre appartement ou maison avec nos formules adaptées.</p>
+                                        <a href="<?=HOST?>home/souscrireContratHabitation" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
+                                        <a href="<?=HOST?>home/souscrireContratHabitation" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2eme Slide -->
+                <div class="carousel-item">
                     <!-- Slide Background -->
                     <img src="<?=ASSETS?>images/slider-img.jpg" alt="Assurance sante" class="slide-image" />
                     <!-- Slide Text Layer -->
@@ -20,8 +42,8 @@
                                         <label class="label text-white font-14 m-0 label-rounded bg-success">Assurance santé</label>
                                         <h2 data-animation="animated flipInX" class="title m-b-0">Portez-vous bien</h2>
                                         <p data-animation="animated fadeInLeft" class="m-t-30">Bénéficiez d'une couverture santé efficace et adaptée à vos besoins.</p>
-                                        <a href="<?=HOST?>home/souscrireContratHabitation" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
-                                        <a href="<?=HOST?>home/souscrireContratHabitation" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
+                                        <a href="#" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
+                                        <a href="#" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -29,7 +51,7 @@
                     </div>
                 </div>
 
-                <!-- Deuxieme Slide -->
+                <!-- 3eme Slide -->
                 <div class="carousel-item">
                     <!-- Slide Background -->
                     <img src="<?=ASSETS?>images/slider-img1.jpg" alt="Assurance vie" class="slide-image" />
@@ -51,7 +73,7 @@
                     </div>
                 </div>
 
-                <!-- Troisieme Slide -->
+                <!-- 4eme Slide -->
                 <div class="carousel-item">
                     <!-- Slide Background -->
                     <img src="<?=ASSETS?>images/slider-img-auto.jpg" alt="Assurance voiture" class="slide-image" />

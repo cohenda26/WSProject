@@ -65,7 +65,7 @@ class Router{
             // Controle le fait qu'une connexion soit present pour entrer dans les fonctions
             // autres que celles appartenant à HOME
             $Ctrler = strtoupper ($this->_nameCtrl);
-            $AccesPermis = (($Ctrler == 'HOME') || ($Ctrler == 'USER' ));
+            $AccesPermis = (($Ctrler == 'HOME') || ($Ctrler == 'USER' ) || ($Ctrler == 'COURTIER' ));
             if (!$AccesPermis && !UserManager::getSessionUser() ){
                 header('Location: '. HOST .'home');
             } else {

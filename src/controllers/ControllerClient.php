@@ -47,17 +47,52 @@
         }
 
         // GESTION DES CONTRATS DE TYPE HABITATION
-        public function souscrireContratHabitation($params){
-            $this->_clientManager = ClientManager::getNewInstance();
+        public function getDevisHabitation($params){
             $currentUser = UserManager::getSessionUser();
+
+            $this->_clientManager = ClientManager::getNewInstance();
             $client = $this->_clientManager->getClient($currentUser);
 
-            $this->_view = new View("Client/ContratHabitation");
+            $this->_devisManager = DevisManager::getNewInstance();
+            $devis = $this->_devisManager->getDevis($params["id"]);
+
+            $this->_view = new View("Client/DevisHabitation");
             $this->_view->generate(array("user" => $currentUser,
-                                         "client"=> $client));
+                                         "client" => $client, 
+                                         "devis"=> $devis));
+        }
+
+        public function deleteDevisHabitation($params){
+            $currentUser = UserManager::getSessionUser();
+
+            $this->_clientManager = ClientManager::getNewInstance();
+            $client = $this->_clientManager->getClient($currentUser);
+
+            $this->_devisManager = DevisManager::getNewInstance();
+            $devis = $this->_devisManager->deleteDevis($params["id"]);
+
+            // $this->_view = new View("Client/DevisHabitation");
+            // $this->_view->generate(array("user" => $currentUser,
+            //                              "client" => $client, 
+            //                              "devis"=> $devis));
+        }
+
+        public function demanderDevisHabitation($params){
+            $currentUser = UserManager::getSessionUser();
+
+            $this->_clientManager = ClientManager::getNewInstance();
+            $client = $this->_clientManager->getClient($currentUser);
+
+            $this->_devisManager = DevisManager::getNewInstance();
+            $devis = $this->_devisManager->getNewDevis(null);
+
+            $this->_view = new View("Client/DevisHabitation");
+            $this->_view->generate(array("user"  => $currentUser,
+                                         "client"=> $client,
+                                         "devis" => $devis));
         }        
 
-        public function validerContratHabitation($params){
+        public function validerDevisHabitation($params){
             $currentUser = UserManager::getSessionUser();
 
             $this->_clientManager = ClientManager::getNewInstance();
@@ -79,28 +114,5 @@
         }   
 
 
-        // public function listContratsHabitations($params){
-        //     $this->_clientManager = ClientManager::getNewInstance();
-        //     $contrats = $this->_clientManager->getContratsHabitations();
-
-        //     $this->_view = new View("ClientContratHabitation");
-        //     $this->_view->generate(array("contrats"=> $contrats));
-        // }
-
-        // public function listContratsVie($params){
-        //     $this->_clientManager = ClientManager::getNewInstance();
-        //     $contrats = $this->_clientManager->getContratsVie();
-
-        //     $this->_view = new View("ClientContratVie");
-        //     $this->_view->generate(array("contrats"=> $contrats));
-        // }
-
-        // public function listContratsVoitures($params){
-        //     $this->_clientManager = ClientManager::getNewInstance();
-        //     $contrats = $this->_clientManager->getContratsVoitures();
-
-        //     $this->_view = new View("ClientContratVoiture");
-        //     $this->_view->generate(array("contrats"=> $contrats));
-        // }
     }
 ?>

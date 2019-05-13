@@ -1,1 +1,0 @@
-<script src="<?=ASSETS?>js/CustomSubmitForms.js"></script>

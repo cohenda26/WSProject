@@ -14,7 +14,7 @@ class QuestionManager extends Model {
         return $p;
     }
 
-    function getListForContratHabitation(){
+    function getListForDevisHabitation(){
         $this->activeBddConnexion();
         $question = $this->get();
 

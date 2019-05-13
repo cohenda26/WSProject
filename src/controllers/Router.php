@@ -33,8 +33,10 @@ class Router{
                 $this->_nameMethod = strtolower($url[1]);  
                 unset($url[1]);
 
-                for ($i=2; $i<count($url); $i++){
-                    $this->_params[$url[$i]] = $url[$i+1];
+                for ($i=2; $i<=count($url); $i++){
+                    $key = $url[$i];
+                    $value = $url[$i+1];
+                    $this->_params[$key] = $value;
                     $i++;
                 }
             }

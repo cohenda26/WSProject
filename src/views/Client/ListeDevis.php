@@ -24,23 +24,23 @@
                                 <?php 
                                     $indice=1;
                                     foreach($devis as $devi): 
+                                     //   var_dump($devi) . "<br>";
                                 ?>
-                                    <tr>
-                                        <td><?= $indice ?></td>
-                                        <td> <?= $devi->dateDebutContratSouhaitee(); ?> </td>
-                                        <td> <?= $devi->devisAdresseNum(); ?> </td>
-                                        <td> <?= $devi->devisAdresseRue(); ?> </td>
-                                        <td> <?= $devi->devisAdresseVille(); ?> </td>
-                                        <td class="text-nowrap">
-                                            <a href="#" data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
-                                            <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
-                                        </td>
-                                    </tr>
+                                        <tr id="itemDevis<?= $devi->idDevis() ?>">
+                                                <td><?= $indice ?></td>
+                                                <td> <?= $devi->dateDebutContratSouhaitee(); ?> </td>
+                                                <td> <?= $devi->devisAdresseNum(); ?> </td>
+                                                <td> <?= $devi->devisAdresseRue(); ?> </td>
+                                                <td> <?= $devi->devisAdresseVille(); ?> </td>
+                                                <td class="text-nowrap">
+                                                    <a href="<?=HOST?>client/getDevisHabitation/id/<?= $devi->idDevis() ?>"  data-toggle="tooltip" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                                    <a href="#"  onclick="deleteDevisHabitation(<?= $devi->idDevis() ?>)" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+                                                </td>
+                                        </tr>
                                 <?php 
-                                $indice = $indice + 1;
-                                endforeach; 
+                                    $indice = $indice + 1;
+                                    endforeach; 
                                 ?> 
-                             
                             </tbody>
                         </table>
                     </div>

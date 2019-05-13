@@ -22,7 +22,7 @@
                             <a href="<?=HOST?>client/listDevis" class="linking">içi... <i class="ti-arrow-right"></i></a>
                         </p>
                     </div>
-                    <a class="btn btn-info-gradiant btn-md btn-arrow" data-toggle="Modal" href="<?=HOST?>client/souscrireContratHabitation">
+                    <a class="btn btn-info-gradiant btn-md btn-arrow" data-toggle="Modal" href="<?=HOST?>client/demanderDevisHabitation">
                         <span>Nouvelle demande <i class="ti-arrow-right"></i></span>
                     </a> 
                 </div>

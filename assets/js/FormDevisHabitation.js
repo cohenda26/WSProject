@@ -2,10 +2,10 @@ $(window).on("load", function() {
     traceLog("Custom Submit Form.js OnLoad ");
 });
 
-function ValiderContratHabitation(Frm){
+function ValiderDevisHabitation(Frm){
     $.ajax({
         type: "POST",
-        url: getUrlComplete("client/validerContratHabitation"),
+        url: getUrlComplete("client/validerDevisHabitation"),
         data: Frm.serialize(),
         dataType : 'html',
         ContentType : 'application/json',
@@ -16,7 +16,7 @@ function ValiderContratHabitation(Frm){
             window.location.replace( getUrlComplete('client/espacePersonnel'));
         },
         error: function (xhr, textStatus, error) {
-            traceLog('Erreur sur requete AJAX ContratHabitation');
+            traceLog('Erreur sur requete AJAX DevisHabitation');
         },
         Complete: function (xhr, testStatus){
             if (textStatus == "success"){
@@ -27,8 +27,50 @@ function ValiderContratHabitation(Frm){
     });
 }
 
-$("#ContratHabitation form").submit(function (e) {
+function CheckDataIntegrity(){
+    $error = false;
+    $surface = $("#surface");
+    if ($surface.val() == 0){
+        $error = true;
+        $surface.addClass("is-invalid");
+        // erreur sur la surface
+    }
+
+    $reponseVeranda = $("#questionVeranda a.active");
+    $surfaceVeranda = $("#surfaceVeranda");
+    if ( ($reponseVeranda.data("bind") == "oui") &&  ($surfaceVeranda.val() == 0) ){
+        $error = true;
+        $reponseVeranda.addClass("is-invalid");
+        $surfaceVeranda.addClass("is-invalid");
+     // erreur sur la surfaceVeranda
+    }
+
+    $logementAssure = $("#logementAssure a.active");
+    $nomAssureur = $("#NomAssureur");
+    if ( ($logementAssure.data("bind") == "1") &&  ($nomAssureur.val() == "") ){
+        $error = true;
+        $logementAssure.addClass("is-invalid");
+        $nomAssureur.addClass("is-invalid");
+     // erreur sur la nom de l'assureur
+    }
+
+    $cotisationMin = $("#cotisationMin");
+    $cotisationMax = $("#cotisationMax");
+    if ($cotisationMin.val() > $cotisationMax.val()) {
+        $error = true;
+        $cotisationMin.addClass("is-invalid");
+        $cotisationMax.addClass("is-invalid");
+        // erreur sur les valeur des cotisations demandées
+    }
+
+    return $error;
+}
+
+$("#DevisHabitation form").submit(function (e) {
     var dataValid = this.checkValidity();
+    if (!dataValid){
+        dataValid = CheckDataIntegrity()
+    }
     this.classList.add('was-validated');
     if ( dataValid === false) {
         e.preventDefault();
@@ -50,17 +92,17 @@ $("#ContratHabitation form").submit(function (e) {
                 // L'utilisateur n'est pas connecté
                 if (!data.user) {  
                     // On pointe la form dont Id=UserSignIn et 
-                    // on declenche la validation du contrat au submit
+                    // on declenche la validation du devis au submit
                     $("form#UserSignIn")[0].addEventListener('submit',
                     function () {
-                        ValiderContratHabitation(Frm);
+                        ValiderDevisHabitation(Frm);
                     }, {once : true});
 
                     // Appel de la form correspondant à l'enregistrement d'un USER
                     $('#btnUserSignIn').trigger('click');
                   } 
                 else {
-                    ValiderContratHabitation(Frm);
+                    ValiderDevisHabitation(Frm);
                 }
             },
             error: function (xhr, textStatus, error) {

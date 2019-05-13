@@ -7,13 +7,13 @@
         private $_categorieAppart = 0;      
         private $_statusLogement = 0;      
         private $_logementHabite = 0;              
-        private $_typeLogement = 0;         
-        private $_devisAdresseNum = "";       
+        private $_typeLogement = 0;      // Principal - Secondaire   
+        private $_devisAdresseNum = "0";       
         private $_devisAdresseRue = "";  
         private $_devisAdresseVille = "";   
         private $_surface = 0;      
-        private $_nbPieces = 0;     
-        private $_surfaceDependances = 0;  
+        private $_nbPieces = 1;     
+        private $_surfaceDependances = 1;  
         private $_garage = 0; // boolean       
         private $_surfaceVeranda = 0; // boolean  
         private $_alarme = 0; // boolean     
@@ -27,9 +27,13 @@
         private $_montantMinSouhaite = 0; // double 
         private $_montantMaxSouhaite = 0; // double  
         private $_valeurMobilier = 0;
-        private $_idClient;
-        private $_status;
+        private $_idClient = 0;
+        private $_status = 0;
         private $_nomAssureur = "";
+        private $_etage = 0;
+        private $_nbJoursInhabites = 0;
+        private $_habitationPlusProche = 0;
+        private $_veranda = 0;
 
         public function jsonSerialize()
         {
@@ -370,6 +374,86 @@
         public function setNomAssureur($_nomAssureur)
         {
                 $this->_nomAssureur = $_nomAssureur;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of _etage
+         */ 
+        public function etage()
+        {
+                return $this->_etage;
+        }
+
+        /**
+         * Set the value of _etage
+         *
+         * @return  self
+         */ 
+        public function setEtage($_etage)
+        {
+                $this->_etage = $_etage;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of _nbJoursInhabites
+         */ 
+        public function nbJoursInhabites()
+        {
+                return $this->_nbJoursInhabites;
+        }
+
+        /**
+         * Set the value of _nbJoursInhabites
+         *
+         * @return  self
+         */ 
+        public function setNbJoursInhabites($_nbJoursInhabites)
+        {
+                $this->_nbJoursInhabites = $_nbJoursInhabites;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of _habitationPlusProche
+         */ 
+        public function habitationPlusProche()
+        {
+                return $this->_habitationPlusProche;
+        }
+
+        /**
+         * Set the value of _habitationPlusProche
+         *
+         * @return  self
+         */ 
+        public function setHabitationPlusProche($_habitationPlusProche)
+        {
+                $this->_habitationPlusProche = $_habitationPlusProche;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of _veranda
+         */ 
+        public function veranda()
+        {
+                return $this->_veranda;
+        }
+
+        /**
+         * Set the value of _veranda
+         *
+         * @return  self
+         */ 
+        public function setVeranda($_veranda)
+        {
+                $this->_veranda = $_veranda;
 
                 return $this;
         }

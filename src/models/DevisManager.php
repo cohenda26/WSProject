@@ -14,9 +14,14 @@ class DevisManager extends Model {
         $p = ['idClient', 'status', 'categorieAppart', 'statusLogement', 'logementHabite', 'typeLogement', 'devisAdresseNum', 'devisAdresseRue', 'devisAdresseVille',
         'surface', 'nbPieces', 'surfaceDependances', 'garage', 'surfaceVeranda', 'alarme', 'typeChauffage', 
         'anneeConstruction', 'nbSinitres', 'resiliationRecente', 'logementDejaAssure', 'dateAmenagementSouhaitee', 'dateDebutContratSouhaitee', 
-        'montantMinSouhaite', 'montantMaxSouhaite', 'valeurMobilier','nomAssureur'
+        'montantMinSouhaite', 'montantMaxSouhaite', 'valeurMobilier','nomAssureur', 'etage',
+        'nbJoursInhabites', 'habitationPlusProche', 'veranda'
         ];
         return $p;
+    }
+    public function getNewDevis($datas){
+        $Devis = new Devis($datas);
+        return $Devis;
     }
 
     public function addDevis($data, $client){
@@ -28,10 +33,16 @@ class DevisManager extends Model {
         return $Devis;
     }
 
-    public function getDevis($oDevis){
+    public function getDevis($id){
         $this->activeBddConnexion();
-        $Devis = $this->getFromId($oDevis->idDevis());
+        $Devis = $this->getFromId($id);
         return $Devis;        
+    }
+
+    public function deleteDevis($id){
+        $this->activeBddConnexion();
+        $this->deleteFromId($id);    
+        // Prevoir une valeur de retour    
     }
 
     public function getAllDevis($oClient){

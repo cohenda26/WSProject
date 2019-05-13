@@ -20,8 +20,8 @@
                                         <label class="label text-white font-14 m-0 label-rounded bg-success">Assurance habitation</label>
                                         <h2 data-animation="animated flipInX" class="title m-b-0">Mettez votre famille à l’abri</h2>
                                         <p data-animation="animated fadeInLeft" class="m-t-30">Locataire ou propriétaire, assurez votre appartement ou maison avec nos formules adaptées.</p>
-                                        <a href="<?=HOST?>home/souscrireContratHabitation" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
-                                        <a href="<?=HOST?>home/souscrireContratHabitation" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
+                                        <a href="<?=HOST?>home/demanderDevisHabitation" class="bg-info text-left text-white"><i class="icon icon-Right ti-arrow-right"></i></a>
+                                        <a href="<?=HOST?>home/demanderDevisHabitation" class="bg-info btn-arrow text-white"><i class="ti-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +164,7 @@
                             <p class="m-t-30">Propriétaire ou locataire ? </p> 
                             <p class="m-t-5">Résidence principale ou secondaire ? </p>
                             <p class="m-t-5">Maison ou appartement ? </p>
-                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-10" data-toggle="Modal" href="<?=HOST?>home/souscrireContratHabitation">
+                            <p class="m-t-5"> <a class="btn btn-success-gradiant btn-arrow m-t-10" data-toggle="Modal" href="<?=HOST?>home/demanderDevisHabitation">
                                 <span>Demander un devis <i class="ti-arrow-right"></i></span>
                             </a> sur l'assurance qui vous convient </p>
                         </div>

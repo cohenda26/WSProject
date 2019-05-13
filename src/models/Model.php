@@ -81,6 +81,11 @@
           self::$_BddConnexion->exec( $reqSt );
         }
 
+        public function deleteFromId($id){
+          $reqSt = 'DELETE FROM '. $this->_tableName . ' WHERE ' . $this->_nameIdTable .' = '. $id;
+          self::$_BddConnexion->exec( $reqSt );
+        }
+
         public function getFromId($id){
           return $this->get($this->_nameIdTable, $id);
         }

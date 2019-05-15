@@ -105,7 +105,7 @@
         /**
          * Get the value of _dateNaissance
          */ 
-        public function getDateNaissance()
+        public function dateNaissance()
         {
                 return $this->_dateNaissance;
         }
@@ -115,7 +115,7 @@
          *
          * @return  self
          */ 
-        public function dateNaissance($_dateNaissance)
+        public function setDateNaissance($_dateNaissance)
         {
                 $this->_dateNaissance = $_dateNaissance;
 

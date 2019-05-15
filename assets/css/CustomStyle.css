@@ -7,6 +7,12 @@ File: scss
 /*============================================================== 
  You can write your style here and overwrite our style
  ============================================================== */
+ .topbar.fixed-header.animated .h3-topbar,
+ .topbar.fixed-header.animated .h3-navbar {
+   display: none;
+
+ }
+
  .spacer-p-60 {
   padding: 60px 0;
 }

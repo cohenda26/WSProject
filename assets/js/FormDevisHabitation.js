@@ -5,7 +5,7 @@ $(window).on("load", function() {
 function ValiderDevisHabitation(Frm){
     $.ajax({
         type: "POST",
-        url: getUrlComplete("client/validerDevisHabitation"),
+        url: getUrlComplete("devis/validerDevisHabitation"),
         data: Frm.serialize(),
         dataType : 'html',
         ContentType : 'application/json',
@@ -82,33 +82,50 @@ $("#DevisHabitation form").submit(function (e) {
         // Frm est la Form d'où les données vont être récupérées pour être traitées
         let Frm = $(this);
     
-        $.ajax({
-            type: "POST",
-            url: getUrlComplete("user/userConnected"),
-            data: "",
-            dataType : 'json',
-            ContentType : 'application/json',
-            success: function (data, status, xhr) {
-                // L'utilisateur n'est pas connecté
-                if (!data.user) {  
-                    // On pointe la form dont Id=UserSignIn et 
-                    // on declenche la validation du devis au submit
-                    $("form#UserSignIn")[0].addEventListener('submit',
-                    function () {
-                        ValiderDevisHabitation(Frm);
-                    }, {once : true});
+        var data = getUserConnected();
+        if ((!data) || (!data.user)) {  
+            // On pointe la form dont Id=UserSignIn et 
+            // on declenche la validation du devis au submit
+            $("form#UserSignIn")[0].addEventListener('submit',
+            function () {
+                ValiderDevisHabitation(Frm);
+            }, {once : true});
 
-                    // Appel de la form correspondant à l'enregistrement d'un USER
-                    $('#btnUserSignIn').trigger('click');
-                  } 
-                else {
-                    ValiderDevisHabitation(Frm);
-                }
-            },
-            error: function (xhr, textStatus, error) {
-                traceLog('userConnected SubmitForm: erreur requete AJAX');
-            }
-        });
+            // Appel de la form correspondant à l'enregistrement d'un USER
+            $('#btnUserSignIn').trigger('click');
+          } 
+        else {
+            ValiderDevisHabitation(Frm);
+        }
+        
+        // Mise a jour UserConnected        
+        // $.ajax({
+        //     type: "POST",
+        //     url: getUrlComplete("user/userConnected"),
+        //     data: "",
+        //     dataType : 'json',
+        //     ContentType : 'application/json',
+        //     success: function (data, status, xhr) {
+        //         // L'utilisateur n'est pas connecté
+        //         if (!data.user) {  
+        //             // On pointe la form dont Id=UserSignIn et 
+        //             // on declenche la validation du devis au submit
+        //             $("form#UserSignIn")[0].addEventListener('submit',
+        //             function () {
+        //                 ValiderDevisHabitation(Frm);
+        //             }, {once : true});
+
+        //             // Appel de la form correspondant à l'enregistrement d'un USER
+        //             $('#btnUserSignIn').trigger('click');
+        //           } 
+        //         else {
+        //             ValiderDevisHabitation(Frm);
+        //         }
+        //     },
+        //     error: function (xhr, textStatus, error) {
+        //         traceLog('userConnected SubmitForm: erreur requete AJAX');
+        //     }
+        // });
 
     }
 });

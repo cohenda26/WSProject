@@ -53,28 +53,61 @@ function TestNotify(){
     }, 2000);
 }
 
+function getUserConnected () {
+  var data = sessionStorage.getItem('bitouelUser');
+  if (data) {
+      return JSON.parse(data);
+  }
+  else
+   return null;
+}
+
+function setUserConnected(data) {
+    if (data) {
+        var dataJSON = JSON.stringify(data);
+        sessionStorage.setItem('bitouelUser', dataJSON);
+    }
+    else {
+        sessionStorage.removeItem('bitouelUser');
+    }
+}
+
 $(window).on("load", function() {
     traceLog("CustomUser.js OnLoad ");
 
     // Execution d'une requete Ajax afin de déterminer si une session existe déjà
-    $.ajax({
-        type: "POST",
-        url: getUrlComplete("/user/userConnected"),
-        data: "",
-        dataType : 'json',
-        ContentType : 'application/json',
-        success: function (data, status, xhr) {
-            displayUserFromTopBar(data.user, data.courtier, data.client);
-            displayUserFromNavBar(data.user, data.courtier, data.client);
-            //WebSocket_Connect(data.user);
-        },
-        error: function () {
-            traceLog('userConnected : erreur requete AJAX');
-            displayUserFromTopBar(null, null, null);
-            displayUserFromNavBar(null, null, null);
-            WebSocket_Disconnect();
-        }
-    });
+    var data = getUserConnected();
+    if (data){
+        displayUserFromTopBar(data.user, data.courtier, data.client);
+        displayUserFromNavBar(data.user, data.courtier, data.client);
+    }
+    else {
+        traceLog('CustomUser.js / load / User not connected ');
+        displayUserFromTopBar(null, null, null);
+        displayUserFromNavBar(null, null, null);
+        WebSocket_Disconnect();        
+    }
+
+    // Mise a jour UserConnected
+    // Execution d'une requete Ajax afin de déterminer si une session existe déjà
+    // $.ajax({
+    //     type: "POST",
+    //     url: getUrlComplete("/user/userConnected"),
+    //     data: "",
+    //     dataType : 'json',
+    //     ContentType : 'application/json',
+    //     success: function (data, status, xhr) {
+    //         displayUserFromTopBar(data.user, data.courtier, data.client);
+    //         displayUserFromNavBar(data.user, data.courtier, data.client);
+    //         //WebSocket_Connect(data.user);
+    //     },
+    //     error: function () {
+    //         traceLog('userConnected : erreur requete AJAX');
+    //         displayUserFromTopBar(null, null, null);
+    //         displayUserFromNavBar(null, null, null);
+    //         WebSocket_Disconnect();
+    //     }
+    // });
 });
 
 // $(function () {
@@ -177,15 +210,19 @@ $('.btn-logout').click(function(){
         type: "POST",
         url: getUrlComplete("/user/logout"),
         data: "",
-        dataType : 'json',
+        // dataType : Type de donnees envoyés
+        dataType : 'html',
+        // ContentType : Type de donnees en retour
         ContentType : 'application/json',
         success: function (data, status, xhr) {
             // displayUserFromTopBar(null, null, null);
             // displayUserFromNavBar(null, null, null);
+            traceLog('Btn Logout Success');
+            setUserConnected(null);
             WebSocket_Disconnect();
         },
-        error: function () {
-            traceLog('userConnected : erreur requete AJAX');
+        error: function (xhr, textStatus, error) {
+            traceLog('CustomUser.js / Btn Logout / userConnected / Call Ajax error', textStatus, error);
             // displayUserFromTopBar(null, null, null);
             // displayUserFromNavBar(null, null, null);
         }
@@ -250,6 +287,8 @@ $("#ModalConnexion form").submit(function (e) {
             ContentType : 'application/json',
             success: function (data, status, xhr) {
                 // if (pwdValue == data.user._password){
+                    setUserConnected(data);
+
                     $('#ModalConnexion').modal('hide');
 
                     if (data.locationPage.length > 0){

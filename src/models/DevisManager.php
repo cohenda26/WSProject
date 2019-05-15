@@ -19,7 +19,7 @@ class DevisManager extends Model {
         ];
         return $p;
     }
-    public function getNewDevis($datas){
+    public function newDevis($datas){
         $Devis = new Devis($datas);
         return $Devis;
     }

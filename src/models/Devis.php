@@ -274,6 +274,7 @@
 
         public function dateDebutContratSouhaitee()
         {
+               $d = date_format(date_create($this->_dateDebutContratSouhaitee), 'd/m/y');
                 return $this->_dateDebutContratSouhaitee;
         }
 

@@ -383,7 +383,8 @@ html body .p-t-0 {
   padding-top: 0px; }
 
 html body .p-t-10 {
-  padding-top: 10px; }
+  padding-top: 10px;
+  }
 
 html body .p-t-20 {
   padding-top: 20px; }
@@ -1613,7 +1614,8 @@ Topbar
     -webkit-transition: 0.2s ease-in;
     -o-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
-    background: #ffffff; }
+    background: #ffffff;
+    }
     .topbar.fixed-header .navbar .navbar-brand img {
       height: 50px;
       -webkit-backface-visibility: hidden;
@@ -1702,7 +1704,8 @@ card
 *******************/
 .card {
   border: 0px;
-  margin-bottom: 30px; }
+  margin-bottom: 30px;
+  }
   .card.card-shadow {
     -webkit-box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1);
     box-shadow: 0px 0px 30px rgba(115, 128, 157, 0.1); }

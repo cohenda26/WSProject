@@ -62,7 +62,7 @@
 
         // Gestion de l'appel à la demande d'un devis habitation même si on est pas connecté
         public function DemanderDevisHabitation($params){
-            $ClientController = new ControllerClient ('ControllerClient', 'DemanderDevisHabitation', $params);          
+            $DevisController = new ControllerDevis ('ControllerDevis', 'demanderDevisHabitation', $params);          
         }
     }
 ?>

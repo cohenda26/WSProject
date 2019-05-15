@@ -15,10 +15,6 @@ $(window).on('load', function() {
     // On verifie la connexion d'un utilisateur via son email
     let userConnected = $('.topbar-UserConnected #user');
     console.log('Function LOAD : ClienWebSocket / UserConnected ',  userConnected.html());
-    // if(userConnected.html() != "Undefined"){
-    //     WebSocket_Connect();
-    // }
- 
  });
 
 

@@ -1,7 +1,7 @@
 function deleteDevisHabitation(id){
     $.ajax({
         type: "POST",
-        url: getUrlComplete("client/deleteDevisHabitation/id/"+id),
+        url: getUrlComplete("devis/deleteDevisHabitation/id/"+id),
         data: null,
         dataType : 'html',
         ContentType : 'application/json',

@@ -10,6 +10,9 @@
         private $_classNameObject;
         private $_nameIdTable;
 
+        private $_dateCreate;
+        private $_dateUpdate;
+
         public function __construct($tableName, $classNameObject, $nameIdTable){
           $this->_tableName = $tableName;
           $this->_classNameObject = $classNameObject;
@@ -65,12 +68,15 @@
 
         protected function add(DBObject $Odatas){
           $p = $this->getListPropertyTable();
+          array_push($p, "dateCreate");
           $pb = $this->getListAliasBinding();
+          array_push($pb, ":dateCreate");
   
           $ReqSt = 'INSERT INTO ' . $this->_tableName . ' ( ' . $this->getArrayToString($p) . ' ) VALUES ( ' . $this->getArrayToString($pb) . ' )';
           $Req = self::$_BddConnexion->prepare( $ReqSt );
   
           $this->bindValue($Odatas, $Req);
+          $Req->bindValue(":dateCreate", date('Y-m-d H:i:s'));
   
           $itemDB = $Req->execute();
           return $itemDB;
@@ -127,7 +133,10 @@
 
         protected function update(DBObject $Odatas){
           $p = $this->getListPropertyTable();
+          array_push($p, "dateUpdate");
           $pb = $this->getListAliasBinding();
+          array_push($pb, ":dateUpdate");
+          $this->setDateUpdate (date('Y-m-d H:i:s') );
 
           $st = "";
           $arr_length = count($p); 
@@ -171,6 +180,46 @@
             self::setBddConnexion(null);
           }
           return self::$_BddConnexion;
+        }
+
+        /**
+         * Get the value of _dateCreate
+         */ 
+        public function dateCreate()
+        {
+                return $this->_dateCreate;
+        }
+
+        /**
+         * Set the value of _dateCreate
+         *
+         * @return  self
+         */ 
+        public function setDateCreate($_dateCreate)
+        {
+                $this->_dateCreate = $_dateCreate;
+
+                return $this;
+        }
+
+        /**
+         * Get the value of _dateUpdate
+         */ 
+        public function dateUpdate()
+        {
+                return $this->_dateUpdate;
+        }
+
+        /**
+         * Set the value of _dateUpdate
+         *
+         * @return  self
+         */ 
+        public function setDateUpdate($_dateUpdate)
+        {
+                $this->_dateUpdate = $_dateUpdate;
+
+                return $this;
         }
     }
 

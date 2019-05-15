@@ -24,11 +24,11 @@
 
                 <ul class="navbar-nav ml-auto">
                     <div class="navbar-menu-courtier d-none">
-                        <li class="nav-item"><a href="<?=HOST?>courtier/EspaceProfessionnel" class="nav-link">Espace Professionnel</a></li>
+                        <li class="nav-item"><a href="<?=HOST?>courtier/espaceProfessionnel" class="nav-link">Espace Professionnel</a></li>
                     </div>
 
                     <div class="navbar-menu-client d-none">
-                        <li class="nav-item"><a href="<?=HOST?>client/EspacePersonnel" class="nav-link">Espace Personnel</a></li>
+                        <li class="nav-item"><a href="<?=HOST?>client/espacePersonnel" class="nav-link">Espace Personnel</a></li>
                     </div>
                 </ul>
 

@@ -341,7 +341,9 @@ html body .p-0 {
   padding: 0px; }
 
 html body .p-10 {
-  padding: 10px; }
+  padding: 10px;
+  /* height: 200px; */
+  }
 
 html body .p-15 {
   padding: 15px; }
@@ -459,7 +461,10 @@ html body .m-t-5 {
   margin-top: 5px; }
 
 html body .m-t-10 {
-  margin-top: 10px; }
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  }
 
 html body .m-t-15 {
   margin-top: 15px; }

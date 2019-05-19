@@ -23,17 +23,18 @@
                         <label class="control-label">Mot de passe</label>
                         <input type="password" id="passwordLogin" class="form-control" name="password" required>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="remember" disabled> Se souvenir
                             </label>
+                            <a style="pointer-events: none; display: inline-block;" class="btn btn-link pull-right" href="">Mot de passe oublié?</a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group disabled">
                         <div>
                             <button type="submit" class="btn btn-success"  name="login">S'identifier</button>
-                            <a style="pointer-events: none; display: inline-block;" class="btn btn-link" href="">Mot de passe oublié?</a>
+                            <a data-action="FrmUserSignIn"  class="btnNavigateUser btn btn-sm pull-right btn-outline-success" href="#">Créer un compte</a>
                         </div>
                     </div>
                 </form> 
@@ -96,9 +97,8 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success" name="register">
-                            S'enregistrer
-                        </button>
+                        <button type="submit" class="btn btn-success" name="register"> S'enregistrer </button>
+                        <a data-action="FrmUserLogin"  class="btnNavigateUser btn btn-sm pull-right btn-outline-success" href="#">S'authentifier</a>
                     </div>
                 </form>
             </div>
@@ -166,18 +166,21 @@
         </div><!-- /.modal-content -->
 
         <!-- Modal HTML Markup -->
-        <div id="FrmUserNotFoundCreate" class="d-none userIdentification modal-content">
+        <div id="FrmUserNotFoundCreate" class="d-none userIdentification modal-content"> 
             <div class="modal-header">
-                <h4 class="modal-title">Authentification nescessaire pour continuer...</h4>
+                <h4 class="modal-title">Authentification nécessaire ...</h4>
+                <a href="#" class="close-btn" data-dismiss="modal" aria-hidden="true">×</a>
             </div>
             <div class="modal-body">
-                <p class="lead text-xs-center">It only takes a few seconds to level up!</p>
-                <div class="lead text-xs-center"><a class="btn btn-info" href="<?=HOST?>/user/register">Créer un compte</a> or
-                    <a class="btn btn-success" href="<?=HOST?>/user/login">S'authentifier</a></div>
+                <!-- <p class="lead text-center">Ne nescessite que quelques minutes !</p> -->
+                <div class="text-center">
+                    <a data-action="FrmUserSignIn"  class="btnNavigateUser btn btn-outline-success" href="#">Créer un compte</a> Ou 
+                    <a data-action="FrmUserLogin"  class="btnNavigateUser btn btn-outline-success" href="#">S'authentifier</a>
+                </div>
             </div>
-            <div class="modal-footer">
+            <!-- <div class="modal-footer">
                 :-)
-            </div>
+            </div> -->
         </div><!-- /.modal-content -->
 
     </div><!-- /.modal-dialog -->

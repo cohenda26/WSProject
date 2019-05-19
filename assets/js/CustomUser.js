@@ -141,7 +141,7 @@ $(window).on("load", function() {
     
 // });
 
-$().ready(function() {
+$(document).ready(function() {
    // On verifie la présence de l'Id sectionStepper
    // si present alors on change la class pour agrandir la zone globale du header
     if ( $( "#sectionStepper" ).length ) {
@@ -242,6 +242,14 @@ $("input[type=email]").change(function() {
     }
 });
 
+$('.btnNavigateUser').click( (e)=>{
+    var btn = $(e.target);
+    var action = btn.data('action');
+
+    $('.userIdentification').addClass('d-none');
+    $('#'+action).removeClass('d-none');
+});
+
 $('#ModalConnexion').on('show.bs.modal', function(e) {
     this.classList.remove('was-validated');
 
@@ -257,6 +265,7 @@ $('#ModalConnexion').on('hide.bs.modal', function(e) {
     // On desactive toutes les forms possédant la class "userIdentification"
     $('.userIdentification').addClass('d-none');
 });
+
 
 $("#ModalConnexion form").submit(function (e) {
     var dataValid = this.checkValidity();

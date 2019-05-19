@@ -91,6 +91,11 @@ $("#DevisHabitation form").submit(function (e) {
                 ValiderDevisHabitation(Frm);
             }, {once : true});
 
+            $("form#UserLogin")[0].addEventListener('submit',
+            function () {
+                ValiderDevisHabitation(Frm);
+            }, {once : true});
+            
             // Appel de la form correspondant à l'enregistrement d'un USER
             $('#btnUserSignIn').trigger('click');
           } 

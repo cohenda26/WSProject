@@ -28,7 +28,7 @@
                                 ?>
                                         <tr id="itemDevis<?= $devi->idDevis() ?>">
                                                 <td><?= $indice ?></td>
-                                                <td> <?= $devi->dateDebutContratSouhaitee(); ?> </td>
+                                                <td> <?= date_create($devi->dateDebutContratSouhaitee())->format('d M Y'); ?> </td>
                                                 <td> <?= $devi->devisAdresseNum(); ?> </td>
                                                 <td> <?= $devi->devisAdresseRue(); ?> </td>
                                                 <td> <?= $devi->devisAdresseVille(); ?> </td>

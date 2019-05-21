@@ -31,7 +31,7 @@
                             <a style="pointer-events: none; display: inline-block;" class="btn btn-link pull-right" href="">Mot de passe oublié?</a>
                         </div>
                     </div> -->
-                    <div class="form-group disabled">
+                    <div class="form-group">
                         <div>
                             <button type="submit" class="btn btn-success"  name="login">S'identifier</button>
                             <a data-action="FrmUserSignIn"  class="btnNavigateUser btn btn-sm pull-right btn-outline-success" href="#">Créer un compte</a>

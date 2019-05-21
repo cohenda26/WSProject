@@ -49,6 +49,7 @@ $(document).ready(function () {
             }
 
             prevStepWizard.removeAttr('disabled').trigger('click');
+            $("html, body").animate({ scrollTop: 0 }, "slow");
     });
   
     // Gestion click sur les boutons suivants
@@ -79,6 +80,7 @@ $(document).ready(function () {
         if (isValid) {
             nextStepWizard.removeAttr('disabled').trigger('click');
         }
+        $("html, body").animate({ scrollTop: 0 }, "slow");
     });
   
     // on actif le panel possedant la class btn-primary

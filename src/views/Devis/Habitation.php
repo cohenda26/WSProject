@@ -13,7 +13,7 @@
                             <div class="row m-b-10">
                                 <h3> Renseignements sur le logement </h3>
                             </div>
-                            <div class="row">
+                            <div class="form-group row">
                                 <label class="col-3 col-form-label" for="typeAppartement" >Vous habitez en </label>
                                 <ul class=" col-9 nav nav-pills">
                                     <li class=" nav-item"> <a href="#Appartement" data-bind="0" class="nav-link <?= ($devis->categorieAppart() == "0" ?  " active" : "") ?>" data-toggle="tab" aria-expanded="false">Appartement</a> </li>
@@ -54,7 +54,7 @@
                             <!-- Information de saisie sur le type d'occupation de l'appartement -->
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="list-locataire" >Pour ce logement je suis </label>
-                                <div class="col-9">
+                                <div class="col-9 p-0">
                                     <div class="list-group" id="list-locataire" role="tablist">
                                         <!-- la liaison avec le tab-content se fait sur href = id -->
                                         <a data-bind="0" class="list-group-item list-group-item-action <?= ($devis->statusLogement() == "0" ?  " active " : "") ?>" id="list-locataire-list" data-toggle="list" href="#list_locataire" role="tab" >Locataire</a>
@@ -122,7 +122,7 @@
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="DevisAdresseNum" >Adresse du logement </label>
                                 <input class="col-2 form-control" type="number" value="<?= $devis->devisAdresseNum() ?>" name="DevisAdresseNum" id="DevisAdresseNum" min="1" required>
-                                <input class="col-7 form-control" type="text" value="<?= $devis->devisAdresseRue()  ?> " name="DevisAdresseRue" id="DevisAdresseRue" required>
+                                <input class="col-7 form-control" type="text" value="<?= $devis->devisAdresseRue()  ?>" name="DevisAdresseRue" id="DevisAdresseRue" required>
                             </div>   
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="DevisAdresseVille" >Ville </label>
@@ -134,7 +134,7 @@
                             </div>    
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="nbpiecesLogement" >Nombre de pièces </label>
-                                <div class="col-3 form-group m-t-20">
+                                <div class="col-3 p-0">
                                     <select class="form-control" name="nbPieces" value="<?= $devis->nbPieces() ?>">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -148,7 +148,7 @@
                             </div>        
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="annexesLogement" >Surface des dépendances annexes </label>
-                                <div class="col-3 form-group m-t-20">
+                                <div class="col-3 p-0">
                                     <select class="form-control" name="surfaceDependances" value="<?= $devis->surfaceDependances() ?>">
                                         <option value="1">sans</option>
                                         <option value="2">moins de 40m²</option>
@@ -169,23 +169,23 @@
                                 <label class="col-3 col-form-label" for="veranda" >Possedez-vous des verandas / loggia / balcon </label>
                                 <ul id="questionVeranda" class="col-9 nav nav-pills">
                                     <li class="nav-item"> <a href="#verandaOui" data-bind="oui" class="nav-link <?= ($devis->veranda() == "1" ?  " active " : "") ?>" data-toggle="tab" aria-expanded="false">Oui</a> </li>
-                                    <li class="nav-item"> <a href="#verandaNon" data-bind="non" class="nav-link <?= ($devis->veranda() == "0" ?  " active " : "") ?> " data-toggle="tab" aria-expanded="false">Non</a> </li>
+                                    <li class="nav-item"> <a href="#verandaNon" data-bind="non" class="nav-link <?= ($devis->veranda() == "0" ?  " active " : "") ?>" data-toggle="tab" aria-expanded="false">Non</a> </li>
                                 </ul>
                             </div>
 
                             <!-- Elements rattachés à la saisie au dessus -->
                             <div class="tab-content br-n pn">
-                                <div id="verandaOui" class="tab-pane active">
+                                <div id="verandaOui" class="tab-pane <?= ($devis->veranda() == "1" ?  " active " : "") ?>">
                                     <div class="form-group row">
                                         <div class="col-3"> </div>
                                         <label class="col-3 col-form-label" for="surface-veranda">surface globale (m²) </label>
-                                        <div class="col-6">
+                                        <div class="col-2">
                                             <input type="number" class="form-control" value="<?= $devis->surfaceVeranda() ?>" name="surfaceVeranda" id="surfaceVeranda">
                                             <!-- <input type="range" class="form-control" id="surfaceVeranda" min="3" max="200" step="1" value="50"> -->
                                         </div>
                                     </div>
                                 </div>
-                                <div id="verandaNon" class="tab-pane active">
+                                <div id="verandaNon" class="tab-pane <?= ($devis->veranda() == "0" ?  " active " : "") ?>">
                                 </div>
                             </div>
 
@@ -202,7 +202,7 @@
                             <!-- chauffage -->
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="chauffage" >Moyen de chauffage </label>
-                                <div class="col-6 form-group m-t-20">
+                                <div class="col-6 p-0">
                                     <select class="form-control" name="typeChauffage" value="<?= $devis->typeChauffage() ?>">
                                         <option value="0"></option>
                                         <option value="1">Cheminée foyer ouvert</option>
@@ -228,7 +228,7 @@
 
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="valeurMobilier" >Valeur du mobilier à assurer </label>
-                                <div class="col-6 form-group m-t-20">
+                                <div class="col-6 p-0">
                                     <select class="form-control" name="valeurMobilier" value="<?= $devis->valeurMobilier() ?>"  >
                                         <option value="1">- de 50 000 Nis</option>
                                         <option value="2">50 000 - 100 000 Nis</option>
@@ -245,7 +245,7 @@
 
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="nbSinistreDeclares" >Nombre de sinistre depuis 3 ans </label>
-                                <div class="col-3 form-group m-t-20">
+                                <div class="col-3 p-0">
                                     <select class="form-control" name="nbSinitres" value="<?= $devis->nbSinitres() ?>">
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -259,7 +259,7 @@
 
                             <div class="form-group row">
                                 <label class="col-3 col-form-label" for="dejaResilie" >Avez-vous déjà été résilié au cours des 3 dernieres années </label>
-                                <div class="col-6 form-group m-t-20">
+                                <div class="col-6 p-0">
                                     <select class="form-control" name="resiliationRecente" value="<?= $devis->resiliationRecente() ?>">
                                         <option value="0">Non jamais</option>
                                         <option value="1">Oui pour sinistre</option>
